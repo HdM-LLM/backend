@@ -51,4 +51,7 @@ After cloning the backend to your local repository you need to perform the follo
             </li>
         </ul>
     </li>
+    <li>
+        In addition make sure to create or copy your <b>.env file</b> to gain access to the apis of OpenAPI and/or Hugging Face.
+    </li>
 </ol>
