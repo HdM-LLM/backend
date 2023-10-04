@@ -28,7 +28,8 @@ After cloning the backend to your local repository you need to perform the follo
                 Activate the enviroment
                 <ul>
                     <li>
-                        (terminal): source bin/activate
+                        (terminal): source bin/activate<br>
+                        or (windows cmd): .\Scripts\Activate.ps1
                     </li>
                 </ul>
             </li>
