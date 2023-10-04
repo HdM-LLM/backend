@@ -38,17 +38,18 @@ After cloning the backend to your local repository you need to perform the follo
                 <ul>
                     <li>
                         (terminal): pip install -r ../requirements.txt
+                        or (windows cmd): pip install -r ..\requirements.txt
                     </li>
                 </ul>
             </li>
         </ol>
     </li>
     <li>
-        To start the application:
+        Start the application:
         <ul>
             <li>
+                <b>Make sure you are in the src directory and, that your virtual environment is activated or the right python kernel is selected!</b>
                 (terminal): flask --app app run <br>
-                <b>Make sure you are in the right directory and, that your virtual environment is activated or the right python kernel is selected!</b>
             </li>
         </ul>
     </li>
