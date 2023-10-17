@@ -5,7 +5,7 @@ from flask_restful import Api, Resource
 demo_resource = Blueprint('demo_resource', __name__)
 api = Api(demo_resource)
 
-# Creat a new resouce
+# Create a new resource
 class DemoRestResource(Resource):
     
     # Create a get request for the resource
