@@ -4,13 +4,19 @@ from PIL import Image
 import os
 import face_recognition
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 custom_oem_psm_config = r'--tessdata-dir "C:\Program Files\Tesseract-OCR\tessdata"'
 
-def ocr_from_image(image_path): 
+
+# Read an image and extract text from it.
+def ocr_from_image(image_path):
     image = Image.open(image_path)
-    text = pytesseract.image_to_string(image, lang='deu', config=custom_oem_psm_config)
+    text = pytesseract.image_to_string(
+        image, lang='deu', config=custom_oem_psm_config)
     return text
+
+# Read a PDF and extract text from it.
+
 
 def ocr_from_pdf(pdf_path):
     images = convert_from_path(pdf_path)
@@ -19,6 +25,9 @@ def ocr_from_pdf(pdf_path):
         text = pytesseract.image_to_string(image, lang='deu')
         all_text += text + "\n"
     return all_text
+
+# Extract images from a PDF.
+
 
 def extract_images_from_pdf(pdf_path, output_folder):
     images = convert_from_path(pdf_path)
@@ -29,21 +38,26 @@ def extract_images_from_pdf(pdf_path, output_folder):
         extracted_images.append(output_path)
     return extracted_images
 
+# Extract faces from an image.
+
+
 def extract_faces_from_image(image_path, output_folder, offset=40):
     image = face_recognition.load_image_file(image_path)
     face_locations = face_recognition.face_locations(image)
 
     extracted_faces = []
 
+    # For each face, extract the face and save it as a new image.
     for idx, face_location in enumerate(face_locations):
         top, right, bottom, left = face_location
 
-        # Erweiterung des Bereichs um das Gesicht
-        top = max(0, top - offset- 80)
+        # Extend the area around the face.
+        top = max(0, top - offset - 80)
         left = max(0, left - offset - 40)
-        bottom = min(image.shape[0], bottom + offset )
+        bottom = min(image.shape[0], bottom + offset)
         right = min(image.shape[1], right + offset + 40)
 
+        # Crop the image and save it as png.
         face_image = Image.open(image_path).crop((left, top, right, bottom))
         output_path = os.path.join(output_folder, f"face_{idx}.png")
         face_image.save(output_path, 'PNG')
