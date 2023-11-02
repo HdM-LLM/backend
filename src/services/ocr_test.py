@@ -9,7 +9,7 @@ import face_recognition
 # 'brew install tesseract' and 'brew install tesseract-lang' (for german)
 
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-custom_oem_psm_config = r'--tessdata-dir "C:\Program Files\Tesseract-OCR\tessdata"'
+custom_oem_psm_config = '--oem 1 --psm 1'
 
 # Page segmentation modes (PSM):
 #   0    Orientation and script detection (OSD) only.
@@ -34,8 +34,9 @@ custom_oem_psm_config = r'--tessdata-dir "C:\Program Files\Tesseract-OCR\tessdat
 #   3    Default, based on what is available.
 
 
-pdf_path = "./Lebenslauf_TESAT.pdf"
-output_directory = "./../ocr_output"
+# NOTE: backend folder acts as root for python
+pdf_path = "./src/services/Lebenslauf_TESAT.pdf"
+output_directory = "./src/ocr_output"
 
 
 # Read an image and extract text from it.
@@ -51,7 +52,8 @@ def ocr_from_pdf(pdf_path: str, output_folder: str) -> str:
     images = convert_from_path(pdf_path, output_folder=output_folder)
     all_text = ""
     for image in images:
-        text = pytesseract.image_to_string(image, lang='deu')
+        text = pytesseract.image_to_string(
+            image, lang='deu', config=custom_oem_psm_config)
         all_text += text + "\n"
     return all_text
 
@@ -94,7 +96,6 @@ def extract_faces_from_image(image_path: str, output_folder: str, offset: int = 
 
 
 # test ocr_from_pdf
-print("Hello World")
 print(ocr_from_pdf(pdf_path, output_directory))
 
 
