@@ -9,7 +9,7 @@ import face_recognition
 # 'brew install tesseract' and 'brew install tesseract-lang' (for german)
 
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-custom_oem_psm_config = '--oem 1 --psm 1'
+custom_oem_psm_config = '--oem 3 --psm 1'
 
 # Page segmentation modes (PSM):
 #   0    Orientation and script detection (OSD) only.
