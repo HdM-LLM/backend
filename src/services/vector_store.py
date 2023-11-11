@@ -24,7 +24,7 @@ def load_document(document_path, db):
     if db is None:
         # Create a new vector store
         db = Chroma.from_documents(
-            documents, OpenAIEmbeddings(), persist_directory="./../data/vector_store"
+            documents, OpenAIEmbeddings(), persist_directory="./data/vector_store"
         )
     else:
         text_ids = db.add_documents(documents)
@@ -78,10 +78,10 @@ def search_similar_db(db, query, top_n=100):
 
 def init_db():
     # Check if vector store exists
-    if os.path.exists("./../data/vector_store"):
+    if os.path.exists("./data/vector_store"):
         print("Vector store already exists.")
         db = Chroma(
-            persist_directory="./../data/vector_store",
+            persist_directory="./data/vector_store",
             embedding_function=OpenAIEmbeddings(),
         )
     else:
@@ -92,13 +92,14 @@ def init_db():
 db = init_db()
 
 # Load documents into vector store
-# db = load_document("./data/raw_text_2.txt", db)
-# db = load_document("./data/raw_text_bad.txt", db)
-# db = load_document("./data/raw_text_perfect.txt", db)
-# db = load_document("./data/raw_text_1.txt", db)
+# db = load_document("./src/services/vector_input_data/perfect.txt", db)
+# db = load_document("./src/services/vector_input_data/medium.txt", db)
+# db = load_document("./src/services/vector_input_data/bad.txt", db)
+# db = load_document(
+#     "./src/services/vector_input_data/marketing_cover_letter.txt", db)
 
-
+# Search for embeddings in the vector store that are similar to the query
 search_similar_db(
     db,
-    "Starke Berufserfahrung in der Datenbankverwaltung, insbesondere in Bezug auf SQL-Datenbanken. Abgeschlossenes Studium in Informatik oder einem verwandten Fachgebiet. Fachwissen in den Bereichen Datenbankdesign, Implementierung, Optimierung und Datensicherheit. Erfahrung in der Fehlerbehebung und Leistungsoptimierung von Datenbanken. Teamfähigkeit und die Fähigkeit, in einem anspruchsvollen Arbeitsumfeld zu agieren. Bereitschaft zur kontinuierlichen Weiterbildung und eine nachgewiesene Leidenschaft für Datenbankmanagement. Herausragende Kommunikationsfähigkeiten, um technische Informationen klar und verständlich zu vermitteln.",
+    "Sehr gute Programmierkenntnisse in Java, sowie ein abgeschlossenes Studium der Informatik. Mehrjährige Erfahrung in dem Beruf sind von Vorteil."
 )
