@@ -1,0 +1,62 @@
+Name: Michael Klein
+Geburtsdatum / -ort: 15.05.1992 in Kleinstadt
+Anschrift: Hauptstraße 45, 54321 Stadt
+Telefonnummer: +49 176 98765432
+E-Mail Adresse: michael.klein@email.de
+
+Praktische Erfahrung
+
+Seit 11/2021 Softwareentwickler (Praktikum)
+TechVision GmbH (München, DE)
+
+Mitarbeit an der Entwicklung von Backend-Anwendungen
+Unterstützung bei der Fehlerbehebung und Code-Optimierung
+Teilnahme an Code-Reviews und Teammeetings
+06/2020 – 09/2021 IT-Support-Mitarbeiter
+ServiceNow Solutions (Kleinstadt, DE)
+
+Analyse und Behebung von IT-Problemen im Support-Ticket-System
+Kommunikation mit Kunden zur Klärung von Anforderungen
+Dokumentation von Lösungen und Anleitungen für häufig auftretende Probleme
+08/2018 – 05/2020 Praktikum im Bereich Datenanalyse
+DataTech Consulting (Berlin, DE)
+
+Datenextraktion und -aufbereitung mit MS Excel
+Unterstützung bei der Entwicklung von automatisierten Analyseskripten
+Präsentation von Analyseergebnissen im Team
+02/2018 – 07/2018 Werkstudent im IT-Bereich
+Innovative Solutions (Hamburg, DE)
+
+Installation und Konfiguration von Softwareanwendungen
+Mitarbeit an IT-Projekten zur Prozessoptimierung
+Schulung von Mitarbeitern in der Nutzung neuer Software
+Bildungsweg
+
+10/2016 – 07/2021 Bachelor of Science in Wirschaftsinformatik
+Technische Universität Kleinstadt (Kleinstadt, DE)
+
+Schwerpunkt: Datenanalyse und Datenbanken
+Abschlussnote: 3,5
+09/2010 – 06/2016 Abitur
+Gymnasium am Stadtrand (Kleinstadt, DE)
+Abschlussnote: 3,2
+
+Weiterbildung
+
+
+Sprachen: Deutsch – Muttersprache
+Englisch – fließend in Wort und Schrift
+
+Software: 
+SQL – sicherer Umgang
+Python - Grundkenntnisse
+Java – Grundkenntnisse
+MS Office – sicherer Umgang
+Eclipse IDE – Basiskenntnisse
+
+Sonstige: Führerscheinklasse B
+
+Interessen
+
+Gaming
+Sportliche Aktivitäten wie Radfahren und Wandern

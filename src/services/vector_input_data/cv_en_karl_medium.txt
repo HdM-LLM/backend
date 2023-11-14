@@ -1,0 +1,63 @@
+Name: Karl Heinz
+Date/Place of Birth: 20.09.1988 in Smalltown
+Address: Lindenstrasse 12, 98765 City
+Phone Number: +49 176 87654321
+Email Address: karl.heinz@email.de
+
+Professional Experience
+
+Since 04/2019 Software Development
+ABC Company (Smalltown, DE)
+
+Development of applications in the backend
+Handling various frameworks and database integration
+Collaboration in the implementation of web services
+Code review and quality assurance
+Version control using Git
+Application of agile methods such as Scrum
+08/2016 – 03/2019 IT Support
+TechHelp Services (City, DE)
+
+Analysis and resolution of IT problems
+Employee training in software applications
+Documentation of solutions for frequently occurring problems
+Experience with helpdesk tools
+Education
+
+10/2012 – 07/2016 Bachelor of Science in Computer Science
+Technical University City (City, DE)
+
+Focus: Software development and databases
+Final Grade: 2.2
+09/2005 – 06/2012 Secondary School Diploma
+Main and Secondary School Smalltown (Smalltown, DE)
+
+Exam Subjects: Mathematics, English, Computer Science
+Final Grade: 2.7
+Further Education
+
+02/2021 – 06/2021 Deepening Technical Knowledge
+Online Course (Self-study)
+
+Intensive training in Java application development
+Deepening knowledge in the application of Java frameworks
+Skills
+
+Languages:
+
+German – Native
+English – Basic knowledge in both spoken and written
+Software:
+
+Programming languages: Java, Python, SQL
+Databases: MySQL, PostgreSQL
+Version control: Git
+Containerization: Docker
+Agile Tools: Scrum, Kanban
+
+Other: Driver's License Class B
+
+Interests
+
+Active participation in local community events
+Swimming

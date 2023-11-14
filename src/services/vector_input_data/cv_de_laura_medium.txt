@@ -1,0 +1,54 @@
+Name: Laura Fischer
+Geburtsdatum / -ort: 20.03.1988 in Datenstadt
+Anschrift: Datengasse 11, 54321 Datendorf
+Telefonnummer: +49 176 65432109
+E-Mail Adresse: laura.fischer@email.de
+
+Berufserfahrung
+
+Seit 11/2017 Junior Java Developer
+CodeCraft Innovations (Datendorf, DE)
+
+Mitarbeit an der Entwicklung von Java-basierten Backend-Lösungen
+Programmierung von Modulen unter Verwendung von Java
+Integration von RESTful Web Services
+Durchführung von Code-Reviews und Qualitätsprüfungen
+03/2015 – 10/2017 Softwareentwickler
+DataFlow Tech Solutions (Datenstadt, DE)
+
+Entwicklung von Softwarelösungen unter Einsatz von Java
+Umsetzung von komplexen Backend-Anwendungen
+Integration von Datenbanken und Schnittstellen
+Optimierung von bestehendem Code für höhere Effizienz
+
+Ausbildung
+
+09/2012 – 02/2015 Bachelor of Science in Wirschaftsinformatik
+Datenstadt University (Datenstadt, DE)
+
+Schwerpunkt: Softwareentwicklung und Datenbanken
+Abschlussnote: 2,0
+Weiterbildung
+
+06/2018 – 09/2018 Workshop zu Java-Konzepten
+TechSkills Institute (Online-Kurs)
+
+Vertiefung der Kenntnisse in Java-Konzepten
+Praktische Anwendung von Design Patterns und Best Practices
+Kenntnisse
+
+Sprachen: Deutsch – Muttersprache
+Englisch – verhandlungssicher in Wort und Schrift
+
+Software:
+
+Programmiersprachen: Python, Java, SQL
+Datenbanken: MySQL
+Versionskontrolle: Git
+Sonstige: Führerscheinklasse B
+
+Interessen
+
+Teilnahme an branchenspezifischen Konferenzen und Meetups
+Freizeitliche Programmierung von kleinen Java-Projekten
+Sportliche Aktivitäten wie Schwimmen und Radfahren

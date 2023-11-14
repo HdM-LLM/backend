@@ -1,0 +1,59 @@
+Name: Max Schneider
+Geburtsdatum / -ort: 15.09.1991 in Musterstadt
+Anschrift: Musterweg 22, 12345 Stadt
+Telefonnummer: +49 176 54321098
+E-Mail Adresse: max.schneider@email.de
+
+Berufserfahrung
+
+Seit 07/2019 IT-Support Specialist
+ByteFlow IT Solutions (Musterstadt, DE)
+
+Analyse und Behebung von IT-Problemen
+Installation und Wartung von Softwareanwendungen
+Mitarbeit an kleineren Entwicklungsprojekten in Java
+Unterstützung bei der Konfiguration von Netzwerkkomponenten
+02/2016 – 06/2019 Systemadministrator
+MusterSoft Systems (Technostadt, DE)
+
+Verwaltung von Servern und Netzwerkinfrastruktur
+Implementierung von Sicherheitsmaßnahmen und Systemupdates
+Durchführung von Schulungen für Mitarbeiter
+Grundlegende Kenntnisse in Java zur Unterstützung bei internen Tools
+09/2013 – 01/2016 IT-Praktikant
+TechInnovate Consulting (Innovativland, DE)
+
+Unterstützung bei der Systemwartung und -optimierung
+Erstellung von Dokumentationen für interne Prozesse
+Erste Erfahrungen in der Anwendung von Java für interne Projekte
+Ausbildung
+
+09/2010 – 07/2013 Fachinformatiker (Systemintegration)
+Musterbetrieb GmbH (Musterstadt, DE)
+
+Schwerpunkt: Systemintegration und Netzwerkadministration
+Abschlussnote: 2,5
+Weiterbildung
+
+04/2018 – 08/2018 Workshop zu Grundlagen der Softwareentwicklung
+TechSkills Institute (Online-Kurs)
+
+Vertiefung der Kenntnisse in grundlegenden Softwareentwicklungskonzepten
+Praktische Übungen zur Anwendung von Entwicklungsgrundlagen
+Kenntnisse
+
+Sprachen: Deutsch – Muttersprache
+Englisch – Grundkenntnisse in Wort und Schrift
+
+Software:
+
+Entwicklungsumgebungen: IntelliJ IDEA, Eclipse (Grundkenntnisse)
+Datenbanken: MySQL (Grundkenntnisse)
+Betriebssysteme: Windows, Linux
+Sonstige: Führerscheinklasse B
+
+Interessen
+
+Freizeitliche Auseinandersetzung mit aktuellen Technologietrends
+Sportliche Aktivitäten wie Basketball und Joggen
+Teilnahme an lokalen IT-Community-Veranstaltungen
