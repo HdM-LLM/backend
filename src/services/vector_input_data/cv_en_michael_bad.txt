@@ -1,0 +1,63 @@
+Name: Michael Klein
+Date/Place of Birth: 15.05.1992 in Smalltown
+Address: Main Street 45, 54321 City
+Phone Number: +49 176 98765432
+Email Address: michael.klein@email.de
+
+Practical Experience
+
+Since 11/2021 Software Developer (Internship)
+TechVision GmbH (Munich, Germany)
+
+Contribution to the development of backend applications
+Assistance in debugging and code optimization
+Participation in code reviews and team meetings
+06/2020 – 09/2021 IT Support Specialist
+ServiceNow Solutions (Smalltown, Germany)
+
+Analysis and resolution of IT issues in the support ticket system
+Communication with customers to clarify requirements
+Documentation of solutions and instructions for frequently occurring problems
+08/2018 – 05/2020 Intern in Data Analysis
+DataTech Consulting (Berlin, Germany)
+
+Data extraction and processing with MS Excel
+Support in the development of automated analysis scripts
+Presentation of analysis results to the team
+02/2018 – 07/2018 IT Student Worker
+Innovative Solutions (Hamburg, Germany)
+
+Installation and configuration of software applications
+Participation in IT projects for process optimization
+Training employees in the use of new software
+Education
+
+10/2016 – 07/2021 Bachelor of Science in Business Informatics
+Technical University Smalltown (Smalltown, Germany)
+
+Focus: Data analysis and databases
+Final Grade: 3.5
+09/2010 – 06/2016 High School Diploma
+City Outskirts Gymnasium (Smalltown, Germany)
+
+Final Grade: 3.2
+Further Education
+
+Languages:
+
+German – Native
+English – Fluent in both spoken and written
+Software:
+
+SQL – Proficient
+Python - Basic knowledge
+Java – Basic knowledge
+MS Office – Proficient
+Eclipse IDE – Basic knowledge
+Other:
+
+Driver's License Class B
+Interests
+
+Gaming
+Sporting activities such as cycling and hiking
