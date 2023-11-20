@@ -1,8 +1,9 @@
 from uuid import UUID, uuid4
 from datetime import date
+from user import User
 
 
-class Applicant():
+class Applicant(User):
 
     def __init__(
             self,
@@ -16,9 +17,10 @@ class Applicant():
             phone_number: str,
             rating: float = 0.0
     ) -> None:
-        self._id = uuid4()
-        self._first_name = first_name
-        self._last_name = last_name
+        super().__init__(
+            first_name=first_name,
+            last_name=last_name
+        )
         self._date_of_birth = date_of_birth
         self._street = street
         self._postal_code = postal_code
@@ -26,21 +28,6 @@ class Applicant():
         self._email = email
         self._phone_number = phone_number
         self._rating = rating
-
-    def get_id(self) -> UUID:
-        return self._id
-
-    def get_first_name(self) -> str:
-        return self._first_name
-
-    def set_first_name(self, first_name) -> None:
-        self._first_name = first_name
-
-    def get_last_name(self) -> str:
-        return self._last_name
-
-    def set_last_name(self, last_name) -> None:
-        self._last_name = last_name
 
     def get_date_of_birth(self) -> date:
         return self._date_of_birth
