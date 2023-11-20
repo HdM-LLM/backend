@@ -164,3 +164,6 @@ cython_debug/
 
 # vector store
 data
+
+# MacOS specific
+.DS_Store
