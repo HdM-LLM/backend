@@ -5,6 +5,8 @@ from langchain.llms import OpenAI as LangChainOpenAI
 import json
 import mysql.connector
 import time 
+import PyPDF2
+import re
 
 class Applicant:
     def __init__(self, first_name, last_name, phone_number, email_address, position):
@@ -17,10 +19,14 @@ class Applicant:
 
     def update_ratings(self, rating_data):
         for category, details in rating_data.items():
+            score = details.get('Score', 0)
+            justification = details.get('Justification', '')
+            quote = details.get('Quote', '')
+
             self.ratings_cv[category] = {
-                "Score": details['Score'],
-                "Justification": details['Justification'],
-                "Quote": details['Quote'],
+                "Score": score,
+                "Justification": justification,
+                "Quote": quote,
             }
 
 def count_tokens(text):
@@ -44,12 +50,12 @@ def load_openai_model():
             start_time = time.time()
             try:
                 response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-4-1106-preview",
                     messages=[
                         {"role": "system", "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively."},
                         {"role": "user", "content": prompt}
                     ],
-                    timeout=100  # Set the timeout in seconds
+                    timeout=200  # Set the timeout in seconds
                 )
             except openai.error.OpenAIError as e:
                 print(f"Error from OpenAI: {e}")
@@ -59,7 +65,6 @@ def load_openai_model():
 
             duration = end_time - start_time
             print(f"Antwort von OpenAI erhalten (Dauer: {duration:.2f} Sekunden)")
-
             return response.choices[0].message['content'].strip()
 
     return OpenAIModelIO()
@@ -92,7 +97,7 @@ def create_rating_prompt(categories, text, position):
 
     categories_string = ", ".join(rating_prompts)
     return f"""
-    Please rate the following categories from 0 to 10, and provide a justification and a quote from the application for each rating:
+    Please rate the following categories from 0 to 10, and provide a justification and a quote from the application for each rating. If you find a category not applicable or impossible to rate, please assign a score of 0 and refrain from providing a written explanation:
     {text}
 
     Ratings in JSON format:
@@ -116,7 +121,19 @@ def extract_applicant_metadata(openai_model, text):
     }}
     """
     response_cv_metadata = openai_model.query(prompt_cv_metadata)
-    data = json.loads(response_cv_metadata)
+    # Use regular expression to extract the content between triple backticks
+    match = re.search(r'```(.+?)```', response_cv_metadata, re.DOTALL)
+
+    if match:
+        # Extract the matched content
+        content_between_backticks = match.group(1)
+        trimmed_json = content_between_backticks[4:]
+        # Replace "N/A" with "0"
+        trimmed_json = trimmed_json.replace("N/A", "0")
+
+
+
+    data = json.loads(trimmed_json)
     return data
 
 def analyze_application(openai_model, text, position, cursor):
@@ -127,11 +144,26 @@ def analyze_application(openai_model, text, position, cursor):
 
     rating_prompt = create_rating_prompt(categories, text, position)
     rating_response = openai_model.query(rating_prompt)
-    rating_data = json.loads(rating_response)
 
-    applicant.update_ratings(rating_data)
+        # Use regular expression to extract the content between triple backticks
+    match = re.search(r'```(.+?)```', rating_response, re.DOTALL)
 
-    return applicant
+    if match:
+        # Extract the matched content
+        content_between_backticks = match.group(1)
+        trimmed_json = content_between_backticks[4:]
+        # Replace "N/A" with "0"
+        trimmed_json = trimmed_json.replace("N/A", "0")
+
+        rating_data = json.loads(trimmed_json)
+
+        applicant.update_ratings(rating_data)
+
+        return applicant
+    else:
+        print("ERROR:{rating_response}")
+        return None
+
 
 def insert_applicant_and_ratings_into_database(applicant, cursor):
     # Query to get position_id based on the provided position
@@ -144,24 +176,25 @@ def insert_applicant_and_ratings_into_database(applicant, cursor):
 
         # Insert basic applicant information
         insert_applicant_query = """
-        INSERT INTO applicants (first_name, last_name, phone_number, email_address, position_id)
-        VALUES (%s, %s, %s, %s, %s)
+        INSERT INTO applicants (first_name, last_name, phone_number, email_address, position_id, model)
+        VALUES (%s, %s, %s, %s, %s, %s)
         """
-        cursor.execute(insert_applicant_query, (applicant.first_name, applicant.last_name, applicant.phone_number, applicant.email_address, position_id))
+        cursor.execute(insert_applicant_query, (applicant.first_name, applicant.last_name, applicant.phone_number, applicant.email_address, position_id, 'gpt-4-1106-preview'))
 
         # Get the last inserted applicant_id
         applicant_id = cursor.lastrowid
 
-        # Insert ratings information
+            # Insert ratings information
         for category, details in applicant.ratings_cv.items():
             insert_ratings_query = """
-            INSERT INTO applicant_ratings (applicant_id, category, score, justification, quote)
-            VALUES (%s, %s, %s, %s, %s)
+            INSERT INTO applicant_ratings (applicant_id, category, score, justification, quote, model)
+            VALUES (%s, %s, %s, %s, %s, %s)
             """
-            cursor.execute(insert_ratings_query, (applicant_id, category, details['Score'], details['Justification'], details['Quote']))
+            cursor.execute(insert_ratings_query, (applicant_id, category, details['Score'], details['Justification'], details['Quote'], 'gpt-4-1106-preview'))
 
-        # Commit the changes to the database
-        connection.commit()
+
+            # Commit the changes to the database
+            connection.commit()
 
         # Print a summary of the applicant
         print("Applicant Summary:")
@@ -181,6 +214,19 @@ def insert_applicant_and_ratings_into_database(applicant, cursor):
         print(f"Error: Position '{applicant.position}' not found in job_postings table.")
 
 
+def read_pdf(file_path):
+    with open(file_path, 'rb') as file:
+        pdf_reader = PyPDF2.PdfReader(file)
+        num_pages = len(pdf_reader.pages)
+        text = ""
+        for page_num in range(num_pages):
+            page = pdf_reader.pages[page_num]
+            text += page.extract_text()
+        return text
+
+
+
+
 # Connect to the database
 connection = mysql.connector.connect(
     host="127.0.0.1",
@@ -196,22 +242,36 @@ cursor = connection.cursor()
 # Load possible positions from the database (für zukünftiges Automatisches Stellen erkennen anhand des Anschreibens)
 #possible_positions = load_possible_positions(cursor)
 # Specify the known position
-position = "java backend developer"
+position = "Front End Developer"
 
 # Pfad zur Datei
-file_path_cv = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vector_input_data", "cv_en_martin_marketing.txt")
+#file_path_cv = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vector_input_data", "cv_en_martin_marketing.txt")
+folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CVs")
 
-# Überprüfen, ob die Datei existiert
-if os.path.exists(file_path_cv):
-    with open(file_path_cv, "r", encoding="utf-8") as file:
-        cv = file.read().replace('\n', '')
 
-    openai_model = load_openai_model()
-    applicant = analyze_application(openai_model, cv, position, cursor)
-    insert_applicant_and_ratings_into_database(applicant, cursor)
+for filename in os.listdir(folder_path):
+    if filename.endswith(".pdf"):
+        file_path = os.path.join(folder_path, filename)
+        #print(f"Reading {filename}:")
+        cv = read_pdf(file_path)
 
-    # Close the cursor and connection
-    cursor.close()
-    connection.close()
-else:
-    print(f"Die Datei {file_path_cv} existiert nicht.")
+    # Überprüfen, ob die Datei existiert
+    #if os.path.exists(file_path_cv):
+    #    with open(file_path_cv, "r", encoding="utf-8") as file:
+    #        cv = file.read().replace('\n', '')
+
+        openai_model = load_openai_model()
+        applicant = analyze_application(openai_model, cv, position, cursor)
+        if applicant is not None:
+            insert_applicant_and_ratings_into_database(applicant, cursor)
+        else:
+            print("skipped applicant")
+
+        # Close the cursor and connection
+        
+   # else:
+       # print(f"Die Datei {file_path_cv} existiert nicht.")
+cursor.close()
+connection.close()
+
+
