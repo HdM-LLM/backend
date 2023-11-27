@@ -23,8 +23,6 @@ class ApplicantResource(Resource):
         print('File name: ' + pdf_file.filename)
 
         # Change filename to the applicant id
-        # TODO: Generate UUID for applicant id somewhere
-        # TODO: Use applicant id instead of 1234
         pdf_file.filename = 'applicant_1234.pdf'
 
         # Check if the folder exists, if not create it
