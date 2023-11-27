@@ -15,7 +15,6 @@ class Applicant(User):
             city: str,
             email: str,
             phone_number: str,
-            rating: float = 0.0
     ) -> None:
         super().__init__(
             first_name=first_name,
@@ -27,7 +26,6 @@ class Applicant(User):
         self._city = city
         self._email = email
         self._phone_number = phone_number
-        self._rating = rating
 
     def get_date_of_birth(self) -> date:
         return self._date_of_birth
@@ -64,12 +62,6 @@ class Applicant(User):
 
     def set_phone_number(self, phone_number) -> None:
         self._phone_number = phone_number
-
-    def get_rating(self) -> float:
-        return self._rating
-
-    def set_rating(self, rating) -> None:
-        self._rating = rating
 
     def __str__(self) -> str:
         return (
