@@ -1,6 +1,6 @@
 ## Database
 
-In order to access the mysql database for this project follow the following steps, described in this readme.
+In order to access the mysql and the mongodb database for this project follow the following steps, described in this readme.
 
 ### 1. Download Docker
 
@@ -8,33 +8,33 @@ In order to access the mysql database for this project follow the following step
 - Make sure, that docker is up and running and that it is available in your terminal/console.
   - You can test it with the `docker --help` command.
 
-### 2. Build the image inside the current directory:
+### 2. Download and build the images and containers:
 
-Docker containers are build with docker images, so first of all we need to build our docker image with our Dockerfile:
+- You need to be in the same directory as this readme file `src/db/`
+- To automatically download the images and build the containers of both databases run `docker-compose up -d`
+- To check if they are running use `docker ps`. You should see two containers up and running. Alternatively you can check the containers tab in your docker desktop.
 
-- Navigate into the directory "src/db"
-- Build the image with:
-  - `docker build -t database-image .`
-    - `-t` specifies a tag/name for the image, which is to be build
-    - `.` specifies that the image should be build based on the Dockerfile of the current directory
+### 3. Important cocker-compose commands!
 
-### 3. Run the container, from the image:
+- If you want to build the images and run the containers use `docker-compose up -d`
+- If you want to stop the containers use `docker-compose stop`. This won't delete the data inside the databases
+- If you want to rerun the containers after you **stopped** them use `docker-compose start`
+- If you want to stop the containers and delete them use `docker-compose down`. **CAUTION** This will also delete all your changes inside the db. But the images will not be deleted.
 
-After "building" the image you can "run" the container. After running the container the database can be accessed.
+### 4. Informations about the databases
 
-- To tun the container use:
-  - `docker run --name database-container -p 3307:3306 -d database-image`
-    - `--name` refers to the name of the container, which can be set with this flag.
-    - `-p` refers to the port, where the database should run on.
-      - 3306 is the port which is exposed by the container
-      - 3307 is the port on your local machine, on which you can connect to the database.
-    - `-d` refers to "detached mode", which means there will be no logs in the current terminal window. If you want to see the logs of the db you can remove this flag.
+**MySQL:**
 
-# Important
+You can use [DBeaver](https://dbeaver.io/), [MySQL Workbench](https://www.mysql.com/products/workbench/) or a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2)
 
-- Once the container is build you can stop and restart it.
-- **You don't need to rebuild the container**. In case you need/want to rebuild the container, all the data you added or changed in the db is lost!!!
-- To stop a container use:
-  - `docker stop <container-name>`
-- To start/restart a container use:
-  - `docker start <container-name>`
+- Connect to `localhost:3307`
+- root-password: `password`
+- database-name: `skillsync`
+
+**MongoDB:**
+
+You can either use [MongoCompass](https://www.mongodb.com/products/tools/compass) or the [VSCode extension](https://code.visualstudio.com/docs/azure/mongodb) to connect to the database
+
+- Connect to `localhost:27017`
+- root-password: `password`
+- root-username: `root`
