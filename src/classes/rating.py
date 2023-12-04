@@ -6,16 +6,24 @@ class Rating(BusinessObject, ABC):
 
     def __init__(
         self,
+        applicant_id: int,
         category: Category,
         score: int,
         justification: str, 
         cv: str,
     )-> None:
         super().__init__()
+        self._applicant_id = applicant_id
         self._category = category
         self._score = score
         self._justification = justification
         self._cv = cv
+
+    def get_applicant_id(self) -> int:
+        return self._applicant_id
+    
+    def set_applicant_id(self, applicant_id) -> None:
+        self._applicant_id = applicant_id
 
     def get_category(self) -> Category:
         return self._category
