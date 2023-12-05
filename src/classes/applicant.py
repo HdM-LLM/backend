@@ -1,7 +1,6 @@
 from uuid import UUID, uuid4
 from datetime import date
-from user import User
-
+from classes.user import User
 
 class Applicant(User):
 
@@ -15,8 +14,8 @@ class Applicant(User):
             city: str,
             email: str,
             phone_number: str,
-            skills: list,
-            rating: int,
+            # skills: list,
+            # rating: int,
     ) -> None:
         super().__init__(
             first_name=first_name,
@@ -28,8 +27,8 @@ class Applicant(User):
         self._city = city
         self._email = email
         self._phone_number = phone_number
-        self._skills = skills
-        self._rating = rating
+        # self._skills = skills
+        # self._rating = rating
 
     def get_date_of_birth(self) -> date:
         return self._date_of_birth
@@ -67,20 +66,20 @@ class Applicant(User):
     def set_phone_number(self, phone_number) -> None:
         self._phone_number = phone_number
 
-    def get_skills(self) -> list:
-        return self._skills
-    
-    def add_skill(self, skill) -> None:
-        self._skills.append(skill)
-
-    def set_score(self, skills) -> int:
-        for skill in skills:
-            self._rating = skill.get_rating()
-            self._score += self._rating.get_score()
-        self._score = self._score / len(skills)
-
-    def get_score(self) -> int:
-        return self._score
+    # def get_skills(self) -> list:
+    #     return self._skills
+    #
+    # def add_skill(self, skill) -> None:
+    #     self._skills.append(skill)
+    #
+    # def set_score(self, skills) -> int:
+    #     for skill in skills:
+    #         self._rating = skill.get_rating()
+    #         self._score += self._rating.get_score()
+    #     self._score = self._score / len(skills)
+    #
+    # def get_score(self) -> int:
+    #     return self._score
 
     def __str__(self) -> str:
         return (
@@ -93,5 +92,4 @@ class Applicant(User):
             f'City: {self._city}\n'
             f'Email: {self._email}\n'
             f'Phone Number: {self._phone_number}\n'
-            f'Rating: {self._rating}'
         )

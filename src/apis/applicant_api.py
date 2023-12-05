@@ -1,6 +1,9 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
-import os
+import services.pdf_service as pdf_service
+import services.cv_service as cv_service
+from classes.applicant import Applicant
+from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 
 # Creates a new blueprint
 file_upload = Blueprint('file_upload', __name__)
@@ -14,25 +17,31 @@ class ApplicantResource(Resource):
         return 'Hello Upload Page!'
 
     def post(self):
-        if 'pdfFile' not in request.files:
+        if 'cover_letter' not in request.files:
             return 'No file part found in POST request.', 400
 
-        pdf_file = request.files['pdfFile']
+        pdf_file = request.files['cover_letter']
 
-        # Handle the uploaded file (save, process, etc.)
-        print('File name: ' + pdf_file.filename)
+        cv_content = pdf_service.getPdfConten(pdf_file)
 
-        # Change filename to the applicant id
-        pdf_file.filename = 'applicant_1234.pdf'
+        applicant = Applicant(
+            cv_service.get_first_name_from_cv(cv_content),
+            cv_service.get_last_name_from_cv(cv_content),
+            cv_service.get_date_of_birth_from_cv(cv_content),
+            cv_service.get_street_from_cv(cv_content),
+            cv_service.get_postal_code_from_cv(cv_content),
+            cv_service.get_city_code_from_cv(cv_content),
+            cv_service.get_email_from_cv(cv_content),
+            cv_service.get_email_from_cv(cv_content),
+        )
 
-        # Check if the folder exists, if not create it
-        if not os.path.exists('./src/apis/uploads'):
-            os.makedirs('./src/apis/uploads')
+        with ApplicantMapper() as mapper:
+            if mapper.get_by_email(applicant.get_email()):
+                return 'Applicant exists already', 409
+            else:
+                mapper.insert(applicant)
+                return 'Applicant has been saved in database', 200
 
-        # Save pdf file to the uploads folder
-        pdf_file.save('./src/apis/uploads/' + pdf_file.filename)
-
-        return f"File '{pdf_file.filename}' uploaded successfully.", 200
 
 
 # Add the resource to the api
