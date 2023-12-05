@@ -7,7 +7,7 @@ class User(BusinessObject, ABC):
     def __init__(
             self,
             first_name: str,
-            last_name: str
+            last_name: str,
     ) -> None:
         super().__init__()
         self._first_name = first_name
@@ -24,3 +24,5 @@ class User(BusinessObject, ABC):
 
     def set_last_name(self, last_name) -> None:
         self._last_name = last_name
+
+    
