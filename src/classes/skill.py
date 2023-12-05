@@ -1,21 +1,20 @@
-from abc import ABC
 from business_object import BusinessObject
 from uuid import UUID, uuid4
 from category import Category
 from rating import Rating
 
-class Skill(BusinessObject, ABC):
+class Skill(BusinessObject):
     
         def __init__(
                 self,
                 category: Category,
                 rating: Rating,
-                appicant_id: uuid4,
+                applicant_id: uuid4,
         ) -> None:
             super().__init__()
             self._category = category
             self._rating = rating
-            self._applicant_id = appicant_id
+            self._applicant_id = applicant_id
 
         def get_category(self) -> Category:
             return self._category
@@ -29,8 +28,8 @@ class Skill(BusinessObject, ABC):
         def set_rating(self, rating) -> None:
             self._rating = rating
 
-        def get_appicant_id(self) -> uuid4:
+        def get_applicant_id(self) -> uuid4:
             return self._applicant_id
         
-        def set_appicant_id(self, appicant_id) -> None:
-            self._applicant_id = appicant_id
+        def set_applicant_id(self, applicant_id) -> None:
+            self._applicant_id = applicant_id

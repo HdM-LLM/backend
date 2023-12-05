@@ -1,7 +1,6 @@
-from abc import ABC
 from business_object import BusinessObject
 
-class Category(BusinessObject, ABC):
+class Category(BusinessObject):
     
         def __init__(
             self,

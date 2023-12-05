@@ -1,8 +1,7 @@
-from abc import ABC
 from business_object import BusinessObject
 from category import Category
 
-class Rating(BusinessObject, ABC):
+class Rating(BusinessObject):
 
     def __init__(
         self,

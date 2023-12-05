@@ -2,16 +2,16 @@ CREATE DATABASE skillsync;
 USE skillsync;
 
 CREATE TABLE applicants (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FirstName VARCHAR(100) NOT NULL,
-    LastName VARCHAR(100) NOT NULL,
-    DateOfBirth DATE NOT NULL,
-    Street VARCHAR(100) NOT NULL,
-    PostalCode VARCHAR(100) NOT NULL,
-    City VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    Phone VARCHAR(100) NOT NULL,
-    Rating INT NOT NULL,
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    street VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(100) NOT NULL,
+    rating INT NOT NULL,
 );
 
 CREATE TABLE applicants_skills (
@@ -23,24 +23,23 @@ CREATE TABLE applicants_skills (
 );
 
 CREATE TABLE skills (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Category INT NOT NULL,
-    Rating INT NOT NULL,
-    Applicant INT NOT NULL,
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    category VARCHAR(100) NOT NULL,
+    rating INT NOT NULL,
+    applicant VARCHAR(100) NOT NULL,
     FOREIGN KEY (Category) REFERENCES categories(id),
     FOREIGN KEY (Applicant) REFERENCES applicants(id)
 );
 
 CREATE TABLE rating(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Applicant INT NOT NULL,
-    Category INT NOT NULL,
-    Score INT NOT NULL,
-    Justification VARCHAR(1000) NOT NULL,
-    CV BLOB NOT NULL,
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    applicant VARCHAR(100) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    score INT NOT NULL,
+    justification VARCHAR(1000) NOT NULL,
     FOREIGN KEY (Applicant) REFERENCES applicants(id)
     FOREIGN KEY (Category) REFERENCES categories(id)
 );
 
-INSERT INTO applicants (FirstName, LastName)
+INSERT INTO applicants (first_name, last_name)
 VALUES ('Max', 'Mustermann'), ('Lisa', 'Musterfrau');
