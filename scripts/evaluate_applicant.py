@@ -65,6 +65,7 @@ def load_openai_model():
 
             duration = end_time - start_time
             print(f"Antwort von OpenAI erhalten (Dauer: {duration:.2f} Sekunden)")
+            print(response.choices[0].message['content'].strip())
             return response.choices[0].message['content'].strip()
 
     return OpenAIModelIO()
@@ -88,16 +89,17 @@ def load_categories_for_position(cursor, position):
 def create_applicant(data, position):
     return Applicant(data["First Name"], data["Last Name"], data["Phone Number"], data["Email Address"], position)
 
-def create_rating_prompt(categories, text, position):
+def create_rating_prompt(categories, text):
     rating_prompts = []
     for category, guideline_0, guideline_10 in categories:
-        rating_prompts.append(
-            f'"{category}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{guideline_0}", "Guideline_10": "{guideline_10}"}}'
+        rating_prompts.append(f'"{category}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{guideline_0}", "Guideline_10": "{guideline_10}"}}'
         )
 
     categories_string = ", ".join(rating_prompts)
     return f"""
-    Please rate the following categories from 0 to 10, and provide a justification and a quote from the application for each rating. If you find a category not applicable or impossible to rate, please assign a score of 0 and refrain from providing a written explanation:
+    Please rate the following categories from 0 to 10, and provide a justification and a quote 
+    from the application for each rating. If you find a category not applicable or impossible to rate, 
+    please assign a score of 0 and refrain from providing a written explanation:
     {text}
 
     Ratings in JSON format:
@@ -105,6 +107,37 @@ def create_rating_prompt(categories, text, position):
         {categories_string}
     }}
     """
+def create_education_prompt(text):
+    rating_prompts = []
+    rating_prompts.append(
+        f'"Education and Degrees": {{"Score": "", "Justification": "", "Quote": "", '
+        f'"Guideline_0": "No degree in the field: IT", '
+        f'"Guideline_1-3": "Bachelors degree in IT but not in the immediate vicinity of Frontend Developer", '
+        f'"Guideline_4-6": "Bachelors degree in IT/Frontend Developer", '
+        f'"Guideline_7-8": "Bachelors/Masters degree in IT Frontend Developer", '
+        f'"Guideline_9-10": "Special degree from an elite university or a PhD title in the field of IT Frontend Developer"'
+        '}}'
+    )
+
+    categories_string = ", ".join(rating_prompts)
+    return f"""
+    Please rate the Education and Degrees from 0 to 10, and provide a justification and a quote 
+    from the application. If you find it not applicable or impossible to rate, 
+    please assign a score of 0 and refrain from providing a written explanation
+    If no grade or a not good grade is mentioned, consider the lower part of the respective range.
+    If a very good grade is mentioned, consider the upper part of the respective range
+
+    Please ask yourself whether the degree covers topics essential for IT Frontend Developer roles, such as user  coding, web technologies, or related coursework:
+
+    {text}
+
+    Ratings in JSON format:
+    {{
+        {categories_string}
+    }}
+    """
+
+
 
 def extract_applicant_metadata(openai_model, text):
     prompt_cv_metadata = f"""
@@ -137,32 +170,40 @@ def extract_applicant_metadata(openai_model, text):
     return data
 
 def analyze_application(openai_model, text, position, cursor):
-    applicant_metadata = extract_applicant_metadata(openai_model, text)
-    applicant = create_applicant(applicant_metadata, position)
+    #applicant_metadata = extract_applicant_metadata(openai_model, text)
+    #applicant = create_applicant(applicant_metadata, position)
 
-    categories = load_categories_for_position(cursor, position)
+    #categories = load_categories_for_position(cursor, position)
 
-    rating_prompt = create_rating_prompt(categories, text, position)
-    rating_response = openai_model.query(rating_prompt)
+
+
+    rating_education = create_education_prompt(text)
+    education_rating_response = openai_model.query(rating_education)
+    print(education_rating_response)
+
+
+
+    #rating_prompt = create_rating_prompt(categories, text)
+    #rating_response = openai_model.query(rating_prompt)
 
         # Use regular expression to extract the content between triple backticks
-    match = re.search(r'```(.+?)```', rating_response, re.DOTALL)
+    #match = re.search(r'```(.+?)```', rating_response, re.DOTALL)
 
-    if match:
+    #if match:
         # Extract the matched content
-        content_between_backticks = match.group(1)
-        trimmed_json = content_between_backticks[4:]
+        #content_between_backticks = match.group(1)
+        #trimmed_json = content_between_backticks[4:]
         # Replace "N/A" with "0"
-        trimmed_json = trimmed_json.replace("N/A", "0")
+        #trimmed_json = trimmed_json.replace("N/A", "0")
 
-        rating_data = json.loads(trimmed_json)
+        #rating_data = json.loads(trimmed_json)
 
-        applicant.update_ratings(rating_data)
+        #applicant.update_ratings(rating_data)
 
-        return applicant
-    else:
-        print("ERROR:{rating_response}")
-        return None
+        #return applicant
+    #else:
+        #print("ERROR:{rating_response}")
+        #return None
 
 
 def insert_applicant_and_ratings_into_database(applicant, cursor):
