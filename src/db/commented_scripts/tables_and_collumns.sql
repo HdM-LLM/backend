@@ -7,7 +7,7 @@ CREATE TABLE applicants_skills (
 );
 
 CREATE TABLE skills (
-    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
     category VARCHAR(100) NOT NULL,
     rating INT NOT NULL,
     applicant VARCHAR(100) NOT NULL,
@@ -16,10 +16,11 @@ CREATE TABLE skills (
 );
 
 CREATE TABLE rating(
-    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
     applicant VARCHAR(100) NOT NULL,
     category VARCHAR(100) NOT NULL,
     score INT NOT NULL,
     justification VARCHAR(1000) NOT NULL,
     FOREIGN KEY (Applicant) REFERENCES applicants(id)
     FOREIGN KEY (Category) REFERENCES categories(id)
+);

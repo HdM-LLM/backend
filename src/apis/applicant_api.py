@@ -22,7 +22,7 @@ class ApplicantResource(Resource):
 
         pdf_file = request.files['cover_letter']
 
-        cv_content = pdf_service.getPdfConten(pdf_file)
+        cv_content = pdf_service.getPdfContent(pdf_file)
 
         applicant = Applicant(
             cv_service.get_first_name_from_cv(cv_content),
@@ -41,7 +41,6 @@ class ApplicantResource(Resource):
             else:
                 mapper.insert(applicant)
                 return 'Applicant has been saved in database', 200
-
 
 
 # Add the resource to the api

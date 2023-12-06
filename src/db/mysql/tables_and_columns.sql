@@ -2,7 +2,7 @@ CREATE DATABASE skillsync;
 USE skillsync;
 
 CREATE TABLE applicant (
-    id VARCHAR(255) NOT NULL,
+    id VARCHAR(36) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     date_of_birth DATE NOT NULL,

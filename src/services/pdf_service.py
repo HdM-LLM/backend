@@ -1,6 +1,6 @@
 import PyPDF2
 
-def getPdfConten(pdf_file):
+def getPdfContent(pdf_file):
     content = ""
 
     pdf_reader = PyPDF2.PdfReader(pdf_file)
