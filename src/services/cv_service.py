@@ -1,8 +1,6 @@
 from datetime import date
 
 # Returns the first name from inside the cv
-
-
 def get_first_name_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -17,8 +15,6 @@ def get_first_name_from_cv(cv_content: str) -> str:
 
 
 # Returns the last name from inside the cv
-
-
 def get_last_name_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -33,8 +29,6 @@ def get_last_name_from_cv(cv_content: str) -> str:
 
 
 # Returns the date of birth from inside the cv
-
-
 def get_date_of_birth_from_cv(cv_content: str) -> date:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -52,8 +46,6 @@ def get_date_of_birth_from_cv(cv_content: str) -> date:
 
 
 # Returns the street from inside the cv
-
-
 def get_street_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -69,8 +61,6 @@ def get_street_from_cv(cv_content: str) -> str:
 
 
 # Returns the postal code from inside the cv
-
-
 def get_postal_code_from_cv(cv_content: int) -> int:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -85,8 +75,6 @@ def get_postal_code_from_cv(cv_content: int) -> int:
 
 
 # Returns the city from inside the cv
-
-
 def get_city_code_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -101,8 +89,6 @@ def get_city_code_from_cv(cv_content: str) -> str:
 
 
 # Returns the email from inside the cv
-
-
 def get_email_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str
@@ -117,8 +103,6 @@ def get_email_from_cv(cv_content: str) -> str:
 
 
 # Returns the phone number from inside the cv
-
-
 def get_phone_number_from_cv(cv_content: str) -> str:
     all_lines = cv_content.split('\n')
     specific_line: str

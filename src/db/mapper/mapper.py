@@ -14,7 +14,6 @@ class Mapper(ABC):
             host='127.0.0.1',
             database='skillsync',
             port='3307',
-
         )
 
         return self
@@ -35,7 +34,7 @@ class Mapper(ABC):
         pass
 
     @abstractmethod
-    def update_id(self, id):
+    def update(self, object):
         pass
 
     @abstractmethod

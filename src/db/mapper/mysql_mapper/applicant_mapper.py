@@ -10,7 +10,7 @@ class ApplicantMapper(Mapper):
     def get_all(self):
         pass
 
-    def get_by_id(self, applicant_id: str):
+    def get_by_id(self, applicant_id: UUID):
         pass
 
     def get_by_email(self, applicant_email: str):
@@ -51,10 +51,10 @@ class ApplicantMapper(Mapper):
         self._connection.commit()
         cursor.close()
 
-    def update_id(self, applicant_id: str):
+    def update(self, applicant: Applicant):
         pass
 
-    def delete_by_id(self, applicant_id: str):
+    def delete_by_id(self, applicant_id: UUID):
         pass
 
 

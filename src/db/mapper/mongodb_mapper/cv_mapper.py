@@ -10,16 +10,16 @@ class CvMapper(Mapper):
     def get_all(self):
         pass
 
-    def get_by_id(self, cv_id: str):
+    def get_by_id(self, cv_id: UUID):
         pass
 
     def insert(self, applicant: Applicant):
         pass
 
-    def update_id(self, applicant_id: str):
+    def update(self, applicant: Applicant):
         pass
 
-    def delete_by_id(self, applicant_id: str):
+    def delete_by_id(self, applicant_id: UUID):
         pass
 
 
