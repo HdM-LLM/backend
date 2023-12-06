@@ -17,10 +17,10 @@ class ApplicantResource(Resource):
         return 'Hello Upload Page!'
 
     def post(self):
-        if 'cover_letter' not in request.files:
+        if 'cv' not in request.files:
             return 'No file part found in POST request.', 400
 
-        pdf_file = request.files['cover_letter']
+        pdf_file = request.files['cv']
 
         cv_content = pdf_service.getPdfContent(pdf_file)
 
