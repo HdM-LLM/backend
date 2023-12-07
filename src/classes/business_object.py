@@ -12,5 +12,8 @@ class BusinessObject(ABC):
     def get_id(self) -> UUID:
         return self._id
 
+    def set_id(self, uuid) -> None:
+        self._id = uuid
+
     def get_creation_date(self) -> datetime:
         return self._creation_date

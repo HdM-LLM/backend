@@ -1,6 +1,5 @@
 from abc import ABC
-from business_object import BusinessObject
-
+from classes.business_object import BusinessObject
 
 class User(BusinessObject, ABC):
 
