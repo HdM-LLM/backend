@@ -1,4 +1,5 @@
 import PyPDF2
+from io import BytesIO
 
 def getPdfContent(pdf_file):
     content = ""
@@ -11,3 +12,4 @@ def getPdfContent(pdf_file):
         content += page.extract_text()
 
     return content
+
