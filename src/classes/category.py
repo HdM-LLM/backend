@@ -1,4 +1,5 @@
-from business_object import BusinessObject
+from classes.business_object import BusinessObject
+
 
 class Category(BusinessObject):
     
@@ -30,3 +31,12 @@ class Category(BusinessObject):
         
         def set_guideline_for_ten(self, guideline_for_ten) -> None:
             self._guideline_for_ten = guideline_for_ten
+
+        def __str__(self) -> str:
+            return (
+                f'Vacancy ID: {self._id}\n'
+                f'Name: {self._name}\n'
+                f'Guideline 0: {self._guideline_for_zero}\n'
+                f'Guideline 10: {self.set_guideline_for_ten}\n'
+            )
+

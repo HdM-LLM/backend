@@ -1,11 +1,8 @@
 db.createCollection("vacancies");
 
-
 db.vacancies.insertOne({
   uuid: "dae80908-4cce-4d65-9357-ea48f7f2e4af",
-  creation_date: "2020-05-17 12:12:12",
   name: "Frontend Engineer",
-  description: "Content of the vacancy...",
   department: "Development",
   categories: [
     {

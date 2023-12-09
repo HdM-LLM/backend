@@ -2,6 +2,7 @@ from flask import Blueprint, request
 from flask_restful import Api, Resource
 import services.pdf_service as pdf_service
 import services.cv_service as cv_service
+import services.rating_service as rating_service
 from classes.applicant import Applicant
 from classes.cv import CV
 from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
@@ -40,13 +41,18 @@ class ApplicantResource(Resource):
         )
 
         with ApplicantMapper() as applicant_mapper:
-            if applicant_mapper.get_by_email(applicant.get_email()):
+            # TODO: Should be changed to get_by_mail when finished with testing
+            if applicant_mapper.get_by_id(applicant.get_id()):
                 return 'Applicant exists already', 409
             else:
                 applicant_mapper.insert(applicant)
 
                 with CVMapper() as cv_mapper:
-                    cv_mapper.insert(cv_pdf_file, applicant)
+                    cv_mapper.insert(cv_content, applicant)
+
+                # TODO: Remove the comment if you want to get a rating
+                # I commented the line since this is allways an api call ti openai
+                # print(rating_service.rate_applicant(applicant))
 
                 return 'Applicant and CV have been saved in database', 200
 

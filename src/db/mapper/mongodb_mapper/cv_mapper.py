@@ -24,9 +24,10 @@ class CVMapper(Mapper):
         return result
 
     def get_by_id(self, applicant_id: UUID):
-        result = fs.find_one({'filename': str(applicant_id)})
+        files = db.fs.files.find_one({'filename': str(applicant_id)})
+        chunks = db.fs.chunks.find_one({'files_id': files['_id']})
 
-        return result
+        return chunks
 
     def insert(self, cv_pdf_file, applicant: Applicant) -> None:
         metadata = {
@@ -38,7 +39,7 @@ class CVMapper(Mapper):
             }
         }
 
-        fs.put(cv_pdf_file, filename=str(applicant.get_id()), metadata=metadata)
+        fs.put(cv_pdf_file.encode(), filename=str(applicant.get_id()), metadata=metadata)
 
     def update(self, cv: CV):
         pass
