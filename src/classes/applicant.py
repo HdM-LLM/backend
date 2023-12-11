@@ -14,8 +14,6 @@ class Applicant(User):
             city: str,
             email: str,
             phone_number: str,
-            # skills: list,
-            # rating: int,
     ) -> None:
         super().__init__(
             first_name=first_name,
@@ -65,21 +63,6 @@ class Applicant(User):
 
     def set_phone_number(self, phone_number) -> None:
         self._phone_number = phone_number
-
-    # def get_skills(self) -> list:
-    #     return self._skills
-    #
-    # def add_skill(self, skill) -> None:
-    #     self._skills.append(skill)
-    #
-    # def set_score(self, skills) -> int:
-    #     for skill in skills:
-    #         self._rating = skill.get_rating()
-    #         self._score += self._rating.get_score()
-    #     self._score = self._score / len(skills)
-    #
-    # def get_score(self) -> int:
-    #     return self._score
 
     def __str__(self) -> str:
         return (

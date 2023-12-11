@@ -26,6 +26,9 @@ class ApplicantResource(Resource):
         return 'Hello Upload Page!'
 
     def post(self):
+        """
+        Rates and saves an applicant together with the CV
+        """
         if 'cv' not in request.files:
             return 'No file part found in POST request.', 400
 
@@ -78,7 +81,7 @@ class ApplicantResource(Resource):
                 rating_mapper.insert(rating)
 
 
-        return 'Applicant and CV have been saved in database', 200
+        return 'Applicant, CV and rating have been saved in database', 200
 
 
 
