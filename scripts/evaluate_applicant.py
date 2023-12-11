@@ -170,10 +170,10 @@ def extract_applicant_metadata(openai_model, text):
     return data
 
 def analyze_application(openai_model, text, position, cursor):
-    #applicant_metadata = extract_applicant_metadata(openai_model, text)
-    #applicant = create_applicant(applicant_metadata, position)
+    applicant_metadata = extract_applicant_metadata(openai_model, text)
+    applicant = create_applicant(applicant_metadata, position)
 
-    #categories = load_categories_for_position(cursor, position)
+    categories = load_categories_for_position(cursor, position)
 
 
 

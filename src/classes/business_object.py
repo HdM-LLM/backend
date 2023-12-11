@@ -17,3 +17,7 @@ class BusinessObject(ABC):
 
     def get_creation_date(self) -> datetime:
         return self._creation_date
+
+    def set_creation_date(self, creation_date: datetime) -> None:
+        self._creation_date = creation_date
+

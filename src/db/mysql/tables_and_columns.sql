@@ -13,3 +13,14 @@ CREATE TABLE applicant (
     phone_number VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE rating (
+    id VARCHAR(36) NOT NULL,
+    category_id VARCHAR(36) NOT NULL,
+    vacancy_id VARCHAR(36) NOT NULL,
+    applicant_id VARCHAR(36) NOT NULL,
+    score INT NOT NULL,
+    justification TEXT NOT NULL,
+    quote TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
