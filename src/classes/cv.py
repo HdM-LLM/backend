@@ -5,7 +5,7 @@ class CV(BusinessObject):
 
     def __init__(
             self,
-            content
+            content: str
     ) -> None:
         super().__init__()
         self._content = content

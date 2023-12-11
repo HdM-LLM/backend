@@ -10,7 +10,7 @@ class Vacancy(BusinessObject):
             department: str,
     ) -> None:
         super().__init__()
-        self._name = name,
+        self._name = name
         self._department = department
         self._categories = []
 

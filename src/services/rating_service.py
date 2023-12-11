@@ -1,4 +1,6 @@
 import os
+from typing import List
+
 import openai
 from dotenv import load_dotenv, find_dotenv
 import time
@@ -6,6 +8,8 @@ from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
 from uuid import UUID
 from classes.applicant import Applicant
+from classes.rating import Rating
+import json
 
 
 def load_openai_model():
@@ -110,4 +114,50 @@ def rate_applicant(applicant: Applicant):
     return execute_prompt(prompt)
 
 
+def extract_ratings_from_response(model_response: str) -> []:
+    start_index = model_response.find('{')
+    end_index = model_response.rfind('}') + 1
 
+    json_block_response = model_response[start_index:end_index]
+
+    parsed_json = json.loads(json_block_response)
+
+    list_of_rating_responses = []
+
+    for category_name in list(parsed_json.keys()):
+
+        category = { category_name : parsed_json[category_name]}
+
+        list_of_rating_responses.append(category)
+
+    return list_of_rating_responses
+
+
+def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID) -> List:
+    list_of_rating_responses = extract_ratings_from_response(model_response)
+    ratings = []
+
+    with VacancyMapper() as vacancy_mapper:
+        vacancy = vacancy_mapper.get_by_id(vacancy_id)
+
+    for rating_response in list_of_rating_responses:
+        category_name_responmse = list(rating_response.keys())[0]
+        category_values_response = list(rating_response.values())[0]
+        category_id: UUID
+
+        for category in vacancy.get_categories():
+            if category.get_name() == category_name_responmse:
+                category_id = category.get_id()
+
+        rating = Rating(
+            category_id,
+            vacancy_id,
+            applicant_id,
+            category_values_response['Score'],
+            category_values_response['Justification'],
+            category_values_response['Quote'],
+        )
+
+        ratings.append(rating)
+
+    return ratings

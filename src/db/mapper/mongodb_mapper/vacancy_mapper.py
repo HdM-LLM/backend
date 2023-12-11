@@ -14,18 +14,23 @@ fs = GridFS(db)
 
 class VacancyMapper(Mapper):
 
+    """
+    Creates a instance if VacancyMapper
+    """
     def __int__(self):
         super().__init__()
 
+    """
+    
+    """
     def get_all(self):
         pass
-
 
     def get_by_id(self, vacancy_id: UUID) -> Vacancy:
         result = collection.find_one({'uuid': str(vacancy_id)})
 
         vacancy = Vacancy(
-            str(result['name']),
+            result['name'],
             result['department']
         )
 
