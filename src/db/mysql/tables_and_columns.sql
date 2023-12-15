@@ -11,8 +11,23 @@ CREATE TABLE applicant (
     city VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
+    face_image MEDIUMBLOB,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE vacancy (
+    id VARCHAR(36) NOT NULL,
+    vacancy_title VARCHAR(255) NOT NULL,
+    department VARCHAR(255) NOT NULL,
+    full_time BOOLEAN NOT NULL,
+    description TEXT NOT NULL,
+    salary FLOAT NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+    PRIMARY KEY (id)
+);
+
 
 CREATE TABLE rating (
     id VARCHAR(36) NOT NULL,
@@ -22,5 +37,15 @@ CREATE TABLE rating (
     score INT NOT NULL,
     justification TEXT NOT NULL,
     quote TEXT NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)
+);
+
+CREATE TABLE applicant_vacancy (
+    id INT AUTO_INCREMENT,
+    applicant_id VARCHAR(36) NOT NULL,
+    vacancy_id VARCHAR(36) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (applicant_id) REFERENCES applicant(id),
+    FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)
 );
