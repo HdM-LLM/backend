@@ -49,3 +49,49 @@ CREATE TABLE applicant_vacancy (
     FOREIGN KEY (applicant_id) REFERENCES applicant(id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)
 );
+
+-- Erster Beispiel ASCDatensatz
+INSERT INTO vacancy (
+    id,
+    vacancy_title,
+    department,
+    full_time,
+    description,
+    salary,
+    company,
+    created_at,
+    updated_at
+) VALUES (
+    '6ca830b2-99b5-11ee-b9d1-0242ac120002',
+    'Frontend Dev',
+    'IT Deparment',
+    TRUE, 
+    'Description goes here',
+    50000.00, 
+    'Firmenname',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+);
+
+-- Zweiter Beispiel Datensatz
+INSERT INTO vacancy (
+    id,
+    vacancy_title,
+    department,
+    full_time,
+    description,
+    salary,
+    company,
+    created_at,
+    updated_at
+) VALUES (
+    'dae80908-4cce-4d65-9357-ea48f7f2e4af',
+    'Backend Dev',
+    'IT Deparment',
+    FALSE, 
+    'Hier kann ihre Werbung stehen',
+    35000.00,
+    'Firmenname',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+);
