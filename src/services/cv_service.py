@@ -1,118 +1,106 @@
-from datetime import date
+from datetime import datetime, date
+import services.rating_service as rating_service
+import json
+from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
+from PIL import Image
+from io import BytesIO
+import face_recognition
+from pdf2image import convert_from_bytes
 
-# Returns the first name from inside the cv
-def get_first_name_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+def get_personal_data_from_cv(cv_content: str) -> str:
+    rating_service.load_dot_env()
 
-    for line in all_lines:
-        if 'Name:' in line:
-            specific_line = line
+    prompt = f"""
+    Extract metadata from the curriculum vitae:
 
-    first_name = specific_line.split(' ')[1]
+    {cv_content}
 
-    return first_name
+    Please provide the response in the following JSON format:
+    {{
+        "first_name": "",
+        "last_name": "",
+        "date_of_birth": "%D-%M-%Y",
+        "street": "",
+        "postal_code": "",
+        "city": "",
+        "email": "",
+        "phone_number": ""
+    }}
 
+    If you can't find a value, please leave it empty
+    """
+    model_response = rating_service.execute_prompt(prompt)
 
-# Returns the last name from inside the cv
-def get_last_name_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+    start_index = model_response.find('{')
+    end_index = model_response.rfind('}') + 1
 
-    for line in all_lines:
-        if 'Name:' in line:
-            specific_line = line
+    json_block_response = model_response[start_index:end_index]
 
-    last_name = specific_line.split(' ')[2]
+    parsed_json = json.loads(json_block_response)
 
-    return last_name
+    parsed_json["date_of_birth"] = parse_date_of_birth(parsed_json["date_of_birth"])
 
+    return parsed_json
 
-# Returns the date of birth from inside the cv
-def get_date_of_birth_from_cv(cv_content: str) -> date:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+def parse_date_of_birth(date_string):
+    formats_to_try = ["%d.%m.%Y", "%d-%m-%Y"]
 
-    for line in all_lines:
-        if 'Date and Place of Birth:' in line:
-            specific_line = line
+    for date_format in formats_to_try:
+        try:
+            return datetime.strptime(date_string, date_format).date()
+        except ValueError:
+            pass
 
-    date_of_birth = specific_line.split(' ')[5].split('.')
-    day = int(date_of_birth[0])
-    month = int(date_of_birth[1])
-    year = int(date_of_birth[2])
+    # If none of the formats match
+    raise ValueError(f"Could not parse date: {date_string}")
 
-    return date(year, month, day)
+def process_cv_image(cv_pdf_file):
+    cv_content = cv_pdf_file.read()
 
+    extracted_face_bytes = extract_image_from_pdf(cv_content)
 
-# Returns the street from inside the cv
-def get_street_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+    return extracted_face_bytes
 
-    for line in all_lines:
-        if 'Address:' in line and '@' not in line:
-            specific_line = line
+def extract_image_from_pdf(pdf_content):
+    images = convert_from_bytes(pdf_content)
+    
+    if not images:
+        return None
 
-    street = specific_line.split(' ')[1]
-    number = specific_line.split(' ')[2][:-1]
+    # Nimm nur das erste Bild aus der PDF
+    image = images[0]
+    image_content = BytesIO()
+    image.save(image_content, 'PNG')
+    image_content.seek(0)
 
-    return street + ' ' + number
+    face_image_bytes = extract_face_from_image(image_content)
 
+    return face_image_bytes
 
-# Returns the postal code from inside the cv
-def get_postal_code_from_cv(cv_content: int) -> int:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+def extract_face_from_image(image_content, offset=40):
+    image = face_recognition.load_image_file(image_content)
+    face_locations = face_recognition.face_locations(image)
 
-    for line in all_lines:
-        if 'Address:' in line and '@' not in line:
-            specific_line = line
+    if not face_locations:
+        return None
 
-    postal_code = specific_line.split(' ')[3]
+    top, right, bottom, left = face_locations[0]
 
-    return int(postal_code)
+    # Erweiterung des Bereichs um das Gesicht
+    top = max(0, top - offset - 80)
+    left = max(0, left - offset - 40)
+    bottom = min(image.shape[0], bottom + offset)
+    right = min(image.shape[1], right + offset + 40)
 
+    face_image = Image.fromarray(image[top:bottom, left:right])
 
-# Returns the city from inside the cv
-def get_city_code_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
+    # Convert the face image to bytes
+    face_image_bytes = image_to_bytes(face_image)
 
-    for line in all_lines:
-        if 'Address:' in line and '@' not in line:
-            specific_line = line
+    return face_image_bytes
 
-    city = specific_line.split(' ')[4]
-
-    return city
-
-
-# Returns the email from inside the cv
-def get_email_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
-
-    for line in all_lines:
-        if 'Email Address:' in line:
-            specific_line = line
-
-    email = specific_line.split(' ')[2]
-
-    return email
-
-
-# Returns the phone number from inside the cv
-def get_phone_number_from_cv(cv_content: str) -> str:
-    all_lines = cv_content.split('\n')
-    specific_line: str
-
-    for line in all_lines:
-        if 'Phone Number:' in line:
-            specific_line = line
-
-    country_code = specific_line.split(' ')[2]
-    national_area_code = specific_line.split(' ')[3]
-    connection_identifier = specific_line.split(' ')[4]
-
-    return country_code + ' ' + national_area_code + ' ' + connection_identifier
+def image_to_bytes(image):
+    image_bytes = BytesIO()
+    image.save(image_bytes, format='PNG')
+    image_bytes.seek(0)
+    return image_bytes.read()

@@ -84,7 +84,8 @@ def execute_prompt(prompt):
                  "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively."},
                 {"role": "user", "content": prompt}
             ],
-            timeout=200  # Set the timeout in seconds
+            timeout=200,  # Set the timeout in seconds
+            n=1
         )
     except openai.error.OpenAIError as e:
         print(f"Error from OpenAI: {e}")
@@ -125,7 +126,7 @@ def create_rating_prompt(categories, cv_content):
     """
 
 
-def rate_applicant(applicant: Applicant):
+def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     """
     Puts together the steps to rate an applicant
     :param applicant: Applicant which should be rated
@@ -136,7 +137,7 @@ def rate_applicant(applicant: Applicant):
 
     # 2. Get the categories of the vacancy, which will be used for rating
     # TODO: at the moment hard coded to the frontend engineer vacancy uuid
-    categories = get_list_of_categories_from_vacancy(UUID('dae80908-4cce-4d65-9357-ea48f7f2e4af'))
+    categories = get_list_of_categories_from_vacancy(vacancy_id)
 
     # 3. Get the content of the cv pdf
     cv_content = get_cv_content_of_applicant(applicant.get_id())
@@ -187,21 +188,30 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
         vacancy = vacancy_mapper.get_by_id(vacancy_id)
 
     for rating_response in list_of_rating_responses:
-        category_name_responmse = list(rating_response.keys())[0]
+        category_name_response = list(rating_response.keys())[0]
         category_values_response = list(rating_response.values())[0]
         category_id: UUID
 
         for category in vacancy.get_categories():
-            if category.get_name() == category_name_responmse:
+            if category.get_name() == category_name_response:
                 category_id = category.get_id()
+
+        # Get values with defaults if keys are missing
+        score = category_values_response.get('Score', None)
+        justification = category_values_response.get('Justification', None)
+        quote = category_values_response.get('Quote', None)
+
+        # Check if any required key is missing
+        if any(v is None for v in (score, justification, quote)):
+            print(f"Warning: Missing key(s) in category '{category_name_response}'")
 
         rating = Rating(
             category_id,
             vacancy_id,
             applicant_id,
-            category_values_response['Score'],
-            category_values_response['Justification'],
-            category_values_response['Quote'],
+            score,
+            justification,
+            quote,
         )
 
         ratings.append(rating)

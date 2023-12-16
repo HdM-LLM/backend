@@ -1,6 +1,4 @@
-from uuid import UUID
-
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
 import services.pdf_service as pdf_service
 import services.cv_service as cv_service
@@ -12,78 +10,109 @@ from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
 from db.mapper.mysql_mapper.rating_mapper import RatingMapper
 import PyPDF2
+import base64
+from uuid import UUID
 
 
-# Creates a new blueprint
+# Creates a new blueprint for upload
 file_upload = Blueprint('file_upload', __name__)
-api = Api(file_upload)
+api_upload = Api(file_upload)
 
 
-# Class containing all endpoints for applicants
-class ApplicantResource(Resource):
+# Creates a new blueprint for listing applicants
+applicant_list = Blueprint('applicant_list', __name__)
+api_list = Api(applicant_list)
 
-    def get(self):
-        return 'Hello Upload Page!'
+
+
+# Class containing endpoints for /applicants/<string:vacancy_id>
+class ApplicantListResource(Resource):
+
+    def get(self, vacancy_id=None):
+        with ApplicantMapper() as applicant_mapper:
+            if vacancy_id:
+                # Fetch applicants by vacancy_id
+                applicants_data = applicant_mapper.get_by_vacancy_id(vacancy_id)
+            else:
+                # Fetch all applicants
+                applicants_data = applicant_mapper.get_all()
+
+        formatted_applicants = [
+            {
+                "id": applicant.get_id(),
+                "firstName": applicant.get_first_name(),
+                "lastName": applicant.get_last_name(),
+                "img":  self.encode_image(applicant.get_face_image()),
+                "rating": 2,
+                "skills": []
+                # Add other data you want to display
+            }
+            for applicant in applicants_data
+        ]
+
+        return jsonify(formatted_applicants)
+
+    def encode_image(self, image_data):
+        if image_data is not None:
+            return base64.b64encode(image_data).decode('utf-8')
+        else:
+            return None
+
+
+
+# Class containing endpoints for /upload
+class ApplicantUploadResource(Resource):
 
     def post(self):
-        """
-        Rates and saves an applicant together with the CV
-        """
-        if 'cv' not in request.files:
-            return 'No file part found in POST request.', 400
+        if 'cv' not in request.files or 'vacancy' not in request.form:
+            return 'Required data not found in POST request.', 400
 
         cv_pdf_file = request.files['cv']
-        cv_content = pdf_service.getPdfContent(cv_pdf_file)
+        vacancy = request.form['vacancy']
 
-        # Create applicant
+        applicant_face_image = cv_service.process_cv_image(cv_pdf_file)
+
+        cv_content = pdf_service.getPdfContent(cv_pdf_file)
+        personal_data = cv_service.get_personal_data_from_cv(cv_content)
+
         applicant = Applicant(
-            cv_service.get_first_name_from_cv(cv_content),
-            cv_service.get_last_name_from_cv(cv_content),
-            cv_service.get_date_of_birth_from_cv(cv_content),
-            cv_service.get_street_from_cv(cv_content),
-            cv_service.get_postal_code_from_cv(cv_content),
-            cv_service.get_city_code_from_cv(cv_content),
-            cv_service.get_email_from_cv(cv_content),
-            cv_service.get_email_from_cv(cv_content),
+            first_name=personal_data["first_name"],
+            last_name=personal_data["last_name"],
+            date_of_birth=personal_data["date_of_birth"],
+            street=personal_data["street"],
+            postal_code=personal_data["postal_code"],
+            city=personal_data["city"],
+            email=personal_data["email"],
+            phone_number=personal_data["phone_number"],
+            face_image=applicant_face_image
         )
 
-        # Insert the applicant into the mysql db
         with ApplicantMapper() as applicant_mapper:
-            # TODO: Should be changed to get_by_mail when finished with testing
             if applicant_mapper.get_by_id(applicant.get_id()):
                 return 'Applicant exists already', 409
             else:
-                applicant_mapper.insert(applicant)
+                applicant_mapper.insert(applicant, vacancy)
 
-        # Create cv
-        cv = CV(
-            cv_content
-        )
+        cv = CV(cv_content)
 
-        # Insert the cv into the mongodb
         with CVMapper() as cv_mapper:
             cv_mapper.insert(cv, applicant)
 
-        # Get the rating of the categories from the vacancy (OpenAI)
-        model_response = rating_service.rate_applicant(applicant)
+        model_response = rating_service.rate_applicant(applicant, vacancy)
 
-        # Get the ratings from rhe response
-        # TODO: Vacancy is hardcoded at the moment should be changed in future
         ratings = rating_service.create_rating_objects(
             model_response,
-            UUID('dae80908-4cce-4d65-9357-ea48f7f2e4af'),
+            UUID(vacancy),
             applicant.get_id()
         )
 
-        # Insert the ratings into the mysql db
         for rating in ratings:
             with RatingMapper() as rating_mapper:
                 rating_mapper.insert(rating)
 
-
-        return 'Applicant, CV and rating have been saved in database', 200
-
+        return 'Applicant, CV, and rating have been saved in the database', 200
 
 
-# Add the resource to the api
-api.add_resource(ApplicantResource, '/upload')
+# Add the resources to the API with different endpoints
+api_list.add_resource(ApplicantListResource, '/applicants', '/applicants/<string:vacancy_id>')
+api_upload.add_resource(ApplicantUploadResource, '/upload')

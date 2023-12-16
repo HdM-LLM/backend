@@ -14,6 +14,7 @@ class Applicant(User):
             city: str,
             email: str,
             phone_number: str,
+            face_image: bytes = None
     ) -> None:
         super().__init__(
             first_name=first_name,
@@ -25,6 +26,8 @@ class Applicant(User):
         self._city = city
         self._email = email
         self._phone_number = phone_number
+        self._face_image = face_image
+
         # self._skills = skills
         # self._rating = rating
 
@@ -63,6 +66,12 @@ class Applicant(User):
 
     def set_phone_number(self, phone_number) -> None:
         self._phone_number = phone_number
+
+    def get_face_image(self) -> bytes:
+        return self._face_image
+
+    def set_face_image(self, face_image: bytes) -> None:
+        self._face_image = face_image
 
     def __str__(self) -> str:
         return (
