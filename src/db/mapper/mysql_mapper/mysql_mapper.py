@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 import mysql.connector
 
 
-class Mapper(ABC):
+class MySQLMapper(ABC):
 
     def __init__(self):
         self._connection = None

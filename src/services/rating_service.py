@@ -184,8 +184,8 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
     list_of_rating_responses = extract_ratings_from_response(model_response)
     ratings = []
 
-    with VacancyMapper() as vacancy_mapper:
-        vacancy = vacancy_mapper.get_by_id(vacancy_id)
+    vacancy_mapper = VacancyMapper()
+    vacancy = vacancy_mapper.get_by_id(vacancy_id)
 
     for rating_response in list_of_rating_responses:
         category_name_response = list(rating_response.keys())[0]

@@ -1,33 +1,22 @@
-from db.mapper.mapper import Mapper
+from db.mapper.mongodb_mapper.mongo_mapper import MongoMapper
 from classes.vacancy import Vacancy
 from classes.category import Category
 from uuid import UUID
-import pymongo
-from gridfs import GridFS
 
 
-client = pymongo.MongoClient('mongodb://root:password@localhost:27017/')
-db = client['skillsync']
-collection = db['vacancies']
-fs = GridFS(db)
-
-
-class VacancyMapper(Mapper):
+class VacancyMapper(MongoMapper):
 
     """
     Creates a instance if VacancyMapper
     """
-    def __int__(self):
-        super().__init__()
+    def __init__(self, collection: str = 'vacancies'):
+        super().__init__(collection)
 
-    """
-    
-    """
     def get_all(self):
         pass
 
     def get_by_id(self, vacancy_id: UUID) -> Vacancy:
-        result = collection.find_one({'uuid': str(vacancy_id)})
+        result = self.get_collection().find_one({'uuid': str(vacancy_id)})
 
         vacancy = Vacancy(
             result['name'],

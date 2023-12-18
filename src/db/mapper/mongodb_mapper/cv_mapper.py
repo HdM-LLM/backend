@@ -1,25 +1,17 @@
-from db.mapper.mapper import Mapper
+from db.mapper.mongodb_mapper.mongo_mapper import MongoMapper
 from classes.applicant import Applicant
 from classes.cv import CV
 from uuid import UUID
-import pymongo
-from typing import List
-from gridfs import GridFS
 
 
-client = pymongo.MongoClient('mongodb://root:password@localhost:27017/')
-db = client['skillsync']
-collection = db['cvs']
-fs = GridFS(db)
-
-
-class CVMapper(Mapper):
+class CVMapper(MongoMapper):
 
     """
     Creates an of CVMapper
     """
-    def __int__(self):
-        super().__init__()
+
+    def __init__(self, collection: str = 'csv'):
+        super().__init__(collection)
 
     """
     Returns all the CVs from the db
@@ -29,8 +21,8 @@ class CVMapper(Mapper):
 
     # Get specific cv by id
     def get_by_id(self, applicant_id: UUID):
-        files = db.fs.files.find_one({'filename': str(applicant_id)})
-        chunks = db.fs.chunks.find_one({'files_id': files['_id']})
+        files = self.get_database().fs.files.find_one({'filename': str(applicant_id)})
+        chunks = self.get_database().fs.chunks.find_one({'files_id': files['_id']})
 
         return chunks
 
@@ -48,7 +40,7 @@ class CVMapper(Mapper):
             }
         }
 
-        fs.put(cv.get_content().encode(), filename=str(applicant.get_id()), metadata=metadata)
+        self.get_fs().put(cv.get_content().encode(), filename=str(applicant.get_id()), metadata=metadata)
 
     """
     Update a CV from the db

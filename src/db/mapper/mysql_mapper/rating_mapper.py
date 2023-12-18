@@ -1,8 +1,8 @@
-from db.mapper.mapper import Mapper
+from db.mapper.mysql_mapper.mysql_mapper import MySQLMapper
 from classes.rating import Rating
 from uuid import UUID
 
-class RatingMapper(Mapper):
+class RatingMapper(MySQLMapper):
 
     def __int__(self):
         super().__init__()
