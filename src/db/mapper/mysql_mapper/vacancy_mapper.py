@@ -1,8 +1,8 @@
-from db.mapper.mapper import Mapper
+from db.mapper.mysql_mapper.mysql_mapper import MySQLMapper
 from classes.vacancy import Vacancy
 from uuid import UUID
 
-class VacancyMapper(Mapper):
+class VacancyMapper(MySQLMapper):
 
     def __init__(self):
         super().__init__()
