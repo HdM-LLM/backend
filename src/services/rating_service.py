@@ -41,9 +41,8 @@ def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     """
     categories = []
 
-    vacancy_mapper = VacancyMapper()
-
-    vacancy = vacancy_mapper.get_by_id(vacancy_id)
+    with VacancyMapper() as vacancy_mapper:
+        vacancy = vacancy_mapper.get_by_id(vacancy_id)
 
     for category in vacancy.get_categories():
         categories.append(category)
@@ -57,9 +56,9 @@ def get_cv_content_of_applicant(applicant_id: UUID):
     :param applicant_id: ID of the applicant from whom CV the content should be returned
     :return:
     """
-    cv_mapper = CVMapper()
 
-    cv_content = cv_mapper.get_by_id(applicant_id)['data'].decode()
+    with CVMapper() as cv_mapper:
+        cv_content = cv_mapper.get_by_id(applicant_id)['data'].decode()
 
     return cv_content
 
@@ -184,8 +183,8 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
     list_of_rating_responses = extract_ratings_from_response(model_response)
     ratings = []
 
-    vacancy_mapper = VacancyMapper()
-    vacancy = vacancy_mapper.get_by_id(vacancy_id)
+    with VacancyMapper() as vacancy_mapper:
+        vacancy = vacancy_mapper.get_by_id(vacancy_id)
 
     for rating_response in list_of_rating_responses:
         category_name_response = list(rating_response.keys())[0]

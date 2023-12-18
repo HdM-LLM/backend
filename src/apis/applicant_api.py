@@ -95,8 +95,8 @@ class ApplicantUploadResource(Resource):
 
         cv = CV(cv_content)
 
-        cv_mapper = CVMapper()
-        cv_mapper.insert(cv, applicant)
+        with CVMapper() as cv_mapper:
+            cv_mapper.insert(cv, applicant)
 
         model_response = rating_service.rate_applicant(applicant, vacancy)
 
