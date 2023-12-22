@@ -7,8 +7,9 @@ from uuid import UUID
 class VacancyMapper(MongoMapper):
 
     """
-    Creates a instance if VacancyMapper
+    Creates a instance of VacancyMapper
     """
+
     def __init__(self, collection: str = 'vacancies'):
         super().__init__(collection)
 

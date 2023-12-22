@@ -168,3 +168,4 @@ data
 # DS_Store files
 .DS_Store
 src/apis/uploads/
+src/DS_Store

@@ -2,6 +2,7 @@ from db.mapper.mysql_mapper.mysql_mapper import MySQLMapper
 from classes.rating import Rating
 from uuid import UUID
 
+
 class RatingMapper(MySQLMapper):
 
     def __int__(self):
@@ -10,8 +11,26 @@ class RatingMapper(MySQLMapper):
     def get_all(self):
         pass
 
-    def get_by_id(self, applicant_id: UUID):
-        pass
+    def get_by_id(self, vacancy_id: str, applicant_id: str):
+        result = []
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "SELECT * FROM rating WHERE vacancy_id='{}' AND applicant_id='{}'".format(vacancy_id, applicant_id))
+        tuples = cursor.fetchall()
+
+        for tuple_data in tuples:
+            (id, category_id, vacancy_id, applicant_id,
+             score, justification, quote) = tuple_data
+
+            rating = Rating(category_id, vacancy_id,
+                            applicant_id, score, justification, quote)
+            rating.set_id(UUID(id))
+            result.append(rating)
+
+        self._connection.commit()
+        cursor.close()
+
+        return result
 
     def insert(self, rating: Rating):
         cursor = self._connection.cursor()
@@ -36,5 +55,3 @@ class RatingMapper(MySQLMapper):
 
     def delete_by_id(self, rating_id: UUID):
         pass
-
-
