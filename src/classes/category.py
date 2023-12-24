@@ -34,7 +34,7 @@ class Category(BusinessObject):
 
     def __str__(self) -> str:
         return (
-            f'Vacancy ID: {self._id}\n'  # Shouldn´t this be Category ID?
+            f'Category ID: {self._id}\n'
             f'Name: {self._name}\n'
             f'Guideline 0: {self._guideline_for_zero}\n'
             f'Guideline 10: {self._guideline_for_ten}\n'
