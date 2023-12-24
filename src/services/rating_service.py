@@ -108,7 +108,8 @@ def create_rating_prompt(categories, cv_content):
     rating_prompts = []
 
     for category in categories:
-        rating_prompts.append(f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}')
+        rating_prompts.append(
+            f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}')
 
     categories_string = ", ".join(rating_prompts)
 
@@ -165,7 +166,7 @@ def extract_ratings_from_response(model_response: str) -> []:
 
     for category_name in list(parsed_json.keys()):
 
-        category = { category_name : parsed_json[category_name]}
+        category = {category_name: parsed_json[category_name]}
 
         list_of_rating_responses.append(category)
 
@@ -202,7 +203,10 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
 
         # Check if any required key is missing
         if any(v is None for v in (score, justification, quote)):
-            print(f"Warning: Missing key(s) in category '{category_name_response}'")
+            print(
+                f"Warning: Missing key(s) in category '{category_name_response}'")
+
+        # TODO: Check if quote is in cv before inserting it
 
         rating = Rating(
             category_id,

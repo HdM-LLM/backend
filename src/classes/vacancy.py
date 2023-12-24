@@ -5,7 +5,7 @@ from classes.business_object import BusinessObject
 class Vacancy(BusinessObject):
     def __init__(
         self,
-        vacancyTitle: str,
+        title: str,
         department: str,
         fullTime: bool = True,
         description: str = "",
@@ -15,7 +15,7 @@ class Vacancy(BusinessObject):
         updatedAt: str = "",
     ) -> None:
         super().__init__()
-        self._vacancyTitle= vacancyTitle
+        self._title = title
         self._department = department
         self._fullTime = fullTime
         self._description = description
@@ -25,11 +25,11 @@ class Vacancy(BusinessObject):
         self._updatedAt = updatedAt
         self._categories = []
 
-    def get_vacancy_title(self) -> str:
-        return self._vacancyTitle
+    def get_title(self) -> str:
+        return self._title
 
-    def set_vacancy_title(self, name: str) -> None:
-        self._vacancyTitle = vacancyTitle
+    def set_title(self, title: str) -> None:
+        self._title = title
 
     def get_department(self) -> str:
         return self._department

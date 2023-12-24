@@ -2,6 +2,7 @@ from db.mapper.mysql_mapper.mysql_mapper import MySQLMapper
 from classes.vacancy import Vacancy
 from uuid import UUID
 
+
 class VacancyMapper(MySQLMapper):
 
     def __init__(self):
@@ -15,7 +16,7 @@ class VacancyMapper(MySQLMapper):
         vacancies = []
         for row in cursor.fetchall():
             vacancy = Vacancy(
-                vacancyTitle=row[1],
+                title=row[1],
                 department=row[2],
                 fullTime=row[3],
                 description=row[4],
@@ -24,7 +25,7 @@ class VacancyMapper(MySQLMapper):
                 createdAt=row[7],
                 updatedAt=row[8],
             )
-            vacancy.set_id(row[0])  
+            vacancy.set_id(row[0])
             vacancies.append(vacancy)
 
         cursor.close()
@@ -38,7 +39,7 @@ class VacancyMapper(MySQLMapper):
         row = cursor.fetchone()
         if row:
             vacancy = Vacancy(
-                vacancyTitle=row[1],
+                title=row[1],
                 department=row[2],
                 fullTime=row[3],
                 description=row[4],
@@ -47,7 +48,7 @@ class VacancyMapper(MySQLMapper):
                 createdAt=row[7],
                 updatedAt=row[8],
             )
-            vacancy.set_id(row[0])  
+            vacancy.set_id(row[0])
             cursor.close()
             return vacancy
         else:
@@ -59,7 +60,7 @@ class VacancyMapper(MySQLMapper):
         query = "INSERT INTO vacancy (id, vacancy_title, department, full_time, description, salary, company, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
         data = (
             str(vacancy.get_id()),
-            vacancy.get_vacancy_title(),
+            vacancy.get_title(),
             vacancy.get_department(),
             vacancy.get_full_time(),
             vacancy.get_description(),
@@ -79,4 +80,3 @@ class VacancyMapper(MySQLMapper):
 
     def delete_by_id(self, vacancy_id: UUID):
         pass
-

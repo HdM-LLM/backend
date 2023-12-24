@@ -21,36 +21,11 @@ api_upload = Api(file_upload)
 
 # Creates a new blueprint for listing applicants
 applicant_list = Blueprint('applicant_list', __name__)
-api_list = Api(applicant_list)
-
+api = Api(applicant_list)
 
 
 # Class containing endpoints for /applicants/<string:vacancy_id>
 class ApplicantListResource(Resource):
-
-    def get(self, vacancy_id=None):
-        with ApplicantMapper() as applicant_mapper:
-            if vacancy_id:
-                # Fetch applicants by vacancy_id
-                applicants_data = applicant_mapper.get_by_vacancy_id(vacancy_id)
-            else:
-                # Fetch all applicants
-                applicants_data = applicant_mapper.get_all()
-
-        formatted_applicants = [
-            {
-                "id": applicant.get_id(),
-                "firstName": applicant.get_first_name(),
-                "lastName": applicant.get_last_name(),
-                "img":  self.encode_image(applicant.get_face_image()),
-                "rating": 2,
-                "skills": []
-                # Add other data you want to display
-            }
-            for applicant in applicants_data
-        ]
-
-        return jsonify(formatted_applicants)
 
     def encode_image(self, image_data):
         if image_data is not None:
@@ -58,6 +33,91 @@ class ApplicantListResource(Resource):
         else:
             return None
 
+    # Get all applicants
+    def get(self):
+        with ApplicantMapper() as mapper:
+            applicants = mapper.get_all()
+
+            formatted_applicants = [
+                {
+                    "id": applicant.get_id(),
+                    "firstName": applicant.get_first_name(),
+                    "lastName": applicant.get_last_name(),
+                    "img": self.encode_image(applicant.get_face_image()),
+                    "date_of_birth": applicant.get_date_of_birth(),
+                    "street": applicant.get_street(),
+                    "postal_code": applicant.get_postal_code(),
+                    "city": applicant.get_city(),
+                    "email": applicant.get_email(),
+                    "phone_number": applicant.get_phone_number(),
+                }
+                for applicant in applicants
+            ]
+
+        return jsonify(formatted_applicants)
+
+
+class ApplicantsByVacancyResource(Resource):
+
+    def encode_image(self, image_data):
+        if image_data is not None:
+            return base64.b64encode(image_data).decode('utf-8')
+        else:
+            return None
+
+    # Get all applicants by vacancy id
+    def get(self, vacancy_id):
+        with ApplicantMapper() as mapper:
+            applicants = mapper.get_by_vacancy_id(vacancy_id)
+
+            formatted_applicants = [
+                {
+                    "id": applicant.get_id(),
+                    "firstName": applicant.get_first_name(),
+                    "lastName": applicant.get_last_name(),
+                    "img": self.encode_image(applicant.get_face_image()),
+                    "date_of_birth": applicant.get_date_of_birth(),
+                    "street": applicant.get_street(),
+                    "postal_code": applicant.get_postal_code(),
+                    "city": applicant.get_city(),
+                    "email": applicant.get_email(),
+                    "phone_number": applicant.get_phone_number(),
+                }
+                for applicant in applicants
+            ]
+
+        return jsonify(formatted_applicants)
+
+
+class ApplicantResource(Resource):
+    def encode_image(self, image_data):
+        if image_data is not None:
+            return base64.b64encode(image_data).decode('utf-8')
+        else:
+            return None
+
+    # Get one applicant by id
+    def get(self, applicant_id):
+        if applicant_id is None:
+            return None
+
+        with ApplicantMapper() as mapper:
+            applicant = mapper.get_by_id(applicant_id)
+
+            formatted_applicant = {
+                "id": applicant.get_id(),
+                "firstName": applicant.get_first_name(),
+                "lastName": applicant.get_last_name(),
+                "img":  self.encode_image(applicant.get_face_image()),
+                "date_of_birth": applicant.get_date_of_birth(),
+                "street": applicant.get_street(),
+                "postal_code": applicant.get_postal_code(),
+                "city": applicant.get_city(),
+                "email": applicant.get_email(),
+                "phone_number": applicant.get_phone_number(),
+            }
+
+        return jsonify(formatted_applicant)
 
 
 # Class containing endpoints for /upload
@@ -114,5 +174,8 @@ class ApplicantUploadResource(Resource):
 
 
 # Add the resources to the API with different endpoints
-api_list.add_resource(ApplicantListResource, '/applicants', '/applicants/<string:vacancy_id>')
+api.add_resource(ApplicantListResource, '/applicants')
+api.add_resource(ApplicantResource, '/applicants/<string:applicant_id>')
+api.add_resource(ApplicantsByVacancyResource,
+                 '/applicantsVacancy/<string:vacancy_id>')
 api_upload.add_resource(ApplicantUploadResource, '/upload')

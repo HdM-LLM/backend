@@ -2,6 +2,7 @@ from uuid import UUID, uuid4
 from datetime import date
 from classes.user import User
 
+
 class Applicant(User):
 
     def __init__(
@@ -16,10 +17,7 @@ class Applicant(User):
             phone_number: str,
             face_image: bytes = None
     ) -> None:
-        super().__init__(
-            first_name=first_name,
-            last_name=last_name
-        )
+        super().__init__(first_name=first_name, last_name=last_name)
         self._date_of_birth = date_of_birth
         self._street = street
         self._postal_code = postal_code
