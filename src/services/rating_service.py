@@ -2,7 +2,7 @@ import os
 from typing import List
 
 import openai
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 import time
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
@@ -71,8 +71,9 @@ def execute_prompt(prompt):
     """
     truncated_prompt = prompt[:100] + "..." if len(prompt) > 100 else prompt
     num_tokens = count_tokens(prompt)
-    print(f"Die Anfrage hat {num_tokens} Token.")
-    print("Prompt an OpenAI: ", {truncated_prompt})
+    # print(f"Die Anfrage hat {num_tokens} Token.")
+    # print("Prompt an OpenAI: ", {truncated_prompt})
+    print(f'Sending request ({num_tokens} tokens) to GPT-4...')
 
     start_time = time.time()
     try:
@@ -93,8 +94,7 @@ def execute_prompt(prompt):
     end_time = time.time()
 
     duration = end_time - start_time
-    print(f"Antwort von OpenAI erhalten (Dauer: {duration:.2f} Sekunden)")
-    print(response.choices[0].message['content'].strip())
+    print(f'Response from GPT-4 received. It took {duration:.2f} seconds.')
     return response.choices[0].message['content'].strip()
 
 
@@ -136,7 +136,6 @@ def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     load_dot_env()
 
     # 2. Get the categories of the vacancy, which will be used for rating
-    # TODO: at the moment hard coded to the frontend engineer vacancy uuid
     categories = get_list_of_categories_from_vacancy(vacancy_id)
 
     # 3. Get the content of the cv pdf
@@ -155,6 +154,7 @@ def extract_ratings_from_response(model_response: str) -> []:
     :param model_response: Response of the OpenAI model
     :return: Lists of categories
     """
+    # TODO: This could be prone to errors if the response changes (unlikely) or if the response is not valid JSON (more likely) -> Error handling (Raise exception?)
     start_index = model_response.find('{')
     end_index = model_response.rfind('}') + 1
 

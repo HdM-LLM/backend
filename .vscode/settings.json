@@ -6,6 +6,7 @@
   "cSpell.words": [
     "dotenv",
     "langchain",
+    "mongodb",
     "openai",
     "pytesseract",
     "TESAT",

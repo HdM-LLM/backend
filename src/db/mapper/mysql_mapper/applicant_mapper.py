@@ -95,7 +95,7 @@ class ApplicantMapper(MySQLMapper):
         cursor.close()
         return result
 
-    def _insert_into_applicant_vacancy(self, applicant_id: UUID, vacancy_id: UUID):
+    def insert_into_applicant_vacancy(self, applicant_id: str, vacancy_id: str):
         cursor = self._connection.cursor()
         query = """
             INSERT INTO applicant_vacancy (applicant_id, vacancy_id) 
@@ -110,7 +110,7 @@ class ApplicantMapper(MySQLMapper):
         self._connection.commit()
         cursor.close()
 
-    def insert(self, applicant: Applicant, vacancy_id: UUID):
+    def insert(self, applicant: Applicant, vacancy_id: str):
         cursor = self._connection.cursor()
         query = """
             INSERT INTO applicant (
@@ -135,7 +135,7 @@ class ApplicantMapper(MySQLMapper):
         cursor.close()
 
         # Aufruf der Funktion, um Daten in die applicant_vacancy-Tabelle einzufügen
-        self._insert_into_applicant_vacancy(applicant.get_id(), vacancy_id)
+        self.insert_into_applicant_vacancy(applicant.get_id(), vacancy_id)
 
     def update(self, applicant: Applicant):
         pass
