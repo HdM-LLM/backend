@@ -1,3 +1,4 @@
+import json
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
 import services.pdf_service as pdf_service
@@ -176,14 +177,17 @@ class ApplicantUploadResource(Resource):
         with ApplicantMapper() as applicant_mapper:
             # Check if applicant already exists in the database
             if applicant_mapper.get_by_email(applicant.get_email()):
-                # First get the applicant id
-                retrieved_applicant_id = applicant_mapper.get_by_email(
-                    applicant.get_email()
-                ).get_id()
-                # Then create a new entry in the applicant_vacancy table
-                applicant_mapper.insert_into_applicant_vacancy(
-                    str(retrieved_applicant_id), vacancy_id
-                )
+                # Check if the applicant already applied for the vacancy
+                if applicant_mapper.get_by_email(applicant.get_email()).get_id() in applicant_mapper.get_by_vacancy_id(vacancy_id):
+                    return "Applicant already applied for this vacancy", 400
+                else:
+                    # First get the applicant id
+                    retrieved_applicant_id = applicant_mapper.get_by_email(
+                        applicant.get_email()).get_id()
+                    # Then create a new entry in the applicant_vacancy table
+                    applicant_mapper.insert_into_applicant_vacancy(
+                        str(retrieved_applicant_id), vacancy_id
+                    )
             else:
                 applicant_mapper.insert(applicant, vacancy_id)
 
@@ -192,11 +196,8 @@ class ApplicantUploadResource(Resource):
             cv_mapper.insert(cv_pdf_file, applicant, vacancy_id)
 
         # Create a rating for the applicant
-        model_response = rating_service.rate_applicant(applicant, vacancy_id)
-
-        ratings = rating_service.create_rating_objects(
-            model_response, UUID(vacancy_id), applicant.get_id()
-        )
+        ratings = rating_service.rate_applicant_and_create_rating_objects(
+            cv_content_string, applicant, vacancy_id)
 
         # Insert the ratings into the database
         for rating in ratings:
@@ -209,6 +210,7 @@ class ApplicantUploadResource(Resource):
 # Add the resources to the API with different endpoints
 api.add_resource(ApplicantListResource, "/applicants")
 api.add_resource(ApplicantResource, "/applicants/<string:applicant_id>")
-api.add_resource(ApplicantsByVacancyResource, "/applicantsVacancy/<string:vacancy_id>")
+api.add_resource(ApplicantsByVacancyResource,
+                 "/applicantsVacancy/<string:vacancy_id>")
 api_upload.add_resource(ApplicantUploadResource, "/upload")
 api.add_resource(ApplicantCVResource, "/applicant/<string:applicant_id>/cv")

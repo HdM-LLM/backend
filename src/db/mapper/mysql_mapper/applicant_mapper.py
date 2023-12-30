@@ -52,7 +52,8 @@ class ApplicantMapper(MySQLMapper):
     def get_by_id(self, applicant_id: str):
         result = []
         cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM applicant WHERE id='{}'".format(applicant_id))
+        cursor.execute(
+            "SELECT * FROM applicant WHERE id='{}'".format(applicant_id))
         tuples = cursor.fetchall()
         try:
             (
@@ -129,7 +130,7 @@ class ApplicantMapper(MySQLMapper):
         cursor.close()
         return result
 
-    def get_by_vacancy_id(self, vacancy_id: UUID):
+    def get_by_vacancy_id(self, vacancy_id: str):
         result = []
         cursor = self._connection.cursor()
         cursor.execute(

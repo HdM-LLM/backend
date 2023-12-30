@@ -11,6 +11,7 @@ from classes.applicant import Applicant
 from classes.rating import Rating
 import json
 from uuid import UUID
+from services.log_service import log
 
 
 def load_dot_env() -> None:
@@ -51,22 +52,6 @@ def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     return categories
 
 
-def get_cv_content_of_applicant(applicant_id: str, vacancy_id: str):
-    """
-    Returns the content of a CV from an applicant from the db
-    :param applicant_id: ID of the applicant from whom CV the content should be returned
-    :param vacancy_id: ID of the vacancy of which the CV should be returned
-    :return:
-    """
-
-    with CVMapper() as cv_mapper:
-        # cv_content = cv_mapper.get_by_id(applicant_id)["data"].decode()
-        cv = cv_mapper.get_by_id(applicant_id, vacancy_id)
-        cv_content = cv["data"].decode()
-
-    return cv_content
-
-
 def execute_prompt(prompt):
     """
     Sends the prompt to the OpenAI model
@@ -78,6 +63,7 @@ def execute_prompt(prompt):
     # print(f"Die Anfrage hat {num_tokens} Token.")
     # print("Prompt an OpenAI: ", {truncated_prompt})
     print(f"Sending request ({num_tokens} tokens) to GPT-4...")
+    log("rating_service", "GPT-4 Request: " + prompt)
 
     start_time = time.time()
     try:
@@ -93,6 +79,7 @@ def execute_prompt(prompt):
             timeout=200,  # Set the timeout in seconds
             n=1,
         )
+        log("rating_service", "GPT-4 Response: " + str(response))
     except openai.error.OpenAIError as e:
         print(f"Error from OpenAI: {e}")
         return "Timeout: No response from OpenAI within the specified time."
@@ -101,7 +88,9 @@ def execute_prompt(prompt):
 
     duration = end_time - start_time
     print(f"Response from GPT-4 received. It took {duration:.2f} seconds.")
-    return response.choices[0].message["content"].strip()
+
+    response_string = response.choices[0].message["content"].strip()
+    return response_string
 
 
 def create_rating_prompt(categories, cv_content):
@@ -121,9 +110,9 @@ def create_rating_prompt(categories, cv_content):
     categories_string = ", ".join(rating_prompts)
 
     return f"""
-    Please rate the following categories from 0 to 10, and provide a justification and a quote
+    Please rate the following categories from 0 to 10, and always provide a justification and a quote
     from the application for each rating. If you find a category not applicable or impossible to rate,
-    please assign a score of 0 and refrain from providing a written explanation:
+    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
     {cv_content}
 
     Ratings in JSON format:
@@ -133,7 +122,40 @@ def create_rating_prompt(categories, cv_content):
     """
 
 
-def rate_applicant(applicant: Applicant, vacancy_id: str):
+def rate_applicant_and_create_rating_objects(
+        cv_content_string: str, applicant: Applicant, vacancy_id: str, try_limit: int = 3) -> List[Rating]:
+    """
+    Puts together the steps to rate an applicant and create rating objects
+    :param cv_content_string: Content of the CV, which should be rated
+    :param applicant: Applicant which should be rated
+    :param vacancy_id: ID of the vacancy corresponding to the rating
+    :return: List of rating objects
+    """
+    ratings = []
+    try_count = 0
+
+    while try_count < try_limit:
+        try:
+            model_response = rate_applicant(
+                cv_content_string, applicant, vacancy_id)
+            ratings = create_rating_objects(
+                model_response, vacancy_id, applicant.get_id()
+            )
+            break
+        except json.decoder.JSONDecodeError as e:
+            print(f"Error while parsing JSON: {e}")
+            try_count += 1
+            if try_count < try_limit:
+                print(f"Retrying ({try_count}/{try_limit})...")
+                log("rating_service", "Retrying...")
+            else:
+                print(f"Error while parsing JSON: {e}")
+                log("rating_service", "Error while parsing JSON: " + str(e))
+                raise e
+    return ratings
+
+
+def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str):
     """
     Puts together the steps to rate an applicant
     :param applicant: Applicant which should be rated
@@ -146,7 +168,7 @@ def rate_applicant(applicant: Applicant, vacancy_id: str):
     categories = get_list_of_categories_from_vacancy(vacancy_id)
 
     # 3. Get the content of the cv pdf
-    cv_content = get_cv_content_of_applicant(applicant.get_id(), vacancy_id)
+    cv_content = cv_content_string
 
     # 4. Generate the prompt with both category and cv_content
     prompt = create_rating_prompt(categories, cv_content)
@@ -167,6 +189,7 @@ def extract_ratings_from_response(model_response: str) -> []:
 
     json_block_response = model_response[start_index:end_index]
 
+    # GPT-4 sometimes returns invalid JSON. The exception is caught at a higher level.
     parsed_json = json.loads(json_block_response)
 
     list_of_rating_responses = []
@@ -189,6 +212,7 @@ def create_rating_objects(
     :param applicant_id: ID of the applicant corresponding to the rating
     :return: List of rating instances
     """
+
     list_of_rating_responses = extract_ratings_from_response(model_response)
     ratings = []
 
@@ -211,7 +235,8 @@ def create_rating_objects(
 
         # Check if any required key is missing
         if any(v is None for v in (score, justification, quote)):
-            print(f"Warning: Missing key(s) in category '{category_name_response}'")
+            print(
+                f"Warning: Missing key(s) in category '{category_name_response}'")
 
         # TODO: Check if quote is in cv before inserting it
 

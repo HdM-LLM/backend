@@ -13,7 +13,8 @@ class MongoMapper(ABC):
         self._collection_name = collection
 
     def __enter__(self):
-        self._client = pymongo.MongoClient('mongodb://root:password@localhost:27017/')
+        self._client = pymongo.MongoClient(
+            'mongodb://root:password@localhost:27017/')
         self._database = self._client['skillsync']
         self._fs = GridFS(self._database)
         self._collection = self._database[self._collection_name]
@@ -28,7 +29,7 @@ class MongoMapper(ABC):
         pass
 
     @abstractmethod
-    def get_by_id(self, id):
+    def get_by_id(self, id, secondary_id=None):
         pass
 
     @abstractmethod

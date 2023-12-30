@@ -62,12 +62,12 @@ class CVMapper(MongoMapper):
                 "first_name": str(applicant.get_first_name()),
                 "last_name": str(applicant.get_last_name()),
                 "email": str(applicant.get_email()),
-                "vacancy_id": vacancy_id,
             },
+            "vacancy_id": vacancy_id,
         }
 
         # Create file name
-        filename = str(applicant.get_id()) + "&" + vacancy_id
+        filename = str(applicant.get_id()) + "_" + vacancy_id
 
         # Insert the cv into the db
         self.get_fs().put(cv.stream, filename=filename, metadata=metadata)
