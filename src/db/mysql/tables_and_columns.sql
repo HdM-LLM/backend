@@ -28,6 +28,15 @@ CREATE TABLE vacancy (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE category (
+    id VARCHAR(36) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    chip VARCHAR(255) NOT NULL,
+    guideline_for_zero VARCHAR(255) NOT NULL,
+    guideline_for_ten VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 
 CREATE TABLE rating (
     id VARCHAR(36) NOT NULL,
