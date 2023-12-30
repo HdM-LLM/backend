@@ -10,6 +10,7 @@ from uuid import UUID
 from classes.applicant import Applicant
 from classes.rating import Rating
 import json
+from uuid import UUID
 
 
 def load_dot_env() -> None:
@@ -50,15 +51,18 @@ def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     return categories
 
 
-def get_cv_content_of_applicant(applicant_id: UUID):
+def get_cv_content_of_applicant(applicant_id: str, vacancy_id: str):
     """
     Returns the content of a CV from an applicant from the db
     :param applicant_id: ID of the applicant from whom CV the content should be returned
+    :param vacancy_id: ID of the vacancy of which the CV should be returned
     :return:
     """
 
     with CVMapper() as cv_mapper:
-        cv_content = cv_mapper.get_by_id(applicant_id)['data'].decode()
+        # cv_content = cv_mapper.get_by_id(applicant_id)["data"].decode()
+        cv = cv_mapper.get_by_id(applicant_id, vacancy_id)
+        cv_content = cv["data"].decode()
 
     return cv_content
 
@@ -73,19 +77,21 @@ def execute_prompt(prompt):
     num_tokens = count_tokens(prompt)
     # print(f"Die Anfrage hat {num_tokens} Token.")
     # print("Prompt an OpenAI: ", {truncated_prompt})
-    print(f'Sending request ({num_tokens} tokens) to GPT-4...')
+    print(f"Sending request ({num_tokens} tokens) to GPT-4...")
 
     start_time = time.time()
     try:
         response = openai.ChatCompletion.create(
             model="gpt-4-1106-preview",
             messages=[
-                {"role": "system",
-                 "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively."},
-                {"role": "user", "content": prompt}
+                {
+                    "role": "system",
+                    "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively.",
+                },
+                {"role": "user", "content": prompt},
             ],
             timeout=200,  # Set the timeout in seconds
-            n=1
+            n=1,
         )
     except openai.error.OpenAIError as e:
         print(f"Error from OpenAI: {e}")
@@ -94,8 +100,8 @@ def execute_prompt(prompt):
     end_time = time.time()
 
     duration = end_time - start_time
-    print(f'Response from GPT-4 received. It took {duration:.2f} seconds.')
-    return response.choices[0].message['content'].strip()
+    print(f"Response from GPT-4 received. It took {duration:.2f} seconds.")
+    return response.choices[0].message["content"].strip()
 
 
 def create_rating_prompt(categories, cv_content):
@@ -109,7 +115,8 @@ def create_rating_prompt(categories, cv_content):
 
     for category in categories:
         rating_prompts.append(
-            f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}')
+            f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}'
+        )
 
     categories_string = ", ".join(rating_prompts)
 
@@ -126,7 +133,7 @@ def create_rating_prompt(categories, cv_content):
     """
 
 
-def rate_applicant(applicant: Applicant, vacancy_id: UUID):
+def rate_applicant(applicant: Applicant, vacancy_id: str):
     """
     Puts together the steps to rate an applicant
     :param applicant: Applicant which should be rated
@@ -139,7 +146,7 @@ def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     categories = get_list_of_categories_from_vacancy(vacancy_id)
 
     # 3. Get the content of the cv pdf
-    cv_content = get_cv_content_of_applicant(applicant.get_id())
+    cv_content = get_cv_content_of_applicant(applicant.get_id(), vacancy_id)
 
     # 4. Generate the prompt with both category and cv_content
     prompt = create_rating_prompt(categories, cv_content)
@@ -155,8 +162,8 @@ def extract_ratings_from_response(model_response: str) -> []:
     :return: Lists of categories
     """
     # TODO: This could be prone to errors if the response changes (unlikely) or if the response is not valid JSON (more likely) -> Error handling (Raise exception?)
-    start_index = model_response.find('{')
-    end_index = model_response.rfind('}') + 1
+    start_index = model_response.find("{")
+    end_index = model_response.rfind("}") + 1
 
     json_block_response = model_response[start_index:end_index]
 
@@ -165,7 +172,6 @@ def extract_ratings_from_response(model_response: str) -> []:
     list_of_rating_responses = []
 
     for category_name in list(parsed_json.keys()):
-
         category = {category_name: parsed_json[category_name]}
 
         list_of_rating_responses.append(category)
@@ -173,7 +179,9 @@ def extract_ratings_from_response(model_response: str) -> []:
     return list_of_rating_responses
 
 
-def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID) -> List:
+def create_rating_objects(
+    model_response: str, vacancy_id: UUID, applicant_id: UUID
+) -> List:
     """
     Creates rating instances
     :param model_response: Response of the OpenAI model
@@ -197,14 +205,13 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
                 category_id = category.get_id()
 
         # Get values with defaults if keys are missing
-        score = category_values_response.get('Score', None)
-        justification = category_values_response.get('Justification', None)
-        quote = category_values_response.get('Quote', None)
+        score = category_values_response.get("Score", None)
+        justification = category_values_response.get("Justification", None)
+        quote = category_values_response.get("Quote", None)
 
         # Check if any required key is missing
         if any(v is None for v in (score, justification, quote)):
-            print(
-                f"Warning: Missing key(s) in category '{category_name_response}'")
+            print(f"Warning: Missing key(s) in category '{category_name_response}'")
 
         # TODO: Check if quote is in cv before inserting it
 

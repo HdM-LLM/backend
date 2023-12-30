@@ -4,24 +4,44 @@ from uuid import UUID
 
 
 class ApplicantMapper(MySQLMapper):
-
     def __int__(self):
         super().__init__()
 
     def get_all(self):
         result = []
         cursor = self._connection.cursor()
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT * FROM applicant
-        """)
+        """
+        )
 
         tuples = cursor.fetchall()
 
         for tuple_data in tuples:
-            (id, first_name, last_name, date_of_birth, street, postal_code,
-             city, email, phone_number, face_image) = tuple_data
-            applicant = Applicant(first_name, last_name, date_of_birth,
-                                  street, postal_code, city, email, phone_number, face_image)
+            (
+                id,
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            ) = tuple_data
+            applicant = Applicant(
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            )
             applicant.set_id(UUID(id))
             result.append(applicant)
 
@@ -29,17 +49,35 @@ class ApplicantMapper(MySQLMapper):
         cursor.close()
         return result
 
-    def get_by_id(self, applicant_id: UUID):
+    def get_by_id(self, applicant_id: str):
         result = []
         cursor = self._connection.cursor()
-        cursor.execute(
-            "SELECT * FROM applicant WHERE id='{}'".format(applicant_id))
+        cursor.execute("SELECT * FROM applicant WHERE id='{}'".format(applicant_id))
         tuples = cursor.fetchall()
         try:
-            (id, first_name, last_name, date_of_birth, street,
-             postal_code, city, email, phone_number, face_image) = tuples[0]
-            applicant = Applicant(first_name, last_name, date_of_birth,
-                                  street, postal_code, city, email, phone_number, face_image)
+            (
+                id,
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            ) = tuples[0]
+            applicant = Applicant(
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            )
             applicant.set_id(UUID(id))
             result = applicant
 
@@ -54,13 +92,33 @@ class ApplicantMapper(MySQLMapper):
         result = []
         cursor = self._connection.cursor()
         cursor.execute(
-            "SELECT * FROM applicant WHERE email='{}'".format(applicant_email))
+            "SELECT * FROM applicant WHERE email='{}'".format(applicant_email)
+        )
         tuples = cursor.fetchall()
         try:
-            (id, first_name, last_name, date_of_birth, street,
-             postal_code, city, email, phone_number) = tuples[0]
-            applicant = Applicant(first_name, last_name, date_of_birth,
-                                  street, postal_code, city, email, phone_number)
+            (
+                id,
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            ) = tuples[0]
+            applicant = Applicant(
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            )
             applicant.set_id(UUID(id))
             result = applicant
 
@@ -74,20 +132,42 @@ class ApplicantMapper(MySQLMapper):
     def get_by_vacancy_id(self, vacancy_id: UUID):
         result = []
         cursor = self._connection.cursor()
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT a.*
             FROM applicant a
             JOIN applicant_vacancy av ON a.id = av.applicant_id
             WHERE av.vacancy_id = %s
-        """, (str(vacancy_id),))
+        """,
+            (str(vacancy_id),),
+        )
 
         tuples = cursor.fetchall()
 
         for tuple_data in tuples:
-            (id, first_name, last_name, date_of_birth, street, postal_code,
-             city, email, phone_number, face_image) = tuple_data
-            applicant = Applicant(first_name, last_name, date_of_birth,
-                                  street, postal_code, city, email, phone_number, face_image)
+            (
+                id,
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            ) = tuple_data
+            applicant = Applicant(
+                first_name,
+                last_name,
+                date_of_birth,
+                street,
+                postal_code,
+                city,
+                email,
+                phone_number,
+                face_image,
+            )
             applicant.set_id(UUID(id))
             result.append(applicant)
 
@@ -101,10 +181,7 @@ class ApplicantMapper(MySQLMapper):
             INSERT INTO applicant_vacancy (applicant_id, vacancy_id) 
             VALUES (%s, %s)
         """
-        data = (
-            str(applicant_id),
-            str(vacancy_id)
-        )
+        data = (str(applicant_id), str(vacancy_id))
 
         cursor.execute(query, data)
         self._connection.commit()
@@ -127,7 +204,7 @@ class ApplicantMapper(MySQLMapper):
             applicant.get_city(),
             applicant.get_email(),
             applicant.get_phone_number(),
-            applicant.get_face_image()
+            applicant.get_face_image(),
         )
 
         cursor.execute(query, data)
