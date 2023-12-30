@@ -64,6 +64,9 @@ def parse_date_of_birth(date_string):
 def process_cv_image(cv_pdf_file):
     cv_content = cv_pdf_file.read()
 
+    # Reset the file pointer
+    cv_pdf_file.seek(0)
+
     extracted_face_bytes = extract_image_from_pdf(cv_content)
 
     return extracted_face_bytes

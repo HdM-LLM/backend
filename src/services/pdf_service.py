@@ -17,4 +17,7 @@ def getPdfContent(pdf_file) -> str:
         page = pdf_reader.pages[page_number]
         content += page.extract_text()
 
+    # Reset the file pointer
+    pdf_file.seek(0)
+
     return content

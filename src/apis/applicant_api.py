@@ -1,5 +1,6 @@
+import io
 import json
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_file
 from flask_restful import Api, Resource
 import services.pdf_service as pdf_service
 import services.cv_service as cv_service
@@ -125,27 +126,25 @@ class ApplicantResource(Resource):
 class ApplicantCVResource(Resource):
     def get(self, applicant_id, vacancy_id):
         if applicant_id is None:
-            return None
+            return "Applicant id is missing", 400
+        if vacancy_id is None:
+            return "Vacancy id is missing", 400
 
-        # Get applicant by id to get email (needed to get cv)
-        with ApplicantMapper() as mapper:
-            retrieved_applicant = mapper.get_by_id(applicant_id)
+        # Get the cv from the database
+        with CVMapper() as cv_mapper:
+            retrieved_cv_name, retrieved_cv_bytes = cv_mapper.get_by_id(
+                applicant_id, vacancy_id)
 
-        # Get email from applicant
-        retrieved_applicant_email = retrieved_applicant.get_email()
+        # Check if the cv was found
+        if retrieved_cv_bytes is None:
+            return "CV not found", 404
 
-        # Get cv of applicant by email
-        with CVMapper() as mapper:
-            cv = mapper.get_by_email(retrieved_applicant_email)
-
-            formatted_cv = {
-                "id": cv.get_id(),
-                "content": cv.get_content(),
-            }
-
-        # print(formatted_cv)
-
-        return jsonify(formatted_cv)
+        # return bytes as pdf file
+        return send_file(
+            io.BytesIO(retrieved_cv_bytes),
+            download_name=retrieved_cv_name,
+            mimetype="application/pdf",
+        )
 
 
 # Class containing endpoints for /upload
@@ -158,7 +157,6 @@ class ApplicantUploadResource(Resource):
         vacancy_id = request.form["vacancy"]
 
         applicant_face_image = cv_service.process_cv_image(cv_pdf_file)
-
         cv_content_string = pdf_service.getPdfContent(cv_pdf_file)
         personal_data = cv_service.get_personal_data_from_cv(cv_content_string)
 
@@ -213,4 +211,5 @@ api.add_resource(ApplicantResource, "/applicants/<string:applicant_id>")
 api.add_resource(ApplicantsByVacancyResource,
                  "/applicantsVacancy/<string:vacancy_id>")
 api_upload.add_resource(ApplicantUploadResource, "/upload")
-api.add_resource(ApplicantCVResource, "/applicant/<string:applicant_id>/cv")
+api.add_resource(ApplicantCVResource,
+                 "/applicant/<string:applicant_id>/cv/<string:vacancy_id>/cv.pdf")

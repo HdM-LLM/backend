@@ -500,3 +500,1909 @@
 	  },
 	  "system_fingerprint": "fp_3905aa4f79"
 	}
+2023-12-30 21:45:55.434564 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 21:45:55.435568 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 21:46:01.763447 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8baVQfGXWmZbS7gis6wYnlUPDfM79",
+	  "object": "chat.completion",
+	  "created": 1703969156,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 21:46:01.765445 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 21:46:02.026447 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 21:46:37.700115 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8baVXfBIho3j1Ic7PcWg3VN5XHfmu",
+	  "object": "chat.completion",
+	  "created": 1703969163,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "In this scenario, I'm evaluating Alexander Schmidt as a job applicant based on the information provided. Please note that my evaluation focuses on professional qualities and skills. Personal data such as name, place of birth, address, phone number, and email address are not subject to rating due to equal employment opportunity laws and privacy considerations.\n\n```json\n{\n    \"Coding Skills\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has demonstrated extensive coding experience in multiple programming languages and has taken on significant software development responsibilities.\",\n        \"Quote\": \"\u2022 Spearheaded critical projects in Java, Python, and C++. \u2022 Expertly managed large-scale data storage and synchronization.\"\n    },\n    \"Communication Skills\": {\n        \"Score\": \"0\",\n        \"Justification\": \"\",\n        \"Quote\": \"\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"8\",\n        \"Justification\": \"The applicant mentions participating in team projects with a focus on learning and later leading development, which signifies effective teamwork.\",\n        \"Quote\": \"\u2022 Participated in team projects with a focus on learning. \u2022 Led development of core backend software components.\"\n    },\n    \"Networking Expertise\": {\n        \"Score\": \"0\",\n        \"Justification\": \"\",\n        \"Quote\": \"\"\n    },\n    \"Problem-Solving\": {\n        \"Score\": \"8\",\n        \"Justification\": \"The applicant has shown the ability to handle tasks independently and conduct optimizations, which indicates good problem-solving skills.\",\n        \"Quote\": \"\u2022 Analyzed and optimized system resources for efficiency. \u2022 Independently completed medium to large features.\"\n    }\n}\n```\n\nPlease remember that communication skills and networking expertise might actually be present in the applicant's profile, but they were not directly referable from the content provided. Therefore, I've followed the given instructions and rated them as '0' with no justification or quote. Additionally, if the applicant had provided specific examples or described situations demonstrating communication skills or networking expertise, those ratings could have been assessed and likely would have been higher."
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 805,
+	    "completion_tokens": 413,
+	    "total_tokens": 1218
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 21:53:33.704037 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 21:53:33.704511 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 21:53:38.417073 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bacoGuc0cs8uh67NJv8vO1vFlfb2",
+	  "object": "chat.completion",
+	  "created": 1703969614,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 21:53:38.418072 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 21:53:38.773067 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 22:06:42.936095 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:06:42.936598 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:11:01.440123 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:11:01.441095 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:11:08.962418 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8batiLSAhgUaeS2UFjlvfQnWvfRnq",
+	  "object": "chat.completion",
+	  "created": 1703970662,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:11:08.963880 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 22:13:20.405351 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:13:20.405827 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:13:26.236427 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bavxM2xl8kRV6lTwfaaCJp3gFceA",
+	  "object": "chat.completion",
+	  "created": 1703970801,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:13:26.238936 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 22:14:34.610021 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:14:34.610999 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:14:40.474905 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bax9vt413peheeYxYGM6oYiBwqsH",
+	  "object": "chat.completion",
+	  "created": 1703970875,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:14:40.475907 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 22:14:40.573756 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 22:15:06.541991 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8baxFkq5ZDKZK5pgMmJkU3E1sOPzW",
+	  "object": "chat.completion",
+	  "created": 1703970881,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Coding Skills\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has a significant amount of experience working as a Software Developer and Engineer, indicating an extensive expertise in coding. They have worked with multiple programming languages and have led the development of backend software components.\",\n        \"Quote\": \"\u2022 Spearheaded critical projects in Java, Python, and C++. \u2022 Led development of core backend software components.\"\n    },\n    \"Communication Skills\": {\n        \"Score\": \"7\",\n        \"Justification\": \"While the application does not directly mention communication skills, the roles and responsibilities described imply a good level of communication, such as conducting design and code reviews and mentoring junior developers.\",\n        \"Quote\": \"\u2022 Conducted rigorous design and code reviews. \u2022 Mentored Junior Developers.\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"8\",\n        \"Justification\": \"The applicant has demonstrated the ability to work in a team setting during both junior and senior roles. They have participated in team projects with a focus on learning and have also led development projects.\",\n        \"Quote\": \"\u2022 Participated in team projects with a focus on learning. \u2022 Spearheaded critical projects in Java, Python, and C++.\"\n    },\n    \"Networking Expertise\": {\n        \"Score\": \"0\",\n        \"Justification\": \"\",\n        \"Quote\": \"\"\n    },\n    \"Problem-Solving\": {\n        \"Score\": \"8\",\n        \"Justification\": \"The application shows that the applicant has taken part in rigorous design and code reviews and has optimized system resources, which indicate strong problem-solving abilities. However, specific challenging problems solved are not detailed.\",\n        \"Quote\": \"\u2022 Analyzed and optimized system resources for efficiency.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 805,
+	    "completion_tokens": 360,
+	    "total_tokens": 1165
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:17:00.573151 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:17:00.573620 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:17:11.303904 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bazV3cdlC8QmlO9gDs75rCQLR2Bl",
+	  "object": "chat.completion",
+	  "created": 1703971021,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n``` \n\nPlease note that the postal code is not provided in the curriculum vitae, hence it is left empty."
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 109,
+	    "total_tokens": 644
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:17:11.304386 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	``` 
+	
+	Please note that the postal code is not provided in the curriculum vitae, hence it is left empty.
+2023-12-30 22:17:11.414507 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 22:29:14.681299 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:29:14.682299 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:29:21.536741 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bbBLPQ7PgN8eczV7aLbIg0MQzaU4",
+	  "object": "chat.completion",
+	  "created": 1703971755,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:29:21.537742 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 22:29:21.687240 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 22:33:48.821693 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:33:48.822193 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2023-12-30 22:33:53.049574 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bbFl8n6vpgUprGhh0jIN5kxiZ12O",
+	  "object": "chat.completion",
+	  "created": 1703972029,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alexander\",\n    \"last_name\": \"Schmidt\",\n    \"date_of_birth\": \"18-06-1988\",\n    \"street\": \"Cityscape Avenue 12\",\n    \"postal_code\": \"\",\n    \"city\": \"Berlin\",\n    \"email\": \"alexander.schmidt@email.com\",\n    \"phone_number\": \"+49 176 7654321\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 535,
+	    "completion_tokens": 88,
+	    "total_tokens": 623
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2023-12-30 22:33:53.050571 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alexander",
+	    "last_name": "Schmidt",
+	    "date_of_birth": "18-06-1988",
+	    "street": "Cityscape Avenue 12",
+	    "postal_code": "",
+	    "city": "Berlin",
+	    "email": "alexander.schmidt@email.com",
+	    "phone_number": "+49 176 7654321"
+	}
+	```
+2023-12-30 22:33:53.295490 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name:  Alexander Schmidt  
+	Date/Place  of Birth:  06/18/1988, Berlin  
+	Address:  Cityscape Avenue 12, Berlin, Germany  
+	Phone  Number:  +49 176 7654321  
+	Email  Address:  alexander.schmidt@email.com  
+	 
+	Professional  Experience  
+	08/2011  - 07/2014  
+	Junior  Software  Developer  
+	Tech  Pioneers  Berlin  (Berlin, Germany)  
+	• Collaborated on coding tasks in Java and Python.  
+	• Contributed to various projects with guidance.  
+	• Participated in team projects with a focus on learning.  
+	• Executed routine tasks under mentorship.  
+	08/2015  - Present  
+	Senior  Software  Engineer  
+	Tech  Innovations  Berlin  (Berlin, Germany)  
+	• Spearheaded critical projects in Java, Python, and C++.  
+	• Designed, developed, and deployed mission -critical systems.  
+	• Orchestrated implementation of groundbreaking features.  
+	• Led development of core backend software components.  
+	• Expertly managed large -scale data storage and synchronization.  
+	• Conducted rigorous design and code reviews.  
+	• Analyzed and optimized system resources for efficiency.  
+	• Independently completed medium to large features.  
+	 
+	Education  
+	09/2007  – 05/2011  
+	Bachelor  of Science  in Computer  Science  
+	Technical  University  of Berlin  (Berlin, Germany)  
+	• Graduated with high honors (GPA: 3.8).  
+	 
+	Skills  
+	Programming  Languages:  Java, Python, C++  
+	Databases:  MySQL, PostgreSQL  
+	Operating  Systems:  Linux, Windows  
+	Web  Technologies:  HTML, CSS, JavaScript  
+	Version  Control:  Git 
+	Languages:  German (Native), English (Fluent)  
+	 
+	Interests  
+	• Music Production  
+	• Tech Conferences  
+	• Mentoring Junior Developers  
+	Alexander  Schmidt  
+	Berlin,  02/05/2023  
+	 
+	
+	    Ratings in JSON format:
+	    {
+	        "Coding Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any coding-related experiences or skills.", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in languages like Python and Java."}, "Communication Skills": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Lacks examples of clear and concise communication in professional contexts.", "Guideline_10": "Provides multiple instances of clear and effective communication in professional contexts."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}, "Networking Expertise": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences related to networking concepts or projects.", "Guideline_10": "Provides detailed experiences and achievements in networking, showcasing in-depth knowledge."}, "Problem-Solving": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any experiences where problem-solving was essential.", "Guideline_10": "Highlights various instances where problem-solving skills were crucial, providing detailed examples."}
+	    }
+	    
+2023-12-30 22:34:20.071869 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8bbFqyoI8PQcj9luKfuqqpHsMmliW",
+	  "object": "chat.completion",
+	  "created": 1703972034,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Coding Skills\": {\n        \"Score\": \"9\", \n        \"Justification\": \"The applicant has demonstrated extensive coding experience, detailing work in multiple programming languages and complex projects. The score isn't a full 10 as there may still be room for even broader language expertise or specialized coding skills not mentioned.\", \n        \"Quote\": \"\u2022 Spearheaded critical projects in Java, Python, and C++.\"\n    }, \n    \"Communication Skills\": {\n        \"Score\": \"7\", \n        \"Justification\": \"Applicant's experience suggests good communication skills, such as conducting rigorous design and code reviews, which require clear exchange of ideas. However, specific examples of communication are not provided.\", \n        \"Quote\": \"\u2022 Conducted rigorous design and code reviews.\"\n    }, \n    \"Teamwork\": {\n        \"Score\": \"8\", \n        \"Justification\": \"Applicant has been involved in collaborative environments and team projects, demonstrating the ability to work as part of a team. The description suggests they've had a more active and leadership role rather than just participating.\", \n        \"Quote\": \"\u2022 Participated in team projects with a focus on learning.\"\n    },\n    \"Networking Expertise\": {\n        \"Score\": \"0\", \n        \"Justification\": \"\", \n        \"Quote\": \"\"\n    },\n    \"Problem-Solving\": {\n        \"Score\": \"8\", \n        \"Justification\": \"Applicant shows strong problem-solving skills through their responsibilities in optimizing system resources and implementing features, but without specific examples of unique or exceptional problem-solving scenarios.\", \n        \"Quote\": \"\u2022 Analyzed and optimized system resources for efficiency.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 805,
+	    "completion_tokens": 344,
+	    "total_tokens": 1149
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
