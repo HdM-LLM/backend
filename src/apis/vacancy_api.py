@@ -1,9 +1,10 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
-
+import services.vacancy_service as vacancy_service
 from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper as MySQLVacancyMapper
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper as MongoDBVacancyMapper
 from classes.category import Category
+import json
 
 vacancy_api = Blueprint('vacancy_api', __name__)
 api = Api(vacancy_api)
@@ -68,8 +69,37 @@ class VacancyResource(Resource):
 
         return jsonify(formatted_vacancy)
 
+class GenerateVacancyResource(Resource):
+    def post(self):
+        data = request.get_json()
+
+        # Extract required data from the request payload
+        basic_information = data.get('basicInformation', {})
+        selected_categories = data.get('selectedCategories', [])
+        adjust_prompt = data.get('adjustPrompt', '')
+
+        generated_vacancy = vacancy_service.generate_text(basic_information, selected_categories, adjust_prompt)
+        vacancy_data = json.loads(generated_vacancy)
+        vacancy_text = vacancy_data.get('vacancy_text', '')
+
+        return jsonify({'generatedVacancy': vacancy_text})
+
+class AddVacancyResource(Resource):
+    def post(self):
+        data = request.get_json()
+
+        # Extract required data from the request payload
+        basic_information = data.get('basicInformation', {})
+        selected_categories = data.get('selectedCategories', [])
+        generated_vacancy = data.get('generatedVacancy', '')
+        
+        # TODO Add the vacancy using the service or mapper
+
+        return jsonify({'message': 'Vacancy added successfully'})
+
 
 # Register resources directly to the API instance
 api.add_resource(VacancyListResource, '/vacancies')
-api.add_resource(
-    VacancyResource, '/vacancies/<string:vacancy_id>')
+api.add_resource(VacancyResource, '/vacancies/<string:vacancy_id>')
+api.add_resource(GenerateVacancyResource, '/vacancies/generateVacancy')
+api.add_resource(AddVacancyResource, '/vacancies/addVacancy')

@@ -1,8 +1,6 @@
 import os
 from typing import List
-
-import openai
-from dotenv import load_dotenv, find_dotenv
+import services.openai_service as openai_service
 import time
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
@@ -10,27 +8,6 @@ from uuid import UUID
 from classes.applicant import Applicant
 from classes.rating import Rating
 import json
-
-
-def load_dot_env() -> None:
-    """
-    Loads the api-key from the .env
-    :return: None
-    """
-    load_dotenv()
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    openai.api_key = OPENAI_API_KEY
-
-
-def count_tokens(prompt) -> int:
-    """
-    Returns the amount of tokens inside a prompt
-    :param prompt: Prompt which should be tokenized
-    :return: Amount of tokens
-    """
-    words = prompt.split()
-    num_tokens = len(words)
-    return num_tokens
 
 
 def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
@@ -63,41 +40,6 @@ def get_cv_content_of_applicant(applicant_id: UUID):
     return cv_content
 
 
-def execute_prompt(prompt):
-    """
-    Sends the prompt to the OpenAI model
-    :param prompt: Prompt which, should be sent to the model
-    :return: The response from the model
-    """
-    truncated_prompt = prompt[:100] + "..." if len(prompt) > 100 else prompt
-    num_tokens = count_tokens(prompt)
-    print(f"Die Anfrage hat {num_tokens} Token.")
-    print("Prompt an OpenAI: ", {truncated_prompt})
-
-    start_time = time.time()
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4-1106-preview",
-            messages=[
-                {"role": "system",
-                 "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively."},
-                {"role": "user", "content": prompt}
-            ],
-            timeout=200,  # Set the timeout in seconds
-            n=1
-        )
-    except openai.error.OpenAIError as e:
-        print(f"Error from OpenAI: {e}")
-        return "Timeout: No response from OpenAI within the specified time."
-
-    end_time = time.time()
-
-    duration = end_time - start_time
-    print(f"Antwort von OpenAI erhalten (Dauer: {duration:.2f} Sekunden)")
-    print(response.choices[0].message['content'].strip())
-    return response.choices[0].message['content'].strip()
-
-
 def create_rating_prompt(categories, cv_content):
     """
     Creates the prompt for the OpenAI model
@@ -125,7 +67,6 @@ def create_rating_prompt(categories, cv_content):
     }}
     """
 
-
 def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     """
     Puts together the steps to rate an applicant
@@ -133,7 +74,7 @@ def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     :return: The rated categories from the model
     """
     # 1. Load the model
-    load_dot_env()
+    openai_service.load_dot_env()
 
     # 2. Get the categories of the vacancy, which will be used for rating
     # TODO: at the moment hard coded to the frontend engineer vacancy uuid
@@ -146,7 +87,7 @@ def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     prompt = create_rating_prompt(categories, cv_content)
 
     # 5. Return the response of GPT
-    return execute_prompt(prompt)
+    return openai_service.execute_prompt(prompt)
 
 
 def extract_ratings_from_response(model_response: str) -> []:
