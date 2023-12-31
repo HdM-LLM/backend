@@ -1,6 +1,7 @@
 import os
 from typing import List
-import services.openai_service as openai_service
+import openai
+from dotenv import load_dotenv, find_dotenv
 import time
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
@@ -8,6 +9,8 @@ from uuid import UUID
 from classes.applicant import Applicant
 from classes.rating import Rating
 import json
+from services.log_service import log
+from services import openai_service
 
 
 def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
@@ -27,19 +30,6 @@ def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     return categories
 
 
-def get_cv_content_of_applicant(applicant_id: UUID):
-    """
-    Returns the content of a CV from an applicant from the db
-    :param applicant_id: ID of the applicant from whom CV the content should be returned
-    :return:
-    """
-
-    with CVMapper() as cv_mapper:
-        cv_content = cv_mapper.get_by_id(applicant_id)['data'].decode()
-
-    return cv_content
-
-
 def create_rating_prompt(categories, cv_content):
     """
     Creates the prompt for the OpenAI model
@@ -51,14 +41,15 @@ def create_rating_prompt(categories, cv_content):
 
     for category in categories:
         rating_prompts.append(
-            f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}')
+            f'"{category.get_name()}": {{"Score": "", "Justification": "", "Quote": "", "Guideline_0": "{category.get_guideline_for_zero()}", "Guideline_10": "{category.get_guideline_for_ten()}"}}'
+        )
 
     categories_string = ", ".join(rating_prompts)
 
     return f"""
-    Please rate the following categories from 0 to 10, and provide a justification and a quote
+    Please rate the following categories from 0 to 10, and always provide a justification and a quote
     from the application for each rating. If you find a category not applicable or impossible to rate,
-    please assign a score of 0 and refrain from providing a written explanation:
+    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
     {cv_content}
 
     Ratings in JSON format:
@@ -67,7 +58,41 @@ def create_rating_prompt(categories, cv_content):
     }}
     """
 
-def rate_applicant(applicant: Applicant, vacancy_id: UUID):
+
+def rate_applicant_and_create_rating_objects(
+        cv_content_string: str, applicant: Applicant, vacancy_id: str, try_limit: int = 3) -> List[Rating]:
+    """
+    Puts together the steps to rate an applicant and create rating objects
+    :param cv_content_string: Content of the CV, which should be rated
+    :param applicant: Applicant which should be rated
+    :param vacancy_id: ID of the vacancy corresponding to the rating
+    :return: List of rating objects
+    """
+    ratings = []
+    try_count = 0
+
+    while try_count < try_limit:
+        try:
+            model_response = rate_applicant(
+                cv_content_string, applicant, vacancy_id)
+            ratings = create_rating_objects(
+                model_response, vacancy_id, applicant.get_id()
+            )
+            break
+        except json.decoder.JSONDecodeError as e:
+            print(f"Error while parsing JSON: {e}")
+            try_count += 1
+            if try_count < try_limit:
+                print(f"Retrying ({try_count}/{try_limit})...")
+                log("rating_service", "Retrying...")
+            else:
+                print(f"Error while parsing JSON: {e}")
+                log("rating_service", "Error while parsing JSON: " + str(e))
+                raise e
+    return ratings
+
+
+def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str):
     """
     Puts together the steps to rate an applicant
     :param applicant: Applicant which should be rated
@@ -77,11 +102,10 @@ def rate_applicant(applicant: Applicant, vacancy_id: UUID):
     openai_service.load_dot_env()
 
     # 2. Get the categories of the vacancy, which will be used for rating
-    # TODO: at the moment hard coded to the frontend engineer vacancy uuid
     categories = get_list_of_categories_from_vacancy(vacancy_id)
 
     # 3. Get the content of the cv pdf
-    cv_content = get_cv_content_of_applicant(applicant.get_id())
+    cv_content = cv_content_string
 
     # 4. Generate the prompt with both category and cv_content
     prompt = create_rating_prompt(categories, cv_content)
@@ -96,17 +120,18 @@ def extract_ratings_from_response(model_response: str) -> []:
     :param model_response: Response of the OpenAI model
     :return: Lists of categories
     """
-    start_index = model_response.find('{')
-    end_index = model_response.rfind('}') + 1
+    # TODO: This could be prone to errors if the response changes (unlikely) or if the response is not valid JSON (more likely) -> Error handling (Raise exception?)
+    start_index = model_response.find("{")
+    end_index = model_response.rfind("}") + 1
 
     json_block_response = model_response[start_index:end_index]
 
+    # GPT-4 sometimes returns invalid JSON. The exception is caught at a higher level.
     parsed_json = json.loads(json_block_response)
 
     list_of_rating_responses = []
 
     for category_name in list(parsed_json.keys()):
-
         category = {category_name: parsed_json[category_name]}
 
         list_of_rating_responses.append(category)
@@ -114,7 +139,9 @@ def extract_ratings_from_response(model_response: str) -> []:
     return list_of_rating_responses
 
 
-def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID) -> List:
+def create_rating_objects(
+    model_response: str, vacancy_id: UUID, applicant_id: UUID
+) -> List:
     """
     Creates rating instances
     :param model_response: Response of the OpenAI model
@@ -122,6 +149,7 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
     :param applicant_id: ID of the applicant corresponding to the rating
     :return: List of rating instances
     """
+
     list_of_rating_responses = extract_ratings_from_response(model_response)
     ratings = []
 
@@ -138,9 +166,9 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
                 category_id = category.get_id()
 
         # Get values with defaults if keys are missing
-        score = category_values_response.get('Score', None)
-        justification = category_values_response.get('Justification', None)
-        quote = category_values_response.get('Quote', None)
+        score = category_values_response.get("Score", None)
+        justification = category_values_response.get("Justification", None)
+        quote = category_values_response.get("Quote", None)
 
         # Check if any required key is missing
         if any(v is None for v in (score, justification, quote)):

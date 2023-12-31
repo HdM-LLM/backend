@@ -45,7 +45,6 @@ class RatingResource(Resource):
                 for rating in ratings
             ]
 
-            print(ratings)
         return jsonify(formatted_ratings)
 
 

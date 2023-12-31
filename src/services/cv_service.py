@@ -6,6 +6,8 @@ from PIL import Image
 from io import BytesIO
 import face_recognition
 from pdf2image import convert_from_bytes
+from services.log_service import log
+
 
 def get_personal_data_from_cv(cv_content: str) -> str:
     openai_service.load_dot_env()
@@ -29,7 +31,9 @@ def get_personal_data_from_cv(cv_content: str) -> str:
 
     If you can't find a value, please leave it empty
     """
+    log("cv_service", "GPT-4 Request: " + prompt)
     model_response = openai_service.execute_prompt(prompt)
+    log("cv_service", "GPT-4 Response: " + model_response)
 
     start_index = model_response.find('{')
     end_index = model_response.rfind('}') + 1
@@ -38,9 +42,11 @@ def get_personal_data_from_cv(cv_content: str) -> str:
 
     parsed_json = json.loads(json_block_response)
 
-    parsed_json["date_of_birth"] = parse_date_of_birth(parsed_json["date_of_birth"])
+    parsed_json["date_of_birth"] = parse_date_of_birth(
+        parsed_json["date_of_birth"])
 
     return parsed_json
+
 
 def parse_date_of_birth(date_string):
     formats_to_try = ["%d.%m.%Y", "%d-%m-%Y"]
@@ -54,16 +60,21 @@ def parse_date_of_birth(date_string):
     # If none of the formats match
     raise ValueError(f"Could not parse date: {date_string}")
 
+
 def process_cv_image(cv_pdf_file):
     cv_content = cv_pdf_file.read()
+
+    # Reset the file pointer
+    cv_pdf_file.seek(0)
 
     extracted_face_bytes = extract_image_from_pdf(cv_content)
 
     return extracted_face_bytes
 
+
 def extract_image_from_pdf(pdf_content):
     images = convert_from_bytes(pdf_content)
-    
+
     if not images:
         return None
 
@@ -76,6 +87,7 @@ def extract_image_from_pdf(pdf_content):
     face_image_bytes = extract_face_from_image(image_content)
 
     return face_image_bytes
+
 
 def extract_face_from_image(image_content, offset=40):
     image = face_recognition.load_image_file(image_content)
@@ -98,6 +110,7 @@ def extract_face_from_image(image_content, offset=40):
     face_image_bytes = image_to_bytes(face_image)
 
     return face_image_bytes
+
 
 def image_to_bytes(image):
     image_bytes = BytesIO()
