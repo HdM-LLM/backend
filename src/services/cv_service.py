@@ -1,5 +1,5 @@
 from datetime import datetime, date
-import services.rating_service as rating_service
+import services.openai_service as openai_service
 import json
 from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from PIL import Image
@@ -10,7 +10,7 @@ from services.log_service import log
 
 
 def get_personal_data_from_cv(cv_content: str) -> str:
-    rating_service.load_dot_env()
+    openai_service.load_dot_env()
 
     prompt = f"""
     Extract metadata from the curriculum vitae:
@@ -32,7 +32,7 @@ def get_personal_data_from_cv(cv_content: str) -> str:
     If you can't find a value, please leave it empty
     """
     log("cv_service", "GPT-4 Request: " + prompt)
-    model_response = rating_service.execute_prompt(prompt)
+    model_response = openai_service.execute_prompt(prompt)
     log("cv_service", "GPT-4 Response: " + model_response)
 
     start_index = model_response.find('{')

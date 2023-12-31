@@ -1,8 +1,8 @@
 import os
 from typing import List
-
+import services.openai_service as openai_service
 import openai
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import time
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
@@ -10,8 +10,6 @@ from uuid import UUID
 from classes.applicant import Applicant
 from classes.rating import Rating
 import json
-from uuid import UUID
-from services.log_service import log
 
 
 def load_dot_env() -> None:
@@ -162,7 +160,7 @@ def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str
     :return: The rated categories from the model
     """
     # 1. Load the model
-    load_dot_env()
+    openai_service.load_dot_env()
 
     # 2. Get the categories of the vacancy, which will be used for rating
     categories = get_list_of_categories_from_vacancy(vacancy_id)
@@ -174,7 +172,7 @@ def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str
     prompt = create_rating_prompt(categories, cv_content)
 
     # 5. Return the response of GPT
-    return execute_prompt(prompt)
+    return openai_service.execute_prompt(prompt)
 
 
 def extract_ratings_from_response(model_response: str) -> []:
