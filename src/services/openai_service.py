@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 import time
 from services.log_service import log
-
+import json
 
 def load_dot_env() -> None:
     """
@@ -49,7 +49,8 @@ def execute_prompt(prompt):
                     "content": "You are a critical Human Resources professional who evaluates job applicants objectively and attentively.",
                 },
                 {"role": "user", "content": prompt},
-            ],
+            ],            
+            temperature = 0.2,
             timeout=200,  # Set the timeout in seconds
             n=1,
         )
@@ -65,3 +66,26 @@ def execute_prompt(prompt):
 
     response_string = response.choices[0].message["content"].strip()
     return response_string
+
+def validate_response(response, required_keys):
+    """
+    Validates if the response is a valid JSON with the given keys
+    :param response: The response to be validated
+    :param required_keys: List of required keys in the JSON
+    :return: True if the response is valid, False otherwise
+    """
+    try:
+        # Attempt to parse the response as JSON
+        json_data = json.loads(response)
+
+        # Check if all required keys are present in the JSON
+        if all(key in json_data for key in required_keys):
+            return True
+        else:
+            print("Not all required keys present in the JSON.")
+            return False
+
+    except json.JSONDecodeError:
+        print("Invalid JSON format.")
+        return False
+    
