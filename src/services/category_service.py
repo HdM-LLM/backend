@@ -16,7 +16,7 @@ def get_guidelines(category_name):
     Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the {category_name}
     category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
     (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
-    mentioned in their CV. Please dont make each guideline longer then varchar(200).
+    mentioned in their CV. Please dont make each guideline longer then 200 characters.
 
 
     Please provide the response in the following JSON format:

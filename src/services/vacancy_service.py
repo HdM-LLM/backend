@@ -4,7 +4,6 @@ import json
 from io import BytesIO
 import services.openai_service as openai_service
 
-
 def generate_text(basic_information, selected_categories, adjust_prompt):
 
     job_name = basic_information['jobName']
@@ -15,10 +14,25 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
     language_requirements = basic_information['languageRequirements']
     additional_information = basic_information['additionalInformation']
 
+    # Create the JSON structure
+    full_json_structure = {
+        "tasks": "",
+        "required_skills": "",
+        "workplace_and_working_hours": "",
+        "language_requirements": "",
+        "additional_information": "",
+    }
+
+     # Extract the required keys from the full_json_structure
+    required_keys = list(full_json_structure.keys())
+
+    # Convert the JSON structure to a string
+    full_json_structure_str = json.dumps(full_json_structure)
+
 
     openai_service.load_dot_env()
 
-    prompt = f"Create a profession vacancy text for the position of {job_name} in the {department} department. Include the following details:\n\n"\
+    prompt = f"Create a profession vacancy text for the position of {job_name} in the {department} department. Therse are some basic informations:\n\n"\
          f"**Job Title:** {job_name}\n"\
          f"**Department:** {department}\n"\
          f"**Tasks and Responsibilities:** {tasks_and_responsibilities}\n"\
@@ -30,7 +44,6 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
 
     for category in selected_categories:
         skill_name = category['name']
-        skill_weight = category['weight']
         skill_chip = category['chip']
 
         prompt += f"\n- **{skill_name}:**\n"\
@@ -38,21 +51,61 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
 
     prompt += adjust_prompt
     # Closing statement
-    prompt += """ Please provide the response in a valid JSON format, and dont use markdown-style formatting in the JSON string. The JSON should only contain plain text an only one key called vacancy_test.
-        """
+    prompt += f"\nPlease provide the response in the following JSON format:\n{{\n{full_json_structure_str}\n}}"
 
-    
-    model_response = openai_service.execute_prompt(prompt)
+    # Attempt to execute the prompt up to 3 times
+    for attempt in range(3):
+        model_response = openai_service.execute_prompt(prompt)
+        start_index = model_response.find('{')
+        end_index = model_response.rfind('}') + 1
 
-    start_index = model_response.find('{')
-    end_index = model_response.rfind('}') + 1
+        json_block_str = model_response[start_index:end_index]
 
-    json_block_response = model_response[start_index:end_index]
+        # Check if the response is a valid JSON with the required keys
+        if openai_service.validate_response(json_block_str, required_keys):
+            break
+        else:
+            print(f"Attempt {attempt + 1} failed. Retrying...")
+    else:
+        # If all attempts fail, raise an error
+        raise ValueError("Failed to get a valid response from the model after 3 attempts.")
 
-    json_data = json.dumps(json_block_response)
 
+   
+
+    # Preprocess the JSON string to remove control characters
+    json_block_str_cleaned = ''.join(char for char in json_block_str if char.isprintable())
+
+    # Load the cleaned JSON string
+    json_block_response = json.loads(json_block_str_cleaned)
+
+    # Create the full text
+    full_text_dict = {
+    "vacancy_text": f'''
+    Job Title: {basic_information['jobName']}
+    Department: {basic_information['department']}
+        
+    Tasks:
+    {json_block_response['tasks']}
+        
+    Required Skills:
+    {json_block_response['required_skills']}
+        
+    Workplace and Working Hours:
+    {json_block_response['workplace_and_working_hours']}
+        
+    Language Requirements:
+    {json_block_response['language_requirements']}
+        
+    Additional Information:
+    {json_block_response['additional_information']}
+    '''
+    }
+
+    # Convert the dictionary to JSON
+    json_data = json.dumps(full_text_dict)
     parsed_json = json.loads(json_data)
-    print(parsed_json)
+
     return parsed_json
 
 

@@ -79,8 +79,7 @@ class GenerateVacancyResource(Resource):
         adjust_prompt = data.get('adjustPrompt', '')
 
         generated_vacancy = vacancy_service.generate_text(basic_information, selected_categories, adjust_prompt)
-        vacancy_data = json.loads(generated_vacancy)
-        vacancy_text = vacancy_data.get('vacancy_text', '')
+        vacancy_text = generated_vacancy.get('vacancy_text', '')
 
         return jsonify({'generatedVacancy': vacancy_text})
 
