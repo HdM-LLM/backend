@@ -13,10 +13,8 @@ After cloning the backend to your local repository you need to perform the follo
   - Install the required dependencies:
     - macOS: `pip install -r ../requirements.txt` <br>
     - Windows: `pip install -r ..\requirements.txt`
-  - Install `nodemon` globally:
-    - macOS and Windows: `npm install -g nodemon`
 - Start the application:
   - Make sure you are in the `src` directory and your virtual environment is activated or the right python kernel is selected!
   - Run the following command to start the server in development mode:
-    - macOS and Windows: `nodemon --exec python3 app.py`
+    - macOS and Windows: `python3 app.py`
 - In addition make sure to create or copy your `.env` file with your API keys to be able to use OpenAI and/or HuggingFace.
