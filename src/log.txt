@@ -1,0 +1,3106 @@
+2024-01-07 11:47:21.361252 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    []
+	
+	    Fits to this topic: 
+	
+	    Java
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-07 11:47:23.191823 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eKyXFmVxOMbgy2qhtNYmd3XyfJw4",
+	  "object": "chat.completion",
+	  "created": 1704624441,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Programming Languages\",\n    \"existed\": \"false\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 88,
+	    "completion_tokens": 22,
+	    "total_tokens": 110
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 11:47:23.207339 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Java
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-07 11:47:26.321481 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eKyZVROT8wO4vV5ROo47MNq6Y3My",
+	  "object": "chat.completion",
+	  "created": 1704624443,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No Java experience. Lacks relevant education, skills, or any coding background.\",\n    \"guideline_for_ten\": \"Expert in Java with extensive experience, certifications, and a strong portfolio of projects.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 54,
+	    "total_tokens": 196
+	  },
+	  "system_fingerprint": "fp_6aca3b5ce1"
+	}
+2024-01-07 11:47:37.734220 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Languages']
+	
+	    Fits to this topic: 
+	
+	    Spring Boot
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-07 11:47:39.205220 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eKyoxepyMDYGEdHKQn1Galxxc6XC",
+	  "object": "chat.completion",
+	  "created": 1704624458,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Frameworks and Libraries\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 92,
+	    "completion_tokens": 23,
+	    "total_tokens": 115
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2024-01-07 11:47:39.220259 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Spring Boot
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-07 11:47:41.964901 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eKyp7beGT8pS2lH55zyIZchIH5UZ",
+	  "object": "chat.completion",
+	  "created": 1704624459,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No mention of Spring Boot or relevant skills. Lacks required experience and certifications.\",\n    \"guideline_for_ten\": \"Expert in Spring Boot with certifications. Proven track record with substantial projects and advanced skills.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 143,
+	    "completion_tokens": 56,
+	    "total_tokens": 199
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 11:48:02.226459 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Java Backend Developer in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** Java Backend Developer
+	**Department:** department1
+	**Tasks and Responsibilities:** Implementing and maintaining a Java Spring Boot Backend
+	**Required Skills:** Coding, Unit Testing etc.
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** 
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Java:**
+	  Craft an engaging description highlighting the importance of Java for this role. Emphasize the significance of Java in department1 and its impact on the success of our projects. Showcase the value of Java proficiency in Programming Languages and illustrate how candidates with expertise in Java contribute to innovation and success within our team.
+	
+	- **Spring Boot:**
+	  Craft an engaging description highlighting the importance of Spring Boot for this role. Emphasize the significance of Spring Boot in department1 and its impact on the success of our projects. Showcase the value of Spring Boot proficiency in Frameworks and Libraries and illustrate how candidates with expertise in Spring Boot contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-07 11:48:14.545843 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eKzCYFbvqUzaNS82GAUmAT8VSESV",
+	  "object": "chat.completion",
+	  "created": 1704624482,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"As a Java Backend Developer in department1, you will be tasked with implementing and maintaining robust Java Spring Boot backends. Your role will involve writing clean, efficient, and scalable code, ensuring the highest level of performance and responsiveness for our applications. You will collaborate with cross-functional teams to define, design, and ship new features, as well as troubleshoot and debug to optimize performance.\",\n  \"required_skills\": \"The ideal candidate will possess strong coding skills, with a focus on Java and the ability to perform comprehensive unit testing. You should have a solid understanding of object-oriented programming principles, experience with RESTful APIs, and a commitment to writing clean, maintainable code.\",\n  \"workplace_and_working_hours\": \"This position is based at our office with a standard working schedule of 8 hours per day.\",\n  \"language_requirements\": \"Proficiency in English is required for effective communication within our global team.\",\n  \"additional_information\": \"Java: In department1, Java is the cornerstone of our backend development. Mastery of Java is crucial as it enables our team to build high-performance systems that are the backbone of our technology stack. Your expertise in Java will be instrumental in driving our projects forward, fostering innovation, and maintaining our competitive edge in the market.\\n\\nSpring Boot: Spring Boot's convention-over-configuration approach is vital for rapid development cycles within department1. Your proficiency in Spring Boot will allow us to leverage its powerful features, such as auto-configuration, standalone code, and embedded servers, to enhance our microservices architecture. Candidates with a deep understanding of Spring Boot will play a pivotal role in accelerating development, ensuring scalability, and delivering cutting-edge solutions to our clients.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 319,
+	    "completion_tokens": 350,
+	    "total_tokens": 669
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2024-01-07 11:48:57.750428 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 11:48:57.750521 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 11:49:00.964629 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eL05G8udy92qphe79pIqNbrWxD0w",
+	  "object": "chat.completion",
+	  "created": 1704624537,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 11:49:00.964691 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-07 15:37:16.712948 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 15:37:16.713052 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 15:37:19.983588 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eOZ2NVV4bBx5CZ7poHMaKHQLzFfh",
+	  "object": "chat.completion",
+	  "created": 1704638236,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_6aca3b5ce1"
+	}
+2024-01-07 15:37:19.983648 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-07 15:38:52.663916 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 15:38:52.664067 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 15:38:57.509948 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eOaafNfDjMLknvZz9D2hfBTZDMx1",
+	  "object": "chat.completion",
+	  "created": 1704638332,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_3905aa4f79"
+	}
+2024-01-07 15:38:57.510009 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-07 17:13:51.263535 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    []
+	
+	    Fits to this topic: 
+	
+	    Python
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-07 17:13:52.630734 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eQ4VmsLoZCIrlEJvj1Ytl2yCDT1a",
+	  "object": "chat.completion",
+	  "created": 1704644031,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Programming Languages\",\n    \"existed\": \"false\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 88,
+	    "completion_tokens": 22,
+	    "total_tokens": 110
+	  },
+	  "system_fingerprint": "fp_6aca3b5ce1"
+	}
+2024-01-07 17:13:52.646800 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Python
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-07 17:13:55.699595 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eQ4WUBSp7QKbb861BEu788f7epIB",
+	  "object": "chat.completion",
+	  "created": 1704644032,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No Python skills or relevant experience listed.\",\n    \"guideline_for_ten\": \"Expert in Python with proven projects, certifications, and impact in past roles.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 45,
+	    "total_tokens": 187
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 17:25:30.584807 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Python Developer in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** Python Developer
+	**Department:** department1
+	**Tasks and Responsibilities:** Coding, Refactoring
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** 
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department1 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Languages and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-07 17:25:39.775688 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eQFnaCpIQJQy3sLXpbdCGYMxgT6i",
+	  "object": "chat.completion",
+	  "created": 1704644731,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"As a Python Developer in department1, you will be responsible for writing clean, high-quality code and performing refactoring tasks to optimize existing applications. Your day-to-day duties will involve tackling complex problems and creating scalable solutions that will drive our projects forward.\",\n  \"required_skills\": \"We are looking for individuals with a strong foundation in coding, particularly in Python. The ideal candidate should be able to demonstrate a deep understanding of Python's syntax and its application in a variety of contexts.\",\n  \"workplace_and_working_hours\": \"This full-time position requires a commitment of 8 hours per day. The workplace is dynamic and collaborative, designed to foster innovation and teamwork.\",\n  \"language_requirements\": \"Proficiency in English is essential for this role, as it is the primary language used for communication within our team and with our international partners.\",\n  \"additional_information\": \"In department1, Python is more than just a programming language; it's a vital tool that propels our projects to new heights. We rely on Python for its versatility, readability, and vast ecosystem of libraries and frameworks. Candidates with a knack for Python will find themselves at the heart of our innovation process, contributing to the development of cutting-edge solutions that keep us at the forefront of our industry. If you have a passion for Python and a drive to create impactful software, we want you on our team.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 236,
+	    "completion_tokens": 286,
+	    "total_tokens": 522
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 20:11:32.186009 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 20:11:32.186535 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 20:11:36.588106 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eSqSoCaR3HwScat2XdanGl6TUyL1",
+	  "object": "chat.completion",
+	  "created": 1704654692,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 20:11:36.588170 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-07 20:11:36.725049 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Ratings in JSON format:
+	    {
+	        "Javascript": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any Javascript coding related experiences or skills", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in Javascript."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}
+	    }
+	    
+2024-01-07 20:11:45.746254 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eSqWRkpQRKZrqs3ZSKQiLBFdstlW",
+	  "object": "chat.completion",
+	  "created": 1704654696,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Javascript\": {\n        \"Score\": \"10\",\n        \"Justification\": \"The applicant has demonstrated extensive experience and expertise in JavaScript, as evidenced by their professional experience and educational background.\",\n        \"Quote\": \"Completed a university-level research project focused on JavaScript and web technologies. Specialized in writing reusable and high-performance user interface components.\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has shown a strong ability to collaborate with others through various team-oriented activities in their professional roles, although there is no direct mention of leading a team or teamwork-focused initiatives.\",\n        \"Quote\": \"Collaborated with Product Designers to implement innovative features... Actively participated in design and code reviews, incorporating team feedback. Interacted with cross-functional team members to integrate their innovations into the front-end development process.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 712,
+	    "completion_tokens": 182,
+	    "total_tokens": 894
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 20:33:06.628099 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 20:33:06.629440 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-07 20:33:11.138078 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eTBLKVtL8EbtRwm7K8TXxv6s3TLi",
+	  "object": "chat.completion",
+	  "created": 1704655987,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-07 20:33:11.138144 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-07 20:33:11.215516 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Ratings in JSON format:
+	    {
+	        "Javascript": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any Javascript coding related experiences or skills", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in Javascript."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}
+	    }
+	    
+2024-01-07 20:33:18.795330 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8eTBPchI5mUyt1ew9of8QvE8o9aOJ",
+	  "object": "chat.completion",
+	  "created": 1704655991,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Javascript\": {\n        \"Score\": \"10\",\n        \"Justification\": \"The applicant has highlighted extensive experience and expertise in JavaScript, both through their professional experience and their educational background.\",\n        \"Quote\": \"Completed a university-level research project focused on JavaScript and web technologies. Specialized in writing reusable and high-performance user interface components.\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has demonstrated a strong ability to work in a team through various collaborative efforts mentioned in their professional experience, such as participating in design and code reviews, interacting with cross-functional team members, and establishing best practices for front-end engineering.\",\n        \"Quote\": \"Actively participated in design and code reviews, incorporating team feedback. Interacted with cross-functional team members to integrate their innovations into the front-end development process.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 712,
+	    "completion_tokens": 181,
+	    "total_tokens": 893
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 09:51:30.640976 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-08 09:51:30.643025 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-08 09:51:35.870725 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efdzrWfV22i68VzKYEfFukA8iWVV",
+	  "object": "chat.completion",
+	  "created": 1704703891,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 09:51:35.870789 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-08 09:51:36.010829 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Ratings in JSON format:
+	    {
+	        "Javascript": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any Javascript coding related experiences or skills", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in Javascript."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}
+	    }
+	    
+2024-01-08 09:51:47.335665 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efe4TtxOYi6EWTeoxkfww9pFHp57",
+	  "object": "chat.completion",
+	  "created": 1704703896,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Javascript\": {\n        \"Score\": \"10\",\n        \"Justification\": \"The applicant has highlighted extensive experience with JavaScript, mentioning it as an area of expertise and noting specific experience with JavaScript frameworks and web technologies during their Master's program and professional career.\",\n        \"Quote\": \"Completed a university-level research project focused on JavaScript and web technologies. Specialized in writing reusable and high-performance user interface components.\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has demonstrated a strong ability to work in a team through various collaborative efforts in their professional roles, such as participating in design and code reviews and interacting with cross-functional team members.\",\n        \"Quote\": \"Actively participated in design and code reviews, incorporating team feedback. Interacted with cross-functional team members to integrate their innovations into the front-end development process.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 712,
+	    "completion_tokens": 185,
+	    "total_tokens": 897
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:03:05.305281 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-08 10:03:05.306724 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-08 10:03:11.046063 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efpB08xfBF9gDU4ldQFqCxmP4X1O",
+	  "object": "chat.completion",
+	  "created": 1704704585,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:03:11.046126 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-08 10:03:11.217655 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Ratings in JSON format:
+	    {
+	        "Javascript": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any Javascript coding related experiences or skills", "Guideline_10": "Highlights extensive coding experiences, showcasing expertise in Javascript."}, "Teamwork": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "Does not mention any collaborative projects or teamwork experiences.", "Guideline_10": "Highlights various collaborative projects, demonstrating the ability to work effectively in a team."}
+	    }
+	    
+2024-01-08 10:03:19.008467 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efpHBeBZBdMSMtuZy43t9F61jGGK",
+	  "object": "chat.completion",
+	  "created": 1704704591,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Javascript\": {\n        \"Score\": \"10\",\n        \"Justification\": \"The applicant has highlighted extensive experience with JavaScript, mentioning it as an area of expertise in both their professional experience and educational background.\",\n        \"Quote\": \"Completed a university-level research project focused on JavaScript and web technologies. Specialized in writing reusable and high-performance user interface components.\"\n    },\n    \"Teamwork\": {\n        \"Score\": \"9\",\n        \"Justification\": \"The applicant has demonstrated a strong ability to work in a team through various collaborative efforts mentioned in their professional experience, such as engaging with cross-functional team members and participating in design and code reviews.\",\n        \"Quote\": \"Actively participated in design and code reviews, incorporating team feedback. Interacted with cross-functional team members to integrate their innovations into the front-end development process.\"\n    }\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 712,
+	    "completion_tokens": 176,
+	    "total_tokens": 888
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:05:45.678197 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Python
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-08 10:05:47.697751 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efrmqW5kB20kusmdFcF5aqt9E37V",
+	  "object": "chat.completion",
+	  "created": 1704704746,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Programming Language\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 95,
+	    "completion_tokens": 22,
+	    "total_tokens": 117
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:05:47.712940 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Python
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-08 10:05:53.665759 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efrn7gdI4eH14NPpJA5HgYTWfufy",
+	  "object": "chat.completion",
+	  "created": 1704704747,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No Python experience. Lacks relevant qualifications or skills. CV is incomplete or poorly structured.\",\n    \"guideline_for_ten\": \"Expert in Python with proven projects. Relevant advanced degrees/certifications. Strong, relevant work experience. CV is clear and well-organized.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 68,
+	    "total_tokens": 210
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:06:07.681432 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Machine Learning
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-08 10:06:09.390620 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efs7GhnSB68yoRcTKm7agDUxPAEJ",
+	  "object": "chat.completion",
+	  "created": 1704704767,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Programming Language\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 96,
+	    "completion_tokens": 22,
+	    "total_tokens": 118
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:06:09.406396 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Machine Learning
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-08 10:06:13.506093 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efs9JPiZn3pgUnBHdjfruDvw6Nqf",
+	  "object": "chat.completion",
+	  "created": 1704704769,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No relevant education or experience; lacks basic ML skills or knowledge.\",\n    \"guideline_for_ten\": \"Advanced degree in ML; extensive experience; published work; mastery of ML tools and concepts.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 143,
+	    "completion_tokens": 53,
+	    "total_tokens": 196
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 10:06:29.335177 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department2 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department2
+	**Tasks and Responsibilities:** Data Science, Machine Learning
+	**Required Skills:** Python
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** 
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department2 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department2 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 10:06:52.673659 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8efsTrBOhlreSZVuyCL9fPz3QN6y8",
+	  "object": "chat.completion",
+	  "created": 1704704789,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"As a Data Scientist in department2, you will be tasked with leveraging data science and machine learning techniques to extract valuable insights from large datasets. Your responsibilities will include developing predictive models, performing statistical analysis, and implementing machine learning algorithms to drive strategic decision-making and enhance our project outcomes.\",\n  \"required_skills\": \"The ideal candidate must possess a strong command of Python, as it is the cornerstone of our data science initiatives. Proficiency in Python is essential for writing efficient code, handling data processing, and creating sophisticated algorithms that power our analytics.\",\n  \"workplace_and_working_hours\": \"This position is based in a collaborative office environment with a standard 8-hour workday. Flexibility in work hours may be considered in accordance with project demands and performance.\",\n  \"language_requirements\": \"Fluency in English is required to effectively communicate within our diverse team and with international partners.\",\n  \"additional_information\": \"Python: Mastery of Python is vital in our department2, as it is the primary language for developing and implementing data-driven solutions. Your expertise in Python will be instrumental in propelling our projects forward, enabling us to innovate and maintain a competitive edge in the marketplace. \\n\\nMachine Learning: Your proficiency in machine learning will be a key asset to department2. By applying machine learning techniques, you will help us to predict trends, automate complex processes, and create intelligent systems that evolve with our business needs. Candidates with a strong background in machine learning will be at the forefront of shaping the future of our department's success.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 307,
+	    "completion_tokens": 318,
+	    "total_tokens": 625
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:49:43.761781 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of asdf in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** asdf
+	**Department:** department1
+	**Tasks and Responsibilities:** asdf
+	**Required Skills:** asdf
+	**Workplace and Working Hours:** asdf
+	**Language Requirements:** asdf
+	**Additional Information:** asdf
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Teamwork:**
+	  Craft an engaging description highlighting the importance of Teamwork for this role. Emphasize the significance of Teamwork in department1 and its impact on the success of our projects. Showcase the value of Teamwork proficiency in Soft Skills and illustrate how candidates with expertise in Teamwork contribute to innovation and success within our team.
+	
+	- **Javascript:**
+	  Craft an engaging description highlighting the importance of Javascript for this role. Emphasize the significance of Javascript in department1 and its impact on the success of our projects. Showcase the value of Javascript proficiency in Programming Language and illustrate how candidates with expertise in Javascript contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:50:22.503008 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejMWOi8hN3YDCCvLtNbQcwOH1Rco",
+	  "object": "chat.completion",
+	  "created": 1704718184,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "Certainly! Below is the job vacancy text in JSON format, with engaging descriptions for the required skills of Teamwork and Javascript:\n\n```json\n{\n  \"job_title\": \"asdf\",\n  \"department\": \"department1\",\n  \"tasks_and_responsibilities\": \"The asdf role in department1 is a dynamic position that involves a variety of tasks and responsibilities tailored to support and enhance our team's projects and objectives.\",\n  \"required_skills\": {\n    \"teamwork\": \"In the asdf role, teamwork is not just a skill, it's the heartbeat of our operations. We believe that the collective effort of a cohesive team can achieve what individuals cannot. As a vital member of department1, your ability to collaborate, communicate, and contribute to a team will be the cornerstone of our project's success. We are looking for someone who thrives in a team environment, bringing innovative ideas to life through a symphony of diverse perspectives and expertise.\",\n    \"javascript\": \"As an integral part of department1, your proficiency in Javascript will be the engine that drives our digital projects forward. Javascript is the scripting language that brings our applications to life, and your expertise in this area will be crucial in developing innovative solutions that keep us at the forefront of our industry. We are seeking a candidate who can not only code but can also use Javascript to think outside the box, creating interactive and user-friendly experiences that elevate our projects to new heights.\"\n  },\n  \"workplace_and_working_hours\": \"The asdf position offers a flexible and dynamic workplace environment. Working hours are designed to promote work-life balance while ensuring the highest levels of productivity and innovation.\",\n  \"language_requirements\": \"The asdf role requires proficiency in asdf language(s), enabling effective communication within our diverse and global team.\",\n  \"additional_information\": \"We value diversity and welcome applicants from all backgrounds. If you have a passion for teamwork and Javascript, and are looking to make a significant impact in department1, we encourage you to apply for the asdf position.\"\n}\n```\n\nPlease note that the placeholders \"asdf\" should be replaced with the actual job title, department name, tasks, skills, workplace details, language requirements, and any additional information relevant to the job posting."
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 307,
+	    "completion_tokens": 452,
+	    "total_tokens": 759
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:50:22.503145 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of asdf in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** asdf
+	**Department:** department1
+	**Tasks and Responsibilities:** asdf
+	**Required Skills:** asdf
+	**Workplace and Working Hours:** asdf
+	**Language Requirements:** asdf
+	**Additional Information:** asdf
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Teamwork:**
+	  Craft an engaging description highlighting the importance of Teamwork for this role. Emphasize the significance of Teamwork in department1 and its impact on the success of our projects. Showcase the value of Teamwork proficiency in Soft Skills and illustrate how candidates with expertise in Teamwork contribute to innovation and success within our team.
+	
+	- **Javascript:**
+	  Craft an engaging description highlighting the importance of Javascript for this role. Emphasize the significance of Javascript in department1 and its impact on the success of our projects. Showcase the value of Javascript proficiency in Programming Language and illustrate how candidates with expertise in Javascript contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:51:00.851995 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejN9juZgZCXIewUeyFSWtrVB5Gy9",
+	  "object": "chat.completion",
+	  "created": 1704718223,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"job_title\": \"asdf\",\n  \"department\": \"department1\",\n  \"tasks_and_responsibilities\": \"The asdf role in department1 is a dynamic position that involves a variety of tasks aimed at driving our projects to success. Candidates will be expected to collaborate effectively with team members, contribute to coding and development using Javascript, and take initiative in problem-solving and innovation.\",\n  \"required_skills\": \"The ideal candidate will possess strong teamwork abilities, demonstrating a track record of collaborative success and a willingness to support and elevate their colleagues. Proficiency in Javascript is essential, as it is the cornerstone of our development practices. Candidates should be able to write clean, efficient code and have experience with the latest Javascript frameworks and libraries.\",\n  \"workplace_and_working_hours\": \"asdf\",\n  \"language_requirements\": \"asdf\",\n  \"additional_information\": \"We are particularly interested in candidates who can bring a high level of expertise in the following key skills:\",\n  \"teamwork_description\": \"In the department1 team, collaboration is not just a buzzword; it's the engine of our innovation. Teamwork is the glue that binds our diverse talents, allowing us to tackle complex projects with creativity and precision. Your ability to work seamlessly with colleagues, communicate effectively, and contribute to a positive work environment will help us to not only meet our goals but to exceed them. As a teamwork maestro, you'll play a pivotal role in fostering a culture of mutual respect and shared success.\",\n  \"javascript_description\": \"Javascript is more than just a programming language for us; it's a canvas for innovation. In department1, your Javascript expertise will be the key to developing cutting-edge solutions that keep us at the forefront of our industry. We rely on your ability to write elegant code that breathes life into our applications, making them both powerful and user-friendly. Your command of Javascript and its frameworks will empower our team to push boundaries and set new standards for excellence.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 307,
+	    "completion_tokens": 401,
+	    "total_tokens": 708
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:51:00.852147 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of asdf in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** asdf
+	**Department:** department1
+	**Tasks and Responsibilities:** asdf
+	**Required Skills:** asdf
+	**Workplace and Working Hours:** asdf
+	**Language Requirements:** asdf
+	**Additional Information:** asdf
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Teamwork:**
+	  Craft an engaging description highlighting the importance of Teamwork for this role. Emphasize the significance of Teamwork in department1 and its impact on the success of our projects. Showcase the value of Teamwork proficiency in Soft Skills and illustrate how candidates with expertise in Teamwork contribute to innovation and success within our team.
+	
+	- **Javascript:**
+	  Craft an engaging description highlighting the importance of Javascript for this role. Emphasize the significance of Javascript in department1 and its impact on the success of our projects. Showcase the value of Javascript proficiency in Programming Language and illustrate how candidates with expertise in Javascript contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:51:32.180016 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejNktqTRCfS6cEfX6OidYXSB9KRx",
+	  "object": "chat.completion",
+	  "created": 1704718260,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "Certainly! Below is a job vacancy text in JSON format for the position of \"asdf\" in the department1 department, with engaging descriptions for the key skills of Teamwork and Javascript:\n\n```json\n{\n  \"job_title\": \"asdf\",\n  \"department\": \"department1\",\n  \"tasks_and_responsibilities\": \"The asdf role in department1 is a dynamic position that involves a variety of tasks aimed at driving our projects to success. The individual will be responsible for collaborating with team members to develop innovative solutions, ensuring the highest quality of work, and contributing to the continuous improvement of our processes.\",\n  \"required_skills\": \"The ideal candidate for the asdf position will possess a strong foundation in teamwork and Javascript programming. Teamwork is the cornerstone of our success in department1. We are looking for individuals who thrive in a collaborative environment, where each member's contribution is valued, and collective success is celebrated. Your ability to work harmoniously within a team will be critical in fostering an innovative and supportive workspace. Proficiency in Javascript is equally essential, as it is the programming language that powers many of our projects. Candidates with a deep understanding of Javascript will be instrumental in developing cutting-edge applications and driving technological advancements within our team.\",\n  \"workplace_and_working_hours\": \"The workplace for the asdf role is a modern office environment located in the heart of our operations. Working hours are standard, with flexibility to accommodate project deadlines and peak productivity periods.\",\n  \"language_requirements\": \"Proficiency in English is required for the asdf position. Additional language skills are a plus and may open up opportunities for involvement in international projects.\",\n  \"additional_information\": \"We value diversity and inclusion and encourage candidates from all backgrounds to apply. We offer a competitive salary, comprehensive benefits, and opportunities for professional growth. If you are a team player with a passion for Javascript and a drive to innovate, we look forward to your application.\"\n}\n```\n\nPlease note that the placeholder \"asdf\" has been used as per your instruction. You would need to replace \"asdf\" with the actual job title, tasks, and other specific details relevant to the position."
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 307,
+	    "completion_tokens": 433,
+	    "total_tokens": 740
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:52:05.839516 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department1
+	**Tasks and Responsibilities:** Machine Learning, Coding
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** Is Good
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department1 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department1 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:52:34.986477 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejOoatCytypi5dm7CRcyuF2qrvbx",
+	  "object": "chat.completion",
+	  "created": 1704718326,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"job_title\": \"Data Scientist\",\n  \"department\": \"department1\",\n  \"tasks_and_responsibilities\": \"The Data Scientist will be at the forefront of our analytical capabilities, driving the success of our projects through advanced machine learning techniques and robust coding skills. You will be tasked with developing predictive models, implementing algorithms, and transforming data into actionable insights that will propel department1 to new heights.\",\n  \"required_skills\": \"The ideal candidate will possess a strong foundation in coding, with a particular emphasis on Python. Your expertise in machine learning will be pivotal, as you will be expected to leverage this skill to contribute to the innovation and success of our team.\",\n  \"workplace_and_working_hours\": \"This role is based in a dynamic and collaborative work environment with a standard 8-hour workday.\",\n  \"language_requirements\": \"Proficiency in English is required to effectively communicate within our global team and to understand and produce technical documentation.\",\n  \"additional_information\": \"We are particularly interested in individuals who can demonstrate a deep understanding of machine learning and its application using Python. Your ability to harness these skills in Programming Language will be critical to our mission of driving progress and achieving tangible results.\",\n  \"machine_learning_description\": \"Machine Learning is the heartbeat of our data-driven initiatives in department1. As a Data Scientist, your mastery of machine learning will be instrumental in analyzing complex datasets and developing innovative solutions that keep us at the cutting edge of our industry. Your contributions will directly influence the trajectory of our projects, ensuring that we remain competitive and forward-thinking.\",\n  \"python_description\": \"Python is the lingua franca of data science and a critical tool in our arsenal. Your proficiency in Python will enable you to efficiently build and iterate on machine learning models, perform data analysis, and automate processes. As a member of department1, your Python skills will be invaluable in streamlining our operations and fostering a culture of technical excellence and innovation.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 308,
+	    "completion_tokens": 396,
+	    "total_tokens": 704
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:52:34.986633 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department1
+	**Tasks and Responsibilities:** Machine Learning, Coding
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** Is Good
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department1 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department1 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:53:01.967585 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejPHMU1wPtGiEcQOfKUD3rH7etE5",
+	  "object": "chat.completion",
+	  "created": 1704718355,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"job_title\": \"Data Scientist\",\n  \"department\": \"department1\",\n  \"tasks_and_responsibilities\": \"The Data Scientist will be at the forefront of our analytical capabilities, driving innovation through machine learning and coding. You will be tasked with developing predictive models, implementing algorithms, and transforming data into actionable insights that will propel our projects forward.\",\n  \"required_skills\": \"The ideal candidate will possess a strong foundation in coding, with a particular emphasis on Python. Your coding expertise will be the backbone of our data analysis, enabling us to process large datasets and apply complex algorithms effectively.\",\n  \"workplace_and_working_hours\": \"This role is based in a dynamic and collaborative work environment with a standard 8-hour workday.\",\n  \"language_requirements\": \"Proficiency in English is required to ensure seamless communication within our diverse team.\",\n  \"additional_information\": \"We value candidates who are eager to contribute to a culture of innovation, excellence, and continuous learning.\",\n  \"machine_learning_description\": \"In this role, Machine Learning is not just a buzzword\u2014it's a critical tool that powers our ability to solve complex problems and make data-driven decisions. Your expertise in Machine Learning will be instrumental in advancing department1's objectives, enabling us to leverage predictive analytics and deep learning to stay ahead of the curve. Your contributions will directly impact the success of our projects, as you bring cutting-edge solutions to the table and drive our team towards groundbreaking achievements.\",\n  \"python_description\": \"Python is the lifeblood of our data operations in department1. Your proficiency in Python will allow you to craft clean, efficient code that is essential for our data processing, analysis, and machine learning applications. As a Data Scientist with Python expertise, you will be a key player in developing innovative solutions that enhance our project outcomes. Your ability to harness the power of Python will set the stage for transformative advancements and solidify our position as leaders in our field.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 308,
+	    "completion_tokens": 396,
+	    "total_tokens": 704
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:53:01.967718 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department1 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department1
+	**Tasks and Responsibilities:** Machine Learning, Coding
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** 8h
+	**Language Requirements:** English
+	**Additional Information:** Is Good
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department1 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department1 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:54:07.853713 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department2 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department2
+	**Tasks and Responsibilities:** Machine Learning, Coding
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** Fulltime
+	**Language Requirements:** English
+	**Additional Information:** 
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department2 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department2 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:54:32.251605 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejQmIGWjj6zkvMlmbUnV1I2HnBME",
+	  "object": "chat.completion",
+	  "created": 1704718448,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"As a Data Scientist in department2, you will be tasked with leveraging your Machine Learning expertise to develop predictive models and algorithms that drive data-driven decisions. Your coding skills will be crucial as you manipulate large datasets, implement statistical analysis, and create innovative solutions to complex problems.\",\n  \"required_skills\": \"The ideal candidate will possess strong coding abilities, with a proven track record of solving analytical problems using quantitative approaches. You should be adept at using various programming languages and tools necessary for handling big data and performing complex analyses.\",\n  \"workplace_and_working_hours\": \"This is a full-time position that requires a dedicated and dynamic individual ready to work in a fast-paced environment. The role is based in our department2 office, with standard working hours and the possibility of flexible scheduling to accommodate project deadlines.\",\n  \"language_requirements\": \"Fluency in English is essential for this role, as it is the primary language used for communication within the company and with our international partners.\",\n  \"additional_information\": \"Machine Learning is the cornerstone of our data-driven initiatives in department2. Your expertise in this field will be pivotal in analyzing vast amounts of data to uncover hidden patterns, reveal market trends, and identify new opportunities for innovation. Mastery of Python is equally critical, as it is the primary language for our data science projects. Your proficiency in Python will enable you to efficiently build and deploy models, as well as collaborate effectively with our team of developers and analysts. Candidates who bring a passion for these key skills will find themselves at the heart of our project's success and will play a significant role in shaping the future of our department.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 305,
+	    "completion_tokens": 335,
+	    "total_tokens": 640
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-08 13:55:21.874507 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Data Scientist in the department2 department. Therse are some basic informations:
+	
+	**Job Title:** Data Scientist
+	**Department:** department2
+	**Tasks and Responsibilities:** Machine Learning, Coding
+	**Required Skills:** Coding
+	**Workplace and Working Hours:** Fulltime
+	**Language Requirements:** English
+	**Additional Information:** 
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Machine Learning:**
+	  Craft an engaging description highlighting the importance of Machine Learning for this role. Emphasize the significance of Machine Learning in department2 and its impact on the success of our projects. Showcase the value of Machine Learning proficiency in Programming Language and illustrate how candidates with expertise in Machine Learning contribute to innovation and success within our team.
+	
+	- **Python:**
+	  Craft an engaging description highlighting the importance of Python for this role. Emphasize the significance of Python in department2 and its impact on the success of our projects. Showcase the value of Python proficiency in Programming Language and illustrate how candidates with expertise in Python contribute to innovation and success within our team.
+	In Cowboy slang
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-08 13:55:43.272437 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8ejRyS1VAVx6Gq1CTU2dssPbsHUaG",
+	  "object": "chat.completion",
+	  "created": 1704718522,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"Howdy! We're on the lookout for a sharp-shootin' Data Scientist to join our posse at department2. Your daily roundup will include wranglin' data, spurrin' on Machine Learning algorithms, and codin' like a true outlaw of the digital frontier.\",\n  \"required_skills\": \"We expect you to be quick on the draw with codin' skills, partner. You'll need to sling code with precision and have a keen eye for detail.\",\n  \"workplace_and_working_hours\": \"This here's a full-time gig, and you'll be ridin' with us at the department2 ranch during regular workin' hours. Be prepared to saddle up for the long haul and ride out the challenges that come your way.\",\n  \"language_requirements\": \"Y'all need to be fluent in English, as it's the language we holler in 'round these parts.\",\n  \"additional_information\": \"Now, let's talk about the particular skills that'll make you stand out: \\n\\n- **Machine Learning:** We're searchin' for a data wrangler who knows the lay of the land when it comes to Machine Learning. In department2, this ain't just fancy talk; it's the bread and butter of our success. Your know-how will help us strike gold as you apply Machine Learning to our projects, makin' our operations smoother than a prairie breeze. Your expertise will be the spark that lights the fire of innovation and keeps our team ridin' high. \\n\\n- **Python:** This ain't no snake oil; Python is the lasso you'll need to rope in success. It's the tool that'll help you tame the wild frontier of data in department2. We reckon that your Python skills will be as crucial as a trusty steed in a cattle drive. Show us you can python your way through problems, and you'll be the hero that leads us to new frontiers of innovation and success.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 309,
+	    "completion_tokens": 414,
+	    "total_tokens": 723
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:28:01.335805 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Python
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-09 19:28:03.415711 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fB7RhWGTIkUAJAIgv7K2WIhCO0lx",
+	  "object": "chat.completion",
+	  "created": 1704824881,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Programming Language\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 95,
+	    "completion_tokens": 22,
+	    "total_tokens": 117
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:28:03.431390 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Python
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-09 19:28:06.507309 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fB7TUfQjnBlYKmbBYRZ4iDKDXnpA",
+	  "object": "chat.completion",
+	  "created": 1704824883,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No Python experience or relevant skills mentioned. Lacks basic qualifications or CV is off-topic.\",\n    \"guideline_for_ten\": \"Expert in Python with proven projects, advanced skills, certifications, and relevant high-impact experience.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 59,
+	    "total_tokens": 201
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:47:14.821381 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Sales
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-09 19:47:16.976815 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fBQ3VtY7AMPzxv3yxi3zDwVpyOCB",
+	  "object": "chat.completion",
+	  "created": 1704826035,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Soft Skills\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 95,
+	    "completion_tokens": 22,
+	    "total_tokens": 117
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:47:16.992107 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Sales
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-09 19:47:23.645872 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fBQ5Irjk2AFbRD2dJ7U0sBU43g2O",
+	  "object": "chat.completion",
+	  "created": 1704826037,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"CV lacks relevant sales experience, skills, and qualifications. No clear achievements or metrics.\",\n    \"guideline_for_ten\": \"CV shows extensive sales experience, proven results with metrics, relevant skills, and strong qualifications.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 57,
+	    "total_tokens": 199
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:48:49.399329 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the SALES department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** SALES
+	**Tasks and Responsibilities:** Sales operations
+	**Working Hours:** FULLTIME
+	**Description:** Should acquire new customers
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in SALES and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"tasks": "", "required_skills": "", "workplace_and_working_hours": "", "language_requirements": "", "additional_information": ""}
+	}
+2024-01-09 19:49:11.738012 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fBRZ5Udgmu9bCoBnKXbS9SxQJKhO",
+	  "object": "chat.completion",
+	  "created": 1704826129,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"tasks\": \"As a Sales Agent in our dynamic SALES department, you will be at the forefront of driving our sales operations. Your primary objective will be to identify and secure new customer relationships, contributing directly to the growth and success of our business. You will be expected to utilize your sales expertise to navigate customer interactions, negotiate deals, and close sales with efficiency and effectiveness.\",\n  \"required_skills\": \"We are seeking a Sales Agent with a proven track record of success in sales. The ideal candidate will possess exceptional communication and negotiation skills, with the ability to engage and persuade potential clients. A deep understanding of sales strategies and customer relationship management is essential. You should be adept at identifying customer needs and presenting solutions that align with their objectives. Your sales acumen will be pivotal in fostering innovation and driving the success of our team.\",\n  \"workplace_and_working_hours\": \"This is a full-time position that requires a dedicated and flexible approach to work. You will be expected to operate within standard business hours, with the potential for additional hours during peak sales periods or when project deadlines approach.\",\n  \"language_requirements\": \"Fluency in English is required for this role. Additional language skills may be advantageous and will be considered a plus.\",\n  \"additional_information\": \"We value diversity and are committed to creating an inclusive environment for all employees. If you are a passionate sales professional looking to make a significant impact in a thriving company, we encourage you to apply for this exciting opportunity.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 221,
+	    "completion_tokens": 305,
+	    "total_tokens": 526
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:52:42.890074 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the SALES department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** SALES
+	**Tasks and Responsibilities:** Sales operations
+	**Working Hours:** FULLTIME
+	**Description:** Should acquire new customers
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in SALES and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "workplace_and_working_hours": "", "language_requirements": "", "description": ""}
+	}
+2024-01-09 19:52:57.830607 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fBVLbDl5xktDYRtdArRqbxzBOhGj",
+	  "object": "chat.completion",
+	  "created": 1704826363,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"SALES\",\n  \"workplace_and_working_hours\": \"Full-time\",\n  \"language_requirements\": \"Proficiency in English required; additional languages are a plus\",\n  \"description\": \"We are seeking a dynamic Sales Agent to join our SALES department, where the art of persuasion meets the science of sales. In this pivotal role, you will be the driving force behind acquiring new customers, expanding our market presence, and contributing to our overall success. Your expertise in sales will not only be about meeting targets but also about building relationships and understanding client needs. As a Sales Agent, you will harness your negotiation skills to close deals, while your strategic thinking will help identify new opportunities for growth. Your ability to communicate effectively, adapt to different sales scenarios, and innovate in your approach will make you an invaluable asset to our team. Join us and turn your sales prowess into meaningful results that propel our projects and our company forward.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 219,
+	    "completion_tokens": 204,
+	    "total_tokens": 423
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 19:54:24.845277 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the SALES department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** SALES
+	**Tasks and Responsibilities:** Sales operations
+	**Working Hours:** FULLTIME
+	**Description:** Should acquire new customers
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in SALES and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "workplace_and_working_hours": "", "language_requirements": "", "description": ""}
+	}
+2024-01-09 19:54:54.169408 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fBWzgljARNPgngLI65xDx9lRdXqF",
+	  "object": "chat.completion",
+	  "created": 1704826465,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"SALES\",\n  \"workplace_and_working_hours\": \"Full-time\",\n  \"language_requirements\": \"Proficiency in English; additional languages are a plus\",\n  \"description\": \"We are seeking a dynamic Sales Agent to join our vibrant SALES department. In this role, you will be at the forefront of our sales operations, tasked with the crucial responsibility of acquiring new customers and expanding our market reach. Your success in this position is pivotal to the growth and prosperity of our projects. As a Sales Agent, you will be expected to demonstrate exceptional sales skills, which are the lifeblood of our business. Your ability to connect with clients, understand their needs, and provide tailored solutions will not only drive revenue but also foster long-term relationships that are essential to our company's innovation and success. We value Sales proficiency as a core component of our team's soft skills, as it empowers our agents to negotiate effectively, communicate persuasively, and close deals with finesse. If you have a proven track record in Sales and are passionate about driving business growth through strategic customer engagement, we encourage you to apply for this exciting opportunity.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 219,
+	    "completion_tokens": 246,
+	    "total_tokens": 465
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 21:40:51.109835 - cv_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-09 21:40:51.110257 - rating_service: 
+	GPT-4 Request: 
+	    Extract metadata from the curriculum vitae:
+	
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "first_name": "",
+	        "last_name": "",
+	        "date_of_birth": "%D-%M-%Y",
+	        "street": "",
+	        "postal_code": "",
+	        "city": "",
+	        "email": "",
+	        "phone_number": ""
+	    }
+	
+	    If you can't find a value, please leave it empty
+	    
+2024-01-09 21:40:56.066014 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fDBzHrbzHRdT5AVO4WOlqmDX3AYy",
+	  "object": "chat.completion",
+	  "created": 1704832851,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"first_name\": \"Alex\",\n    \"last_name\": \"Terry\",\n    \"date_of_birth\": \"15-05-1992\",\n    \"street\": \"DevLane 42\",\n    \"postal_code\": \"54321\",\n    \"city\": \"Codeville\",\n    \"email\": \"Alex.Terry@example.com\",\n    \"phone_number\": \"+49 176 9876543\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 618,
+	    "completion_tokens": 89,
+	    "total_tokens": 707
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-09 21:40:56.066105 - cv_service: 
+	GPT-4 Response: ```json
+	{
+	    "first_name": "Alex",
+	    "last_name": "Terry",
+	    "date_of_birth": "15-05-1992",
+	    "street": "DevLane 42",
+	    "postal_code": "54321",
+	    "city": "Codeville",
+	    "email": "Alex.Terry@example.com",
+	    "phone_number": "+49 176 9876543"
+	}
+	```
+2024-01-09 21:40:56.129889 - rating_service: 
+	GPT-4 Request: 
+	    Please rate the following categories from 0 to 10, and always provide a justification and a quote
+	    from the application for each rating. If you find a category not applicable or impossible to rate,
+	    please assign a score of 0, refrain from providing a written explanation and provide an empty quote:
+	    Name: Alex Terry
+	Date and Place of Birth: 15.05.1992 in TechCity
+	Address: DevLane 42, 54321 Codeville
+	Phone Number: +49 176 9876543
+	Email Address: Alex.Terry@example.com
+	Professional Experience
+	Since 06/2019 Front End Engineer
+	TechSolutions GmbH (Codeville, DE)
+	Collaborated with Product Designers to implement innovative features for the next generation of TechSolutions'
+	products.
+	Developed efficient and reusable front-end abstractions and systems.
+	Identified and addressed performance bottlenecks, optimizing user experience.
+	Actively participated in design and code reviews, incorporating team feedback.
+	Interacted with cross-functional team members to integrate their innovations into the front-end development process.
+	Established and communicated best practices for front-end engineering.
+	Implemented tools to monitor and improve the reliability of TechSolutions' architecture.
+	Contributed to the improvement of overall system reliability.
+	08/2017 – 06/2019 Junior Front End Developer
+	CodeCrafters Ltd. (Codeburg, DE)
+	Assisted in the implementation of user interface components.
+	Contributed to architectural design for front-end systems.
+	Engaged in performance debugging and benchmarking.
+	Gained experience in building web applications.
+	Implemented automated testing for front-end code.
+	Education
+	09/2013 – 08/2017 Master of Science in Computer Science
+	TechUniversity Codeburg (Codeburg, DE)
+	Completed a university-level research project focused on JavaScript and web technologies.
+	Specialized in writing reusable and high-performance user interface components.
+	Explored Object Oriented JavaScript Frameworks, including Prototype JS and MooTools.
+	Developed expertise in architectural design for complex front-end systems.
+	Conducted performance debugging and benchmarking.
+	09/2008 – 06/2013 Secondary School Certificate
+	Codeville High School (Codeville, DE)
+	Examination subjects: Mathematics, Physics, Computer Science
+	Graduation grade (1.9)
+	Skills
+	Languages:
+	JavaScript – expert
+	HTML & CSS – expert
+	German – fluent in both written and spoken
+	English – fluent in both written and spoken
+	Software:
+	React.js – expert
+	Vue.js – proficient
+	Webpack – proficientGit – proficient
+	JIRA – proficient
+	Other:
+	Driver's License Class B
+	Interests
+	Open-source contributions to front-end libraries
+	Hiking and outdoor photography
+	Tech meetups and conferences
+	Alex Terry
+	Codeville, 01.05.2023
+	
+	    Ratings in JSON format:
+	    {
+	        "Sales": {"Score": "", "Justification": "", "Quote": "", "Guideline_0": "CV lacks relevant sales experience, skills, and qualifications. No clear achievements or metrics.", "Guideline_10": "CV shows extensive sales experience, proven results with metrics, relevant skills, and strong qualifications."}
+	    }
+	    
+2024-01-09 21:40:57.597106 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fDC4ge7sUqIOb7oDhfCO94G0X2Nf",
+	  "object": "chat.completion",
+	  "created": 1704832856,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"Sales\": {\"Score\": \"0\", \"Justification\": \"\", \"Quote\": \"\"}\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 669,
+	    "completion_tokens": 25,
+	    "total_tokens": 694
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}

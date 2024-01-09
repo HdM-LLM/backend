@@ -1,7 +1,7 @@
 from db.mapper.mongodb_mapper.mongo_mapper import MongoMapper
 from classes.vacancy import Vacancy
 from classes.category import Category
-from uuid import UUID
+from uuid import uuid4, UUID
 
 
 class VacancyMapper(MongoMapper):
@@ -17,33 +17,29 @@ class VacancyMapper(MongoMapper):
         pass
 
     def get_by_id(self, vacancy_id: UUID) -> Vacancy:
-        result = self.get_collection().find_one({'uuid': str(vacancy_id)})
 
-        vacancy = Vacancy(
-            result['name'],
-            result['department']
-        )
+        return
 
-        vacancy.set_id(result['uuid'])
+    def insert(self, vacancy_content: str, vacancy: Vacancy) -> None:
+        """
+        Insert vacancy content into the db
+        """
 
-        categories = []
+        # Create metadata
+        metadata = {
+            "uuid": str(vacancy.get_id()),
+            "type": "VACANCY",
+            "applicant": {
+                "id": str(vacancy.get_id()),
+                "title": str(vacancy.get_title()),
+            },
+            "vacancy_id": str(vacancy.get_id()),
+        }
 
-        for category in result['categories']:
-            temp_category = Category(
-                category['name'],
-                category['guideline_0'],
-                category['guideline_10']
-            )
+        vacancy_encoding = vacancy_content.encode('utf-8')
 
-            temp_category.set_id(category['uuid'])
-
-            categories.append(temp_category)
-
-        vacancy.set_categories(categories)
-
-        return vacancy
-
-    def insert(self, cv_pdf_file) -> None:
+        # Insert the cv into the db
+        self.get_fs().put(vacancy_encoding, filename=str(vacancy.get_id()), metadata=metadata)
         pass
 
     def update(self):

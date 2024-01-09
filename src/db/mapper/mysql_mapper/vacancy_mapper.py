@@ -1,7 +1,10 @@
 from db.mapper.mysql_mapper.mysql_mapper import MySQLMapper
+from db.mapper.mysql_mapper.category_mapper import CategoryMapper
 from classes.vacancy import Vacancy
+from classes.category import Category
 from uuid import UUID
-
+from enums.workingHour import WorkingHour
+from enums.department import Department
 
 class VacancyMapper(MySQLMapper):
 
@@ -17,19 +20,30 @@ class VacancyMapper(MySQLMapper):
         for row in cursor.fetchall():
             vacancy = Vacancy(
                 title=row[1],
-                department=row[2],
-                fullTime=row[3],
+                department=Department[row[2]].value,
+                working_hours=WorkingHour[row[3]].value,
                 description=row[4],
-                salary=row[5],
-                company=row[6],
-                createdAt=row[7],
-                updatedAt=row[8],
             )
             vacancy.set_id(row[0])
             vacancies.append(vacancy)
 
         cursor.close()
         return vacancies
+
+    def get_all_categories_by_vacancy_id(self, vacancy_id: UUID):
+        cursor = self._connection.cursor()
+        query = "SELECT * FROM vacancy_category WHERE vacancy_id = %s;"
+        cursor.execute(query, (str(vacancy_id),))
+
+        categories = []
+
+        for row in cursor.fetchall():
+            with CategoryMapper() as category_mapper:
+                return_value = category_mapper.get_by_id(row[2])
+
+                categories.append(return_value)
+
+        return categories
 
     def get_by_id(self, vacancy_id: UUID):
         cursor = self._connection.cursor()
@@ -40,13 +54,9 @@ class VacancyMapper(MySQLMapper):
         if row:
             vacancy = Vacancy(
                 title=row[1],
-                department=row[2],
-                fullTime=row[3],
+                department=Department[row[2]].value,
+                working_hours=WorkingHour[row[3]].value,
                 description=row[4],
-                salary=row[5],
-                company=row[6],
-                createdAt=row[7],
-                updatedAt=row[8],
             )
             vacancy.set_id(row[0])
             cursor.close()
@@ -57,17 +67,26 @@ class VacancyMapper(MySQLMapper):
 
     def insert(self, vacancy: Vacancy):
         cursor = self._connection.cursor()
-        query = "INSERT INTO vacancy (id, vacancy_title, department, full_time, description, salary, company, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO vacancy (id, vacancy_title, department, working_hours, description) VALUES (%s, %s, %s, %s, %s)"
         data = (
             str(vacancy.get_id()),
             vacancy.get_title(),
-            vacancy.get_department(),
-            vacancy.get_full_time(),
+            Department[vacancy.get_department()].value,
+            WorkingHour[vacancy.get_working_hours()].value,
             vacancy.get_description(),
-            vacancy.get_salary(),
-            vacancy.get_company(),
-            vacancy.get_created_at(),
-            vacancy.get_updated_at(),
+        )
+
+        cursor.execute(query, data)
+
+        self._connection.commit()
+        cursor.close()
+
+    def insert_vacancy_category_relation(self, vacancy: Vacancy, category: Category):
+        cursor = self._connection.cursor()
+        query = "INSERT INTO vacancy_category (vacancy_id, category_id) VALUES (%s, %s)"
+        data = (
+            str(vacancy.get_id()),
+            str(category.get_id())
         )
 
         cursor.execute(query, data)

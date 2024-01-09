@@ -6,21 +6,19 @@ import services.openai_service as openai_service
 
 def generate_text(basic_information, selected_categories, adjust_prompt):
 
-    job_name = basic_information['jobName']
+    title = basic_information['title']
     department = basic_information['department']
     tasks_and_responsibilities = basic_information['tasksAndResponsibilities']
-    required_skills = basic_information['requiredSkills']
-    workplace_and_working_hours = basic_information['workplaceAndWorkingHours']
-    language_requirements = basic_information['languageRequirements']
-    additional_information = basic_information['additionalInformation']
+    working_hours = basic_information['workingHours']
+    description = basic_information['description']
 
     # Create the JSON structure
     full_json_structure = {
-        "tasks": "",
-        "required_skills": "",
+        "title": "",
+        "department": "",
         "workplace_and_working_hours": "",
         "language_requirements": "",
-        "additional_information": "",
+        "description": "",
     }
 
      # Extract the required keys from the full_json_structure
@@ -32,14 +30,12 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
 
     openai_service.load_dot_env()
 
-    prompt = f"Create a profession vacancy text for the position of {job_name} in the {department} department. Therse are some basic informations:\n\n"\
-         f"**Job Title:** {job_name}\n"\
+    prompt = f"Create a profession vacancy text for the position of {title} in the {department} department. Therse are some basic informations:\n\n"\
+         f"**Job Title:** {title}\n"\
          f"**Department:** {department}\n"\
          f"**Tasks and Responsibilities:** {tasks_and_responsibilities}\n"\
-         f"**Required Skills:** {required_skills}\n"\
-         f"**Workplace and Working Hours:** {workplace_and_working_hours}\n"\
-         f"**Language Requirements:** {language_requirements}\n"\
-         f"**Additional Information:** {additional_information}\n\n"\
+         f"**Working Hours:** {working_hours}\n"\
+         f"**Description:** {description}\n\n"\
          f"For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:\n"
 
     for category in selected_categories:
@@ -82,23 +78,17 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
     # Create the full text
     full_text_dict = {
     "vacancy_text": f'''
-    Job Title: {basic_information['jobName']}
+    Job Title: {basic_information['title']}
     Department: {basic_information['department']}
-        
-    Tasks:
-    {json_block_response['tasks']}
-        
-    Required Skills:
-    {json_block_response['required_skills']}
+    
+    Tasks and Resposibilities:
+    {basic_information['tasksAndResponsibilities']}
         
     Workplace and Working Hours:
     {json_block_response['workplace_and_working_hours']}
         
-    Language Requirements:
-    {json_block_response['language_requirements']}
-        
-    Additional Information:
-    {json_block_response['additional_information']}
+    Description:
+    {basic_information['description']}
     '''
     }
 
