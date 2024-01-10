@@ -1,10 +1,14 @@
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
 import services.vacancy_service as vacancy_service
+from classes.vacancy import Vacancy
 from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper as MySQLVacancyMapper
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper as MongoDBVacancyMapper
+from db.mapper.mysql_mapper.category_mapper import CategoryMapper
 from classes.category import Category
 import json
+from enums.workingHour import WorkingHour
+from enums.department import Department
 
 vacancy_api = Blueprint('vacancy_api', __name__)
 api = Api(vacancy_api)
@@ -20,12 +24,8 @@ class VacancyListResource(Resource):
                 "id": vacancy.get_id(),
                 "title": vacancy.get_title(),
                 "department": vacancy.get_department(),
-                "fullTime": vacancy.get_full_time(),
+                "working_time": vacancy.get_working_hours(),
                 "description": vacancy.get_description(),
-                "salary": vacancy.get_salary(),
-                "company": vacancy.get_company(),
-                "createdAt": vacancy.get_created_at(),
-                "updatedAt": vacancy.get_updated_at(),
             }
             for vacancy in vacancies_data
         ]
@@ -46,26 +46,22 @@ class VacancyResource(Resource):
                 "id": vacancy.get_id(),
                 "title": vacancy.get_title(),
                 "description": vacancy.get_description(),
-                "company": vacancy.get_company(),
                 "department": vacancy.get_department(),
-                "salary": vacancy.get_salary(),
-                "fullTime": vacancy.get_full_time(),
-                "createdAt": vacancy.get_created_at(),
-                "updatedAt": vacancy.get_updated_at(),
             }
+            formatted_categories = []
 
             # Get categories of this vacancy
-            with MongoDBVacancyMapper() as mapper:
-                vacancy = mapper.get_by_id(vacancy_id)
-                formatted_vacancy["categories"] = [
-                    {
-                        "id": category.get_id(),
-                        "name": category.get_name(),
-                        "guideline0": category.get_guideline_for_zero(),
-                        "guideline10": category.get_guideline_for_ten(),
-                    }
-                    for category in vacancy.get_categories()
-                ]
+            categories = mapper.get_all_categories_by_vacancy_id(vacancy_id)
+
+            for category in categories:
+                formatted_category = {
+                    "id": category.get_id(),
+                    "name": category.get_name(),
+                    "chip": category.get_chip(),
+                    "guideline_for_zero": category.get_guideline_for_zero(),
+                    "guideline_for_ten": category.get_guideline_for_ten(),
+                }
+                formatted_categories.append(formatted_category)
 
         return jsonify(formatted_vacancy)
 
@@ -91,8 +87,30 @@ class AddVacancyResource(Resource):
         basic_information = data.get('basicInformation', {})
         selected_categories = data.get('selectedCategories', [])
         generated_vacancy = data.get('generatedVacancy', '')
-        
-        # TODO Add the vacancy using the service or mapper
+
+        existing_categories = []
+
+        for category in selected_categories:
+            with CategoryMapper() as category_mapper:
+                existing_category = category_mapper.get_by_id(category['id'])
+
+                existing_categories.append(existing_category)
+
+        vacancy = Vacancy(
+            basic_information['title'],
+            Department[basic_information['department'].upper()].value,
+            WorkingHour[basic_information['workingHours'].upper()].value,
+            basic_information['description']
+        )
+
+        with MySQLVacancyMapper() as vacancy_mapper:
+            vacancy_mapper.insert(vacancy)
+
+            for category in existing_categories:
+                vacancy_mapper.insert_vacancy_category_relation(vacancy, category)
+
+        with MongoDBVacancyMapper() as vacancy_mapper:
+            vacancy_mapper.insert(generated_vacancy, vacancy)
 
         return jsonify({'message': 'Vacancy added successfully'})
 

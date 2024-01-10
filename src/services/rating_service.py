@@ -3,7 +3,7 @@ from typing import List
 import openai
 from dotenv import load_dotenv, find_dotenv
 import time
-from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper
+from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
 from uuid import UUID
 from classes.applicant import Applicant
@@ -19,16 +19,11 @@ def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     :param vacancy_id: ID of the vacancy of which the categories should be returned
     :return: List of categories
     """
-    categories = []
 
     with VacancyMapper() as vacancy_mapper:
-        vacancy = vacancy_mapper.get_by_id(vacancy_id)
+        categories_of_vacancy = vacancy_mapper.get_all_categories_by_vacancy_id(vacancy_id)
 
-    for category in vacancy.get_categories():
-        categories.append(category)
-
-    return categories
-
+    return categories_of_vacancy
 
 def create_rating_prompt(categories, cv_content):
     """
@@ -139,9 +134,7 @@ def extract_ratings_from_response(model_response: str) -> []:
     return list_of_rating_responses
 
 
-def create_rating_objects(
-    model_response: str, vacancy_id: UUID, applicant_id: UUID
-) -> List:
+def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID) -> List:
     """
     Creates rating instances
     :param model_response: Response of the OpenAI model
@@ -155,6 +148,7 @@ def create_rating_objects(
 
     with VacancyMapper() as vacancy_mapper:
         vacancy = vacancy_mapper.get_by_id(vacancy_id)
+        vacancy.set_categories(vacancy_mapper.get_all_categories_by_vacancy_id(vacancy_id))
 
     for rating_response in list_of_rating_responses:
         category_name_response = list(rating_response.keys())[0]

@@ -1,20 +1,16 @@
+import base64
 import io
-import json
+
 from flask import Blueprint, request, jsonify, send_file
 from flask_restful import Api, Resource
-import services.pdf_service as pdf_service
+
 import services.cv_service as cv_service
+import services.pdf_service as pdf_service
 import services.rating_service as rating_service
 from classes.applicant import Applicant
-from classes.rating import Rating
-from classes.cv import CV
-from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
+from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from db.mapper.mysql_mapper.rating_mapper import RatingMapper
-import PyPDF2
-import base64
-from uuid import UUID
-
 
 # Creates a new blueprint for upload
 file_upload = Blueprint("file_upload", __name__)
@@ -161,15 +157,15 @@ class ApplicantUploadResource(Resource):
         personal_data = cv_service.get_personal_data_from_cv(cv_content_string)
 
         applicant = Applicant(
-            first_name=personal_data["first_name"],
-            last_name=personal_data["last_name"],
-            date_of_birth=personal_data["date_of_birth"],
-            street=personal_data["street"],
-            postal_code=personal_data["postal_code"],
-            city=personal_data["city"],
-            email=personal_data["email"],
-            phone_number=personal_data["phone_number"],
-            face_image=applicant_face_image,
+            personal_data["first_name"],
+            personal_data["last_name"],
+            personal_data["date_of_birth"],
+            personal_data["street"],
+            personal_data["postal_code"],
+            personal_data["city"],
+            personal_data["email"],
+            personal_data["phone_number"],
+            applicant_face_image,
         )
 
         with ApplicantMapper() as applicant_mapper:
