@@ -3104,3 +3104,293 @@
 	  },
 	  "system_fingerprint": "fp_168383a679"
 	}
+2024-01-10 13:05:37.720735 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Human Resources
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-10 13:05:39.379325 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fRcvJ2GOmUGs5aNkaInL52gy6c8s",
+	  "object": "chat.completion",
+	  "created": 1704888337,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Soft Skills\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 96,
+	    "completion_tokens": 22,
+	    "total_tokens": 118
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 13:05:39.393921 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Human Resources
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-10 13:05:47.239643 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fRcxzuDqlHAHQTyFBfnHrzVlmsNJ",
+	  "object": "chat.completion",
+	  "created": 1704888339,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"CV lacks relevant HR qualifications/skills, has multiple errors, and shows no relevant experience.\",\n    \"guideline_for_ten\": \"CV has advanced HR degrees, certifications, relevant high-level experience, and a clear skill set.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 143,
+	    "completion_tokens": 59,
+	    "total_tokens": 202
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 13:08:35.728025 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of HR-Manager in the Legal department. Therse are some basic informations:
+	
+	**Job Title:** HR-Manager
+	**Department:** Legal
+	**Tasks and Responsibilities:** HR
+	**Working Hours:** Fulltime
+	**Description:** Should care for human resources
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Human Resources:**
+	  Craft an engaging description highlighting the importance of Human Resources for this role. Emphasize the significance of Human Resources in Legal and its impact on the success of our projects. Showcase the value of Human Resources proficiency in Soft Skills and illustrate how candidates with expertise in Human Resources contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "workplace_and_working_hours": "", "language_requirements": "", "description": ""}
+	}
+2024-01-10 13:09:02.684827 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fRfnYuzHVYO8R866lfjZmzNH8gup",
+	  "object": "chat.completion",
+	  "created": 1704888515,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"HR-Manager\",\n  \"department\": \"Legal\",\n  \"workplace_and_working_hours\": \"Office-based, Full-time\",\n  \"language_requirements\": \"Proficiency in English; additional languages are a plus\",\n  \"description\": \"We are seeking a dedicated HR-Manager to join our Legal department, where the fusion of legal expertise and human resources acumen is vital for our thriving environment. In this role, you will be the cornerstone of our team, ensuring that our human capital is nurtured and leveraged to achieve strategic objectives. Your mastery of Human Resources will be pivotal in fostering a culture of innovation, collaboration, and excellence. You will be expected to have a profound understanding of the legal sector's unique challenges and opportunities, enabling you to tailor HR strategies that support our mission. Your role will involve talent acquisition, employee development, and retention strategies that are compliant with legal standards and best practices. Your soft skills will be instrumental in conflict resolution, negotiation, and building a cohesive team dynamic. Candidates with a track record of contributing to innovation and success through strategic HR initiatives will find this role both challenging and rewarding.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 223,
+	    "completion_tokens": 236,
+	    "total_tokens": 459
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 14:04:32.108165 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the Sales department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** Sales
+	**Tasks and Responsibilities:** Acquire Customers, Sell Product
+	**Working Hours:** Fulltime
+	**Description:** Searching for experienced Sales Agent
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in Sales and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "tasks": "", "required_skills": "", "workplace_and_working_hours": "", "description": ""}
+	}
+2024-01-10 14:04:53.392516 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fSXwtBYuX7eYp2fRqvOnKV3WjRdv",
+	  "object": "chat.completion",
+	  "created": 1704891872,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"Sales\",\n  \"tasks\": \"The primary tasks and responsibilities of the Sales Agent will include the acquisition of new customers and the sale of our products. The successful candidate will be expected to build and maintain strong relationships with clients, understand their needs, and provide tailored solutions that meet their demands.\",\n  \"required_skills\": \"We are seeking a candidate with a proven track record in Sales, demonstrating a keen ability to engage with clients and close deals effectively. The ideal applicant will possess exceptional negotiation skills, a strategic mindset for developing new business opportunities, and the capacity to work both independently and as part of a team. A deep understanding of sales strategies and customer relationship management is essential, as is the ability to adapt to a dynamic market and contribute to the team's innovative efforts.\",\n  \"workplace_and_working_hours\": \"This is a full-time position requiring a dedicated commitment during standard business hours, with the flexibility to adapt to client schedules and peak sales periods when necessary.\",\n  \"description\": \"We are on the hunt for an experienced Sales Agent to join our dynamic Sales department. The role is pivotal to the success of our projects, as it directly contributes to the growth and revenue of our company. The ideal candidate will be a sales enthusiast who thrives in a fast-paced environment and is committed to achieving excellence in customer acquisition and product sales. If you have a passion for sales and a desire to drive innovation and success within a collaborative team, we would like to hear from you.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 225,
+	    "completion_tokens": 315,
+	    "total_tokens": 540
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 14:05:19.862646 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the Sales department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** Sales
+	**Tasks and Responsibilities:** Acquire Customers, Sell Product
+	**Working Hours:** Fulltime
+	**Description:** Searching for experienced Sales Agent
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in Sales and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "tasks": "", "required_skills": "", "workplace_and_working_hours": "", "description": ""}
+	}
+2024-01-10 14:05:42.393488 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fSYiOegdfrPq028jFZG3qrWtoBxY",
+	  "object": "chat.completion",
+	  "created": 1704891920,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"Sales\",\n  \"tasks\": \"The primary tasks and responsibilities of the Sales Agent include the acquisition of new customers and the selling of our product line. As a Sales Agent, you will be expected to develop and maintain a robust sales pipeline, engage with potential clients, understand their needs, and effectively communicate the value proposition of our products to close sales.\",\n  \"required_skills\": \"We are seeking individuals with a strong foundation in Sales, which is the cornerstone of this role. The ideal candidate will possess the ability to not only understand and articulate product features but also to build rapport with clients, negotiate effectively, and close deals. Sales proficiency is crucial, as it directly correlates with our ability to innovate and achieve success. Candidates with a proven track record in Sales will demonstrate the soft skills necessary to navigate complex sales cycles, foster long-term client relationships, and contribute to the dynamic growth of our team.\",\n  \"workplace_and_working_hours\": \"This is a full-time position that requires dedication and the ability to work flexible hours to meet the needs of our clients and projects.\",\n  \"description\": \"We are on the hunt for an experienced Sales Agent to join our dynamic Sales department. The ideal candidate will be a seasoned professional with a knack for customer acquisition and a passion for selling. With Sales at the heart of this role, your expertise will be pivotal in driving our projects to success and elevating our market presence.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 225,
+	    "completion_tokens": 302,
+	    "total_tokens": 527
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 14:07:25.595536 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the Sales department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** Sales
+	**Tasks and Responsibilities:** Acquire Customers, Sell Product
+	**Working Hours:** Fulltime
+	**Description:** Searching for experienced Sales Agent
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in Sales and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "tasks": "", "required_skills": "", "workplace_and_working_hours": "", "description": ""}
+	}
+2024-01-10 14:07:59.240573 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fSajcuUNhTV02ExihGia8cjdMtlW",
+	  "object": "chat.completion",
+	  "created": 1704892045,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"Sales\",\n  \"tasks\": \"The primary tasks and responsibilities of the Sales Agent include the acquisition of new customers and the successful selling of our product line. The Sales Agent will be expected to build and maintain strong relationships with clients, understand their needs, and provide tailored solutions that meet their demands.\",\n  \"required_skills\": \"We are seeking a candidate with a proven track record in Sales, who possesses exceptional negotiation and persuasion skills. The ideal applicant will have a deep understanding of sales strategies and techniques, and the ability to close deals effectively. Proficiency in Sales is not just about pushing products, but about understanding client needs, providing value, and creating win-win situations. Candidates with strong Sales acumen are innovators at heart, using their skills to drive our company's success by staying ahead of market trends and engaging customers in meaningful ways.\",\n  \"workplace_and_working_hours\": \"This is a full-time position that requires dedication and the willingness to work flexible hours to meet the needs of our clients and achieve sales targets.\",\n  \"description\": \"We are on the hunt for an experienced Sales Agent to join our dynamic Sales team. The ideal candidate will be a passionate sales professional who thrives in a fast-paced environment and is committed to achieving excellence in customer acquisition and product sales. With your expertise, you will play a pivotal role in the growth and success of our projects, contributing to our reputation as a leader in the industry.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 225,
+	    "completion_tokens": 306,
+	    "total_tokens": 531
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}
+2024-01-10 14:10:23.394984 - rating_service: 
+	GPT-4 Request: Create a profession vacancy text for the position of Sales Agent in the Sales department. Therse are some basic informations:
+	
+	**Job Title:** Sales Agent
+	**Department:** Sales
+	**Tasks and Responsibilities:** Acquire Customers, Sell Product
+	**Working Hours:** Fulltime
+	**Description:** Searching for experienced Sales Agent
+	
+	For this position, we are particularly interested in candidates with expertise in the following key skills. Ensure that the generated text provides appealing descriptions for each skill:
+	
+	- **Sales:**
+	  Craft an engaging description highlighting the importance of Sales for this role. Emphasize the significance of Sales in Sales and its impact on the success of our projects. Showcase the value of Sales proficiency in Soft Skills and illustrate how candidates with expertise in Sales contribute to innovation and success within our team.
+	
+	Please provide the response in the following JSON format:
+	{
+	{"title": "", "department": "", "tasks": "", "required_skills": "", "workplace_and_working_hours": "", "description": ""}
+	}
+2024-01-10 14:10:44.372001 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8fSdb6dBQPzPldOHpS7KxQm5tfc2G",
+	  "object": "chat.completion",
+	  "created": 1704892223,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n  \"title\": \"Sales Agent\",\n  \"department\": \"Sales\",\n  \"tasks\": \"The primary tasks and responsibilities of the Sales Agent include the acquisition of new customers and the selling of our product line. The successful candidate will be expected to build and maintain strong relationships with clients, understand their needs, and provide tailored solutions that meet their demands.\",\n  \"required_skills\": \"We are seeking a Sales Agent with a proven track record of success in sales. The ideal candidate will possess exceptional negotiation and persuasion skills, with the ability to close deals effectively. They should have a deep understanding of sales strategies and be adept at managing sales cycles. Strong communication skills are essential, as is the ability to connect with a diverse range of clients and stakeholders. The candidate should be innovative, with a knack for identifying opportunities for growth and expansion within the market.\",\n  \"workplace_and_working_hours\": \"This is a full-time position. The Sales Agent will be expected to work during regular business hours, with the flexibility to adjust as needed to meet client requirements and business goals.\",\n  \"description\": \"We are on the hunt for an experienced Sales Agent to join our dynamic Sales department. The ideal candidate will be a sales enthusiast who understands the pivotal role that Sales plays in the success of our projects. Sales is not just about transactions; it's about building relationships, understanding client needs, and driving the growth of our business. As a Sales Agent, you will be at the forefront of our company, embodying our values and contributing to our innovative spirit. Your expertise in Sales will not only help us reach our financial targets but also ensure we continue to deliver excellence and maintain our competitive edge in the market.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 225,
+	    "completion_tokens": 346,
+	    "total_tokens": 571
+	  },
+	  "system_fingerprint": "fp_168383a679"
+	}

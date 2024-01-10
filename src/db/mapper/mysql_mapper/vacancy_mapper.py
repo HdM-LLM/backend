@@ -71,8 +71,8 @@ class VacancyMapper(MySQLMapper):
         data = (
             str(vacancy.get_id()),
             vacancy.get_title(),
-            Department[vacancy.get_department()].value,
-            WorkingHour[vacancy.get_working_hours()].value,
+            Department[vacancy.get_department().upper()].value,
+            WorkingHour[vacancy.get_working_hours().upper()].value,
             vacancy.get_description(),
         )
 

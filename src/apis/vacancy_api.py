@@ -98,8 +98,8 @@ class AddVacancyResource(Resource):
 
         vacancy = Vacancy(
             basic_information['title'],
-            Department[basic_information['department']].value,
-            WorkingHour[basic_information['workingHours']].value,
+            Department[basic_information['department'].upper()].value,
+            WorkingHour[basic_information['workingHours'].upper()].value,
             basic_information['description']
         )
 

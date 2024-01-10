@@ -16,8 +16,9 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
     full_json_structure = {
         "title": "",
         "department": "",
+        "tasks": "",
+        "required_skills": "",
         "workplace_and_working_hours": "",
-        "language_requirements": "",
         "description": "",
     }
 
@@ -78,17 +79,20 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
     # Create the full text
     full_text_dict = {
     "vacancy_text": f'''
-    Job Title: {basic_information['title']}
-    Department: {basic_information['department']}
+    Job Title: {json_block_response['title']}
+    Department: {json_block_response['department']}
     
-    Tasks and Resposibilities:
-    {basic_information['tasksAndResponsibilities']}
+    Tasks:
+    {json_block_response['tasks']}
+    
+    Required Skills:
+    {json_block_response['required_skills']}
         
     Workplace and Working Hours:
     {json_block_response['workplace_and_working_hours']}
         
     Description:
-    {basic_information['description']}
+    {json_block_response['description']}
     '''
     }
 
@@ -97,7 +101,3 @@ def generate_text(basic_information, selected_categories, adjust_prompt):
     parsed_json = json.loads(json_data)
 
     return parsed_json
-
-
-
-

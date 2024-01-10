@@ -18,8 +18,8 @@ CREATE TABLE applicant (
 CREATE TABLE vacancy (
     id VARCHAR(36) NOT NULL,
     vacancy_title VARCHAR(255) NOT NULL,
-    department ENUM('IT', 'HR', 'MARKETING', 'SALES', 'FINANCE', 'LEGAL', 'OTHER') NOT NULL,
-    working_hours ENUM('FULLTIME', 'PARTTIME') NOT NULL,
+    department ENUM('IT', 'HR', 'Marketing', 'Sales', 'Finance', 'Legal', 'Other') NOT NULL,
+    working_hours ENUM('Fulltime', 'Parttime') NOT NULL,
     description TEXT NOT NULL,
     PRIMARY KEY (id)
 );

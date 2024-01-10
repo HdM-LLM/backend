@@ -4,8 +4,8 @@ from enum import Enum
 class Department(Enum):
     IT = 'IT'
     HR = 'HR'
-    MARKETING = 'MARKETING'
-    SALES = 'SALES'
-    FINANCE = 'FINANCE'
-    LEGAL = 'LEGAL'
-    OTHER = 'OTHER'
+    MARKETING = 'Marketing'
+    SALES = 'Sales'
+    FINANCE = 'Finance'
+    LEGAL = 'Legal'
+    OTHER = 'Other'
