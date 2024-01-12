@@ -6,6 +6,7 @@ from uuid import UUID
 from enums.workingHour import WorkingHour
 from enums.department import Department
 
+
 class VacancyMapper(MySQLMapper):
 
     def __init__(self):
@@ -20,8 +21,8 @@ class VacancyMapper(MySQLMapper):
         for row in cursor.fetchall():
             vacancy = Vacancy(
                 title=row[1],
-                department=Department[row[2]].value,
-                working_hours=WorkingHour[row[3]].value,
+                department=Department[row[2].upper()].value,
+                working_hours=WorkingHour[row[3].upper()].value,
                 description=row[4],
             )
             vacancy.set_id(row[0])
@@ -54,8 +55,8 @@ class VacancyMapper(MySQLMapper):
         if row:
             vacancy = Vacancy(
                 title=row[1],
-                department=Department[row[2]].value,
-                working_hours=WorkingHour[row[3]].value,
+                department=Department[row[2].upper()].value,
+                working_hours=WorkingHour[row[3].upper()].value,
                 description=row[4],
             )
             vacancy.set_id(row[0])
