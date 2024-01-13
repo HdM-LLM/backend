@@ -71,7 +71,7 @@ def rate_applicant_and_create_rating_objects(
             model_response = rate_applicant(
                 cv_content_string, applicant, vacancy_id)
             ratings = create_rating_objects(
-                model_response, vacancy_id, applicant.get_id()
+                model_response, vacancy_id, applicant.get_id(), cv_content_string
             )
             break
         except json.decoder.JSONDecodeError as e:
@@ -133,8 +133,23 @@ def extract_ratings_from_response(model_response: str) -> []:
 
     return list_of_rating_responses
 
-
-def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID) -> List:
+def validate_quote(quote, cv_content):
+    normalized_quote = ' '.join(quote.split())
+    normalized_cv_content = ' '.join(cv_content.split())
+    # Split the quote into separate sentences
+    search_sentences = normalized_quote.split('. ')
+    # Check if all quote are present in the cv_content
+    if quote == '':
+        print("Empty Quote")
+        return "No quote available."
+    elif all(sentence in normalized_cv_content for sentence in search_sentences):
+        print("All quotes found!")
+        return quote
+    else:
+        print("Not all quotes found.")
+        return "No quote available."
+    
+def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID, cv_content_string: str) -> List:
     """
     Creates rating instances
     :param model_response: Response of the OpenAI model
@@ -163,6 +178,8 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
         score = category_values_response.get("Score", None)
         justification = category_values_response.get("Justification", None)
         quote = category_values_response.get("Quote", None)
+        # Check if quote is present in the CV content
+        quote = validate_quote(quote, cv_content_string)
 
         # Check if any required key is missing
         if any(v is None for v in (score, justification, quote)):

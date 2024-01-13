@@ -172,7 +172,12 @@ class ApplicantUploadResource(Resource):
             # Check if applicant already exists in the database
             if applicant_mapper.get_by_email(applicant.get_email()):
                 # Check if the applicant already applied for the vacancy
-                if applicant_mapper.get_by_email(applicant.get_email()).get_id() in applicant_mapper.get_by_vacancy_id(vacancy_id):
+                applicant_id = applicant_mapper.get_by_email(applicant.get_email()).get_id()
+                vacancy_applicants = applicant_mapper.get_by_vacancy_id(vacancy_id)
+                # Extrahiere die IDs aus der Liste der Applicant-Objekte
+                vacancy_applicant_ids = [applicant.get_id() for applicant in vacancy_applicants]
+
+                if applicant_id in vacancy_applicant_ids:
                     return "Applicant already applied for this vacancy", 400
                 else:
                     # First get the applicant id
