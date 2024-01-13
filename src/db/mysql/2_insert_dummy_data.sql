@@ -75,34 +75,42 @@ INSERT INTO category (
 -- Vacancy category links
 INSERT INTO vacancy_category (
     vacancy_id,
-    category_id
+    category_id,
+    weight
 ) VALUES (
     '6ca830b2-99b5-11ee-b9d1-0242ac120002',
-    '025f2219-c03d-48b7-94b9-5c0557e21745'
+    '025f2219-c03d-48b7-94b9-5c0557e21745',
+    0.5
 );
 
 INSERT INTO vacancy_category (
     vacancy_id,
-    category_id
+    category_id,
+    weight
 ) VALUES (
     '6ca830b2-99b5-11ee-b9d1-0242ac120002',
-    '24023f40-023a-4f26-85aa-193b5a0574f1'
+    '24023f40-023a-4f26-85aa-193b5a0574f1',
+    0.5
 );
 
 INSERT INTO vacancy_category (
     vacancy_id,
-    category_id
+    category_id,
+    weight
 ) VALUES (
     'dae80908-4cce-4d65-9357-ea48f7f2e4af',
-    '9d44632c-a079-46bd-9100-09fb9dade3ec'
+    '9d44632c-a079-46bd-9100-09fb9dade3ec',
+    0.5
 );
 
 INSERT INTO vacancy_category (
     vacancy_id,
-    category_id
+    category_id,
+    weight
 ) VALUES (
     'dae80908-4cce-4d65-9357-ea48f7f2e4af',
-    '24023f40-023a-4f26-85aa-193b5a0574f1'
+    '24023f40-023a-4f26-85aa-193b5a0574f1',
+    0.5
 );
 
 -- Example employees
