@@ -140,13 +140,10 @@ def validate_quote(quote, cv_content):
     search_sentences = normalized_quote.split('. ')
     # Check if all quote are present in the cv_content
     if quote == '':
-        print("Empty Quote")
         return "No quote available."
     elif all(sentence in normalized_cv_content for sentence in search_sentences):
-        print("All quotes found!")
         return quote
     else:
-        print("Not all quotes found.")
         return "No quote available."
     
 def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID, cv_content_string: str) -> List:
