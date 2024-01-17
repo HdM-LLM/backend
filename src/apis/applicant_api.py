@@ -11,7 +11,7 @@ from classes.applicant import Applicant
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
 from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from db.mapper.mysql_mapper.rating_mapper import RatingMapper
-
+from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper
 # Creates a new blueprint for upload
 file_upload = Blueprint("file_upload", __name__)
 api_upload = Api(file_upload)
@@ -79,6 +79,7 @@ class ApplicantsByVacancyResource(Resource):
                     "city": applicant.get_city(),
                     "email": applicant.get_email(),
                     "phone_number": applicant.get_phone_number(),
+                    "total_score": applicant.get_total_score(),
                 }
                 for applicant in applicants
             ]
@@ -107,12 +108,13 @@ class ApplicantResource(Resource):
                 "firstName": applicant.get_first_name(),
                 "lastName": applicant.get_last_name(),
                 "img": self.encode_image(applicant.get_face_image()),
-                "date_of_birth": applicant.get_date_of_birth(),
+                "DateOfBirth": applicant.get_date_of_birth(),
                 "street": applicant.get_street(),
-                "postal_code": applicant.get_postal_code(),
+                "postalCode": applicant.get_postal_code(),
                 "city": applicant.get_city(),
                 "email": applicant.get_email(),
-                "phone_number": applicant.get_phone_number(),
+                "phoneNumber": applicant.get_phone_number(),
+                "totalScore": applicant.get_total_score(),
             }
 
         return jsonify(formatted_applicant)
@@ -165,6 +167,7 @@ class ApplicantUploadResource(Resource):
             personal_data["city"],
             personal_data["email"],
             personal_data["phone_number"],
+            0,
             applicant_face_image,
         )
 
@@ -197,11 +200,20 @@ class ApplicantUploadResource(Resource):
         # Create a rating for the applicant
         ratings = rating_service.rate_applicant_and_create_rating_objects(
             cv_content_string, applicant, vacancy_id)
-
+        
+        total_score = 0
         # Insert the ratings into the database
         for rating in ratings:
+            with VacancyMapper() as vacancy_mapper:
+                weight = vacancy_mapper.get_weight_by_vacancy_category_ids(rating.get_vacancy_id(),rating.get_category_id())
+                total_score += float(weight) * float(rating.get_score()) / 100
+            rating.get_score
             with RatingMapper() as rating_mapper:
                 rating_mapper.insert(rating)
+
+        with ApplicantMapper() as applicant_mapper:
+            # Insert total score into the database
+            applicant_mapper.update_total_score(applicant.get_id(), total_score)
 
         return "Applicant, CV, and rating have been saved in the database", 200
 

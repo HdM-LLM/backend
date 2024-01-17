@@ -12,6 +12,7 @@ CREATE TABLE applicant (
     email VARCHAR(255) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     face_image MEDIUMBLOB,
+    total_score DECIMAL(5,2),
     PRIMARY KEY (id)
 );
 
