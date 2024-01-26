@@ -89,12 +89,13 @@ class AddVacancyResource(Resource):
         generated_vacancy = data.get('generatedVacancy', '')
 
         existing_categories = []
-
+        category_weights = []
+        
         for category in selected_categories:
             with CategoryMapper() as category_mapper:
                 existing_category = category_mapper.get_by_id(category['id'])
-
                 existing_categories.append(existing_category)
+                category_weights.append(category['weight'])
 
         vacancy = Vacancy(
             basic_information['title'],
@@ -106,8 +107,8 @@ class AddVacancyResource(Resource):
         with MySQLVacancyMapper() as vacancy_mapper:
             vacancy_mapper.insert(vacancy)
 
-            for category in existing_categories:
-                vacancy_mapper.insert_vacancy_category_relation(vacancy, category)
+            for category, weight in zip(existing_categories, category_weights):
+                    vacancy_mapper.insert_vacancy_category_relation(vacancy, category, weight)
 
         with MongoDBVacancyMapper() as vacancy_mapper:
             vacancy_mapper.insert(generated_vacancy, vacancy)

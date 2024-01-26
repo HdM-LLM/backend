@@ -41,6 +41,7 @@ class VacancyMapper(MySQLMapper):
         for row in cursor.fetchall():
             with CategoryMapper() as category_mapper:
                 return_value = category_mapper.get_by_id(row[2])
+                # TODO: Check row[3] is the weight, when you want to retrieve it
 
                 categories.append(return_value)
 
@@ -82,9 +83,9 @@ class VacancyMapper(MySQLMapper):
         self._connection.commit()
         cursor.close()
 
-    def insert_vacancy_category_relation(self, vacancy: Vacancy, category: Category):
+    def insert_vacancy_category_relation(self, vacancy: Vacancy, category: Category, weight: float):
         cursor = self._connection.cursor()
-        query = "INSERT INTO vacancy_category (vacancy_id, category_id) VALUES (%s, %s)"
+        query = "INSERT INTO vacancy_category (vacancy_id, category_id, weight) VALUES (%s, %s, %s)"
         data = (
             str(vacancy.get_id()),
             str(category.get_id())
@@ -100,3 +101,18 @@ class VacancyMapper(MySQLMapper):
 
     def delete_by_id(self, vacancy_id: UUID):
         pass
+
+    def get_weight_by_vacancy_category_ids(self, vacancy_id: str, category_id: str):
+        cursor = self._connection.cursor()
+        query = "SELECT weight FROM vacancy_category WHERE vacancy_id = %s AND category_id = %s"
+        data = (str(vacancy_id), str(category_id))
+
+        cursor.execute(query, data)
+        result = cursor.fetchone()
+
+        cursor.close()
+
+        if result:
+            return result[0]  
+        else:
+            return None  

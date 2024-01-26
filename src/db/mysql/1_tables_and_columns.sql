@@ -12,6 +12,7 @@ CREATE TABLE applicant (
     email VARCHAR(255) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     face_image MEDIUMBLOB,
+    total_score DECIMAL(5,2),
     PRIMARY KEY (id)
 );
 
@@ -32,7 +33,6 @@ CREATE TABLE category (
     guideline_for_ten VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
-
 
 CREATE TABLE rating (
     id VARCHAR(36) NOT NULL,
@@ -59,6 +59,7 @@ CREATE TABLE vacancy_category (
     id INT AUTO_INCREMENT,
     vacancy_id VARCHAR(36) NOT NULL,
     category_id VARCHAR(36) NOT NULL,
+    weight FLOAT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)

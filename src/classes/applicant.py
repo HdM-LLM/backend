@@ -2,7 +2,6 @@ from uuid import UUID, uuid4
 from datetime import date
 from classes.user import User
 
-
 class Applicant(User):
 
     def __init__(
@@ -15,7 +14,8 @@ class Applicant(User):
             city: str,
             email: str,
             phone_number: str,
-            face_image: bytes = None
+            face_image: bytes = None,
+            total_score: float = None
     ) -> None:
         super().__init__(first_name=first_name, last_name=last_name)
         self._date_of_birth = date_of_birth
@@ -25,6 +25,7 @@ class Applicant(User):
         self._email = email
         self._phone_number = phone_number
         self._face_image = face_image
+        self.total_score = total_score
 
         # self._skills = skills
         # self._rating = rating
@@ -71,6 +72,12 @@ class Applicant(User):
     def set_face_image(self, face_image: bytes) -> None:
         self._face_image = face_image
 
+    def get_total_score(self) -> float:
+        return self.total_score  # Use total_score here
+
+    def set_total_score(self, total_score) -> None:
+        self.total_score = total_score
+
     def __str__(self) -> str:
         return (
             f'Person ID: {self._id}\n'
@@ -82,4 +89,5 @@ class Applicant(User):
             f'City: {self._city}\n'
             f'Email: {self._email}\n'
             f'Phone Number: {self._phone_number}\n'
+            f'Total Score: {self.total_score}\n'
         )
