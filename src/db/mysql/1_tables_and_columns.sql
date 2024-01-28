@@ -76,4 +76,11 @@ CREATE TABLE employee (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE evaluation (
+    id VARCHAR(36) NOT NULL,
+    applicant_id VARCHAR(36) NOT NULL,
+    score INT NOT NULL CHECK (score >= 0 AND score <= 10),
+    PRIMARY KEY (id),
+    FOREIGN KEY (applicant_id) REFERENCES applicant(id)
+);
 
