@@ -3394,3 +3394,163 @@
 	  },
 	  "system_fingerprint": "fp_168383a679"
 	}
+2024-01-28 12:06:02.296885 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Sales
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-28 12:06:03.916816 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8lxH8jL5WdO7eljrYAHaHjCr6xeEG",
+	  "object": "chat.completion",
+	  "created": 1706439962,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Soft Skills\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 95,
+	    "completion_tokens": 22,
+	    "total_tokens": 117
+	  },
+	  "system_fingerprint": "fp_de93422283"
+	}
+2024-01-28 12:06:03.930920 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Sales
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-28 12:06:07.291919 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8lxHASv7OcU3QtLgl8RGUpxtvAzyF",
+	  "object": "chat.completion",
+	  "created": 1706439964,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No relevant sales experience or skills; missing key details; unprofessional presentation.\",\n    \"guideline_for_ten\": \"Extensive relevant sales experience; proven track record; strong sales skills; clear, professional CV.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 56,
+	    "total_tokens": 198
+	  },
+	  "system_fingerprint": "fp_b4fb435f51"
+	}
+2024-01-28 12:07:12.741336 - rating_service: 
+	GPT-4 Request: 
+	    Check if a category from this List:
+	
+	    ['Programming Language', 'Soft Skills']
+	
+	    Fits to this topic: 
+	
+	    Communication
+	
+	    else provide me a fitting category name.
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "category": "",
+	        "existed": "true/false",
+	    }
+	    
+2024-01-28 12:07:14.126611 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8lxIGAE1x74ItFXSb7J8JzVLYyvQQ",
+	  "object": "chat.completion",
+	  "created": 1706440032,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"category\": \"Soft Skills\",\n    \"existed\": \"true\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 95,
+	    "completion_tokens": 22,
+	    "total_tokens": 117
+	  },
+	  "system_fingerprint": "fp_b4fb435f51"
+	}
+2024-01-28 12:07:14.139101 - rating_service: 
+	GPT-4 Request: 
+	    Please provide a rating guideline tailored for Human Resources (HR) to evaluate CVs in the Communication
+	    category. The rating guideline should cover a scale from 0 points (the lowest possible) to 10 points 
+	    (the highest possible). The guideline should focus on the qualifications of the contestant and the skills 
+	    mentioned in their CV. Please dont make each guideline longer then 200 characters.
+	
+	
+	    Please provide the response in the following JSON format:
+	    {
+	        "guideline_for_zero": "",
+	        "guideline_for_ten": "",
+	    }
+	    
+2024-01-28 12:07:16.125582 - rating_service: 
+	GPT-4 Response: {
+	  "id": "chatcmpl-8lxIIqvIx445kfplJegYmn9GHLPNz",
+	  "object": "chat.completion",
+	  "created": 1706440034,
+	  "model": "gpt-4-1106-preview",
+	  "choices": [
+	    {
+	      "index": 0,
+	      "message": {
+	        "role": "assistant",
+	        "content": "```json\n{\n    \"guideline_for_zero\": \"No communication skills listed; grammar/spelling errors; unclear CV structure.\",\n    \"guideline_for_ten\": \"Excellent communicator; relevant qualifications; clear, error-free, and structured CV.\"\n}\n```"
+	      },
+	      "logprobs": null,
+	      "finish_reason": "stop"
+	    }
+	  ],
+	  "usage": {
+	    "prompt_tokens": 142,
+	    "completion_tokens": 51,
+	    "total_tokens": 193
+	  },
+	  "system_fingerprint": "fp_3de4f27bba"
+	}
