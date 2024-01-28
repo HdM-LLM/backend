@@ -88,7 +88,8 @@ class VacancyMapper(MySQLMapper):
         query = "INSERT INTO vacancy_category (vacancy_id, category_id, weight) VALUES (%s, %s, %s)"
         data = (
             str(vacancy.get_id()),
-            str(category.get_id())
+            str(category.get_id()),
+            weight,
         )
 
         cursor.execute(query, data)
