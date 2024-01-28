@@ -4,6 +4,7 @@ import openai
 from dotenv import load_dotenv, find_dotenv
 import time
 from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper
+from db.mapper.mysql_mapper.evaluation_mapper import EvaluationMapper
 from db.mapper.mongodb_mapper.cv_mapper import CVMapper
 from uuid import UUID
 from classes.applicant import Applicant
@@ -106,7 +107,28 @@ def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str
     prompt = create_rating_prompt(categories, cv_content)
 
     # 5. Return the response of GPT
-    return openai_service.execute_prompt(prompt)
+    model_response = openai_service.execute_prompt(prompt)
+
+    # 6. Evaluate the model answer
+    evaluate_model_response(model_response, prompt, applicant.get_id())
+
+    return model_response
+
+def evaluate_model_response(model_response, prompt, applicant_id):
+     # Check if the 'evaluate_model' environment variable is set
+    evaluate_model = os.getenv("evaluate_model")
+    if evaluate_model:
+        evaluation_prompt = create_evaluation_prompt(model_response, prompt)
+        evaluation_score = openai_service.execute_prompt(evaluation_prompt)
+        with EvaluationMapper() as evaluation_mapper:
+            evaluation_mapper.insert(str(applicant_id), evaluation_score)
+
+
+def create_evaluation_prompt(model_response: str, original_prompt: str):
+    prompt = f"Please rate the model response on a scale of 0-10, based on the task: {original_prompt}"
+    prompt += f"The response to the task was: {model_response}"
+    prompt += f".Please answer your rating to that response only with a number from 0-10"
+    return prompt
 
 
 def extract_ratings_from_response(model_response: str) -> []:

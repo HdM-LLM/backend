@@ -167,8 +167,8 @@ class ApplicantUploadResource(Resource):
             personal_data["city"],
             personal_data["email"],
             personal_data["phone_number"],
-            0,
             applicant_face_image,
+            0,
         )
 
         with ApplicantMapper() as applicant_mapper:
