@@ -20,10 +20,10 @@ class RatingMapper(MySQLMapper):
 
         for tuple_data in tuples:
             (id, category_id, vacancy_id, applicant_id,
-             score, justification, quote) = tuple_data
+             score, justification, quote, weight) = tuple_data
 
             rating = Rating(category_id, vacancy_id,
-                            applicant_id, score, justification, quote)
+                            applicant_id, score, justification, quote, weight)
             rating.set_id(UUID(id))
             result.append(rating)
 
@@ -34,7 +34,7 @@ class RatingMapper(MySQLMapper):
 
     def insert(self, rating: Rating):
         cursor = self._connection.cursor()
-        query = "INSERT INTO rating (id, category_id, vacancy_id, applicant_id, score, justification, quote) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO rating (id, category_id, vacancy_id, applicant_id, score, justification, quote, weight) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         data = (
             str(rating.get_id()),
             str(rating.get_category_id()),
@@ -43,6 +43,7 @@ class RatingMapper(MySQLMapper):
             rating.get_score(),
             rating.get_justification(),
             rating.get_quote(),
+            rating.get_weight(),
         )
 
         cursor.execute(query, data)

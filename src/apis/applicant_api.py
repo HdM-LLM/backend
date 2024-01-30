@@ -73,13 +73,13 @@ class ApplicantsByVacancyResource(Resource):
                     "firstName": applicant.get_first_name(),
                     "lastName": applicant.get_last_name(),
                     "img": self.encode_image(applicant.get_face_image()),
-                    "date_of_birth": applicant.get_date_of_birth(),
+                    "DateOfBirth": applicant.get_date_of_birth(),
                     "street": applicant.get_street(),
-                    "postal_code": applicant.get_postal_code(),
+                    "postalCode": applicant.get_postal_code(),
                     "city": applicant.get_city(),
                     "email": applicant.get_email(),
-                    "phone_number": applicant.get_phone_number(),
-                    "total_score": applicant.get_total_score(),
+                    "phoneNumber": applicant.get_phone_number(),
+                    "totalScore": applicant.get_total_score(),
                 }
                 for applicant in applicants
             ]
@@ -176,6 +176,8 @@ class ApplicantUploadResource(Resource):
             if applicant_mapper.get_by_email(applicant.get_email()):
                 # Check if the applicant already applied for the vacancy
                 applicant_id = applicant_mapper.get_by_email(applicant.get_email()).get_id()
+                applicant = applicant_mapper.get_by_email(applicant.get_email())
+
                 vacancy_applicants = applicant_mapper.get_by_vacancy_id(vacancy_id)
                 # Extrahiere die IDs aus der Liste der Applicant-Objekte
                 vacancy_applicant_ids = [applicant.get_id() for applicant in vacancy_applicants]
@@ -183,6 +185,8 @@ class ApplicantUploadResource(Resource):
                 if applicant_id in vacancy_applicant_ids:
                     return "Applicant already applied for this vacancy", 400
                 else:
+
+
                     # First get the applicant id
                     retrieved_applicant_id = applicant_mapper.get_by_email(
                         applicant.get_email()).get_id()

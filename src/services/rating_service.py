@@ -205,7 +205,9 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
             print(
                 f"Warning: Missing key(s) in category '{category_name_response}'")
 
-        # TODO: Check if quote is in cv before inserting it
+        with VacancyMapper() as vacancy_mapper:
+            # Get the weight for the category
+            weight = vacancy_mapper.get_weight_by_vacancy_category_ids(vacancy_id,category_id)
 
         rating = Rating(
             category_id,
@@ -214,6 +216,7 @@ def create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: U
             score,
             justification,
             quote,
+            weight,
         )
 
         ratings.append(rating)
