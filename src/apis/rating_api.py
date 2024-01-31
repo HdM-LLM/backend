@@ -41,6 +41,7 @@ class RatingResource(Resource):
                     "score": rating.get_score(),
                     "justification": rating.get_justification(),
                     "quote": rating.get_quote(),
+                    "weight": rating.get_weight(),
                 }
                 for rating in ratings
             ]

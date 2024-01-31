@@ -12,7 +12,6 @@ CREATE TABLE applicant (
     email VARCHAR(255) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     face_image MEDIUMBLOB,
-    total_score DECIMAL(5,2),
     PRIMARY KEY (id)
 );
 
@@ -42,6 +41,7 @@ CREATE TABLE rating (
     score INT NOT NULL,
     justification TEXT NOT NULL,
     quote TEXT NOT NULL,
+    weight FLOAT NOT NULL, 
     PRIMARY KEY (id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)
 );
@@ -50,6 +50,7 @@ CREATE TABLE applicant_vacancy (
     id INT AUTO_INCREMENT,
     applicant_id VARCHAR(36) NOT NULL,
     vacancy_id VARCHAR(36) NOT NULL,
+    total_score DECIMAL(5,2),
     PRIMARY KEY (id),
     FOREIGN KEY (applicant_id) REFERENCES applicant(id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(id)

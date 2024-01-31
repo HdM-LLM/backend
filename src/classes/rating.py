@@ -11,6 +11,7 @@ class Rating(BusinessObject):
         score: int,
         justification: str,
         quote: str,
+        weight: float,
     )-> None:
         super().__init__()
         self._category_id = category_id
@@ -19,6 +20,7 @@ class Rating(BusinessObject):
         self._score = score
         self._justification = justification
         self._quote = quote
+        self._weight = weight
 
     def get_category_id(self):
         return self._category_id
@@ -56,6 +58,12 @@ class Rating(BusinessObject):
     def set_quote(self, quote: str):
         self._quote = quote
 
+    def get_weight(self):
+        return self._weight
+
+    def set_weight(self, weight: float):
+        self._weight = weight
+
     def __str__(self) -> str:
         return (
             f'Rating ID: {self._id}\n'
@@ -65,4 +73,5 @@ class Rating(BusinessObject):
             f'Score: {self._score}\n'
             f'Justification: {self._justification}\n'
             f'Quote: {self._quote}\n'
+            f'Weight: {self._weight}\n'
         )

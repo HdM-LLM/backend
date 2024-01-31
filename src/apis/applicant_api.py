@@ -62,27 +62,30 @@ class ApplicantsByVacancyResource(Resource):
         else:
             return None
 
-    # Get all applicants by vacancy id
+        # Get all applicants by vacancy id
     def get(self, vacancy_id):
         with ApplicantMapper() as mapper:
             applicants = mapper.get_by_vacancy_id(vacancy_id)
 
-            formatted_applicants = [
-                {
-                    "id": applicant.get_id(),
+            formatted_applicants = []
+            for applicant in applicants:
+                applicant_id = applicant.get_id() 
+
+                total_score = mapper.get_total_score(applicant_id, vacancy_id)
+
+                formatted_applicants.append({
+                    "id": applicant_id,
                     "firstName": applicant.get_first_name(),
                     "lastName": applicant.get_last_name(),
                     "img": self.encode_image(applicant.get_face_image()),
-                    "date_of_birth": applicant.get_date_of_birth(),
+                    "DateOfBirth": applicant.get_date_of_birth(),
                     "street": applicant.get_street(),
-                    "postal_code": applicant.get_postal_code(),
+                    "postalCode": applicant.get_postal_code(),
                     "city": applicant.get_city(),
                     "email": applicant.get_email(),
-                    "phone_number": applicant.get_phone_number(),
-                    "total_score": applicant.get_total_score(),
-                }
-                for applicant in applicants
-            ]
+                    "phoneNumber": applicant.get_phone_number(),
+                    "totalScore": total_score,
+                })
 
         return jsonify(formatted_applicants)
 
@@ -96,12 +99,14 @@ class ApplicantResource(Resource):
             return None
 
     # Get one applicant by id
-    def get(self, applicant_id):
+    def get(self, applicant_id, vacancy_id):
         if applicant_id is None:
             return None
 
         with ApplicantMapper() as mapper:
-            applicant = mapper.get_by_id(applicant_id)
+            applicant = mapper.get_by_id(applicant_id) 
+            total_score = mapper.get_total_score(applicant_id, vacancy_id)
+
 
             formatted_applicant = {
                 "id": applicant.get_id(),
@@ -114,7 +119,7 @@ class ApplicantResource(Resource):
                 "city": applicant.get_city(),
                 "email": applicant.get_email(),
                 "phoneNumber": applicant.get_phone_number(),
-                "totalScore": applicant.get_total_score(),
+                "totalScore": total_score,
             }
 
         return jsonify(formatted_applicant)
@@ -168,7 +173,6 @@ class ApplicantUploadResource(Resource):
             personal_data["email"],
             personal_data["phone_number"],
             applicant_face_image,
-            0,
         )
 
         with ApplicantMapper() as applicant_mapper:
@@ -176,6 +180,8 @@ class ApplicantUploadResource(Resource):
             if applicant_mapper.get_by_email(applicant.get_email()):
                 # Check if the applicant already applied for the vacancy
                 applicant_id = applicant_mapper.get_by_email(applicant.get_email()).get_id()
+                applicant = applicant_mapper.get_by_email(applicant.get_email())
+
                 vacancy_applicants = applicant_mapper.get_by_vacancy_id(vacancy_id)
                 # Extrahiere die IDs aus der Liste der Applicant-Objekte
                 vacancy_applicant_ids = [applicant.get_id() for applicant in vacancy_applicants]
@@ -183,6 +189,8 @@ class ApplicantUploadResource(Resource):
                 if applicant_id in vacancy_applicant_ids:
                     return "Applicant already applied for this vacancy", 400
                 else:
+
+
                     # First get the applicant id
                     retrieved_applicant_id = applicant_mapper.get_by_email(
                         applicant.get_email()).get_id()
@@ -213,14 +221,14 @@ class ApplicantUploadResource(Resource):
 
         with ApplicantMapper() as applicant_mapper:
             # Insert total score into the database
-            applicant_mapper.update_total_score(applicant.get_id(), total_score)
+            applicant_mapper.update_total_score(applicant.get_id(),vacancy_id, total_score)
 
         return "Applicant, CV, and rating have been saved in the database", 200
 
 
 # Add the resources to the API with different endpoints
 api.add_resource(ApplicantListResource, "/applicants")
-api.add_resource(ApplicantResource, "/applicants/<string:applicant_id>")
+api.add_resource(ApplicantResource, "/applicants/<string:applicant_id>/<string:vacancy_id>")
 api.add_resource(ApplicantsByVacancyResource,
                  "/applicantsVacancy/<string:vacancy_id>")
 api_upload.add_resource(ApplicantUploadResource, "/upload")

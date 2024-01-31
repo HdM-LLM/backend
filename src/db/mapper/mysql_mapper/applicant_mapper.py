@@ -30,7 +30,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             ) = tuple_data
             applicant = Applicant(
                 first_name,
@@ -42,7 +41,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             )
             applicant.set_id(UUID(id))
             result.append(applicant)
@@ -69,7 +67,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             ) = tuples[0]
             applicant = Applicant(
                 first_name,
@@ -81,7 +78,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             )
             applicant.set_id(UUID(id))
             result = applicant
@@ -112,7 +108,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             ) = tuples[0]
             applicant = Applicant(
                 first_name,
@@ -124,7 +119,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             )
             applicant.set_id(UUID(id))
             result = applicant
@@ -163,7 +157,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,
                 face_image,
-                total_score,
             ) = tuple_data
             applicant = Applicant(
                 first_name,
@@ -175,7 +168,6 @@ class ApplicantMapper(MySQLMapper):
                 email,
                 phone_number,   
                 face_image,
-                total_score,
             )
             applicant.set_id(UUID(id))
             result.append(applicant)
@@ -229,11 +221,22 @@ class ApplicantMapper(MySQLMapper):
     def delete_by_id(self, applicant_id: UUID):
         pass
 
-    def update_total_score(self, applicant_id: UUID, total_score: float):
+    def update_total_score(self, applicant_id: UUID, vacancy_id: UUID, total_score: float):
         cursor = self._connection.cursor()
-        query = "UPDATE applicant SET total_score=%s WHERE id=%s"
-        data = (total_score, str(applicant_id))
+        query = "UPDATE applicant_vacancy SET total_score=%s WHERE applicant_id=%s AND vacancy_id=%s"
+        data = (total_score, str(applicant_id), str(vacancy_id))
 
         cursor.execute(query, data)
         self._connection.commit()
         cursor.close()
+
+    def get_total_score(self, applicant_id: UUID, vacancy_id: UUID) -> float:
+        cursor = self._connection.cursor()
+        query = "SELECT total_score FROM applicant_vacancy WHERE applicant_id=%s AND vacancy_id=%s"
+        data = (str(applicant_id), str(vacancy_id))
+
+        cursor.execute(query, data)
+        result = cursor.fetchone()
+        cursor.close()
+        return result[0]  
+            
