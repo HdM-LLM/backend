@@ -12,7 +12,7 @@ from classes.rating import Rating
 import json
 from services.log_service import log
 from services import openai_service
-
+import re
 
 def get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List:
     """
@@ -156,14 +156,21 @@ def extract_ratings_from_response(model_response: str) -> []:
     return list_of_rating_responses
 
 def validate_quote(quote, cv_content):
-    normalized_quote = ' '.join(quote.split())
-    normalized_cv_content = ' '.join(cv_content.split())
-    # Split the quote into separate sentences
-    search_sentences = normalized_quote.split('. ')
-    # Check if all quote are present in the cv_content
-    if quote == '':
+    # Normalize the overall CV content for comparison
+    normalized_cv_content = ' '.join(cv_content.split()).lower()
+
+    # Check if the quote is empty
+    if not quote.strip():
         return "No quote available."
-    elif all(sentence in normalized_cv_content for sentence in search_sentences):
+
+    # Use a regular expression to split the quote by '. ' or '...'
+    quote_segments = re.split(r'\.\.\.|\.\s', quote)
+
+    # Normalize segments
+    normalized_segments = [' '.join(segment.split()).lower() for segment in quote_segments]
+
+    # Check if all segments are present in the CV content
+    if all(segment in normalized_cv_content for segment in normalized_segments if segment):
         return quote
     else:
         return "No quote available."
