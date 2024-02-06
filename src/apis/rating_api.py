@@ -1,16 +1,14 @@
+# Classes
+# Mapper
+# Services
+# Enums
+# Other packages
+
+# Mapper
+from db.mapper.mysql_mapper.rating_mapper import RatingMapper
+# Other packages
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
-import services.pdf_service as pdf_service
-import services.cv_service as cv_service
-import services.rating_service as rating_service
-from classes.applicant import Applicant
-from classes.rating import Rating
-from classes.cv import CV
-from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
-from db.mapper.mongodb_mapper.cv_mapper import CVMapper
-from db.mapper.mysql_mapper.rating_mapper import RatingMapper
-import PyPDF2
-import base64
 from uuid import UUID
 
 
@@ -19,9 +17,22 @@ api = Api(rating_api)
 
 
 class RatingResource(Resource):
+    """Class containing all the methods to handle a single rating
 
-    # Get rating by vacancy id and applicant id
-    def get(self, vacancy_id, applicant_id):
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self, vacancy_id: UUID, applicant_id: UUID) -> tuple:
+        """Returns rating based on vacancy_id and applicant_id
+
+        Args:
+            vacancy_id (UUID): Id of the vacancy
+            applicant_id (UUID): Id of the applicant
+
+        Returns:
+            tuple: The rating
+        """
         if vacancy_id is None:
             return jsonify({"error": "Vacancy ID is required"}), 400
         if applicant_id is None:

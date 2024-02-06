@@ -1,16 +1,35 @@
+# Classes
+from classes.category import Category
+# Mapper
+from db.mapper.mysql_mapper.category_mapper import CategoryMapper
+# Services
+import services.category_service as category_service
+# Other Packages
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
-from db.mapper.mysql_mapper.category_mapper import CategoryMapper
-from classes.category import Category
-import services.category_service as category_service
+from uuid import UUID
+
 
 category_api = Blueprint('category_api', __name__)
 api = Api(category_api)
 
 
 class CategoryResource(Resource):
-    # Get category by rating id
-    def get(self, category_id):
+    """Class containing all the methods to handle single categories
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self, category_id: UUID) -> tuple:
+        """Returns category by id
+
+        Args:
+            category_id (UUID): Id of the category
+
+        Returns:
+            tuple: The category
+        """
         if not category_id:
             return jsonify({"error": "Category id not found"}), 404
 
@@ -31,8 +50,18 @@ class CategoryResource(Resource):
 
 
 class AllCategoriesResource(Resource):
-    # Get all categories
-    def get(self):
+    """Class containing all the methods to handle all categories
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self) -> tuple:
+        """Returns all categories
+
+        Returns:
+            tuple: The categories
+        """
         with CategoryMapper() as mapper:
             categories = mapper.get_all()
 
@@ -51,8 +80,21 @@ class AllCategoriesResource(Resource):
 
 
 class CategoryGuidelinesResource(Resource):
-    # Get category guidelines by category name
-    def get(self, category_name):
+    """Class containing all the methods to handle single categories by category_name
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self, category_name: str) -> tuple:
+        """Returns category by its name
+
+        Args:
+            category_name (str): The name of the category
+
+        Returns:
+            tuple: The category
+        """
         if not category_name:
             return jsonify({"error": "Category name not provided"}), 400
 
@@ -66,8 +108,23 @@ class CategoryGuidelinesResource(Resource):
                 response_data = {'data': guidelines, 'status': 200}
                 return response_data
 
+
 class ChipForCategoryResource(Resource):
-    def get(self, category_name):
+    """Class containing all the methods to handle category chips
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self, category_name: str) -> tuple:
+        """Returns chip for a category
+
+        Args:
+            category_name (str): The name of the category
+
+        Returns:
+            tuple: The chip
+        """
         if not category_name:
             return jsonify({"error": "Category name not provided"}), 400
 
@@ -84,8 +141,18 @@ class ChipForCategoryResource(Resource):
 
 
 class AddCategoryResource(Resource):
-    # Add a new category
-    def post(self):
+    """Class containing all the methods to add categories
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def post(self) -> tuple:
+        """Adds category
+
+        Returns:
+            tuple: The response
+        """
         category_data = request.get_json()
         if not category_data or not all(key in category_data for key in ["Name", "Chip", "Guideline_0", "Guideline_1"]):
             return jsonify({"error": "Invalid category data"}), 400
@@ -106,6 +173,8 @@ class AddCategoryResource(Resource):
 # Add the resources to the API with different endpoints
 api.add_resource(CategoryResource, '/category/<string:category_id>')
 api.add_resource(AllCategoriesResource, '/allCategories')
-api.add_resource(CategoryGuidelinesResource, '/getCategoryGuidelines/<string:category_name>')
-api.add_resource(ChipForCategoryResource, '/getChipForCategory/<string:category_name>')
+api.add_resource(CategoryGuidelinesResource,
+                 '/getCategoryGuidelines/<string:category_name>')
+api.add_resource(ChipForCategoryResource,
+                 '/getChipForCategory/<string:category_name>')
 api.add_resource(AddCategoryResource, '/addCategory')

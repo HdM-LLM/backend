@@ -1,21 +1,36 @@
-from flask import Blueprint, request, jsonify
-from flask_restful import Api, Resource
-import services.vacancy_service as vacancy_service
+# Classes
 from classes.vacancy import Vacancy
+# Mapper
 from db.mapper.mysql_mapper.vacancy_mapper import VacancyMapper as MySQLVacancyMapper
 from db.mapper.mongodb_mapper.vacancy_mapper import VacancyMapper as MongoDBVacancyMapper
 from db.mapper.mysql_mapper.category_mapper import CategoryMapper
-from classes.category import Category
-import json
+# Services
+import services.vacancy_service as vacancy_service
+# Enums
 from enums.workingHour import WorkingHour
 from enums.department import Department
+# Other packages
+from flask import Blueprint, request, jsonify
+from flask_restful import Api, Resource
+from uuid import UUID
 
 vacancy_api = Blueprint('vacancy_api', __name__)
 api = Api(vacancy_api)
 
 
 class VacancyListResource(Resource):
-    def get(self):
+    """Class containing all the methods to handle all vacancies
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+    
+    def get(self) -> tuple:
+        """Returns all vacancies
+
+        Returns:
+            tuple: The vacancies
+        """
         with MySQLVacancyMapper() as vacancy_mapper:
             vacancies_data = vacancy_mapper.get_all()
 
@@ -34,7 +49,21 @@ class VacancyListResource(Resource):
 
 
 class VacancyResource(Resource):
-    def get(self, vacancy_id):
+    """Class containing all the methods to handle single vacancies
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+
+    def get(self, vacancy_id: UUID) -> tuple:
+        """Returns vacancy by its id
+
+        Args:
+            vacancy_id (UUID): Id of the vacancy
+
+        Returns:
+            tuple: The vacancy
+        """
         if vacancy_id is None:
             return jsonify({"error": "Vacancy ID is required"}), 400
         with MySQLVacancyMapper() as mapper:
@@ -66,7 +95,18 @@ class VacancyResource(Resource):
         return jsonify(formatted_vacancy)
 
 class GenerateVacancyResource(Resource):
-    def post(self):
+    """Class containing all the methods to handle vacancy creations
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+        
+    def post(self) -> tuple:
+        """Generates text of vacancy
+
+        Returns:
+            tuple: The generated text
+        """
         data = request.get_json()
 
         # Extract required data from the request payload
@@ -80,7 +120,18 @@ class GenerateVacancyResource(Resource):
         return jsonify({'generatedVacancy': vacancy_text})
 
 class AddVacancyResource(Resource):
-    def post(self):
+    """Class containing all the methods to handle single vacancies
+
+    Args:
+        Resource (Resource): Inherits Resource class of flask_restful
+    """
+        
+    def post(self) -> tuple:
+        """Adds vacancy
+
+        Returns:
+            tuple: Response message 
+        """
         data = request.get_json()
 
         # Extract required data from the request payload
