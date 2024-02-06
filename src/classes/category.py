@@ -2,6 +2,11 @@ from classes.business_object import BusinessObject
 
 
 class Category(BusinessObject):
+    """Class which represents a category inside the system
+
+    Args:
+        BusinessObject (BusinessObject): Inherits BusinessObject class
+    """
 
     def __init__(
         self,
@@ -10,6 +15,14 @@ class Category(BusinessObject):
         guideline_for_ten: str,
         chip: str,
     ) -> None:
+        """Creates instance of a category
+
+        Args:
+            name (str): Name of the category
+            guideline_for_zero (str): Guideline 0 of the category
+            guideline_for_ten (str): Guideline 10 of the category
+            chip (str): Chip of the category
+        """
         super().__init__()
         self._name = name
         self._guideline_for_zero = guideline_for_zero
@@ -33,7 +46,7 @@ class Category(BusinessObject):
 
     def set_guideline_for_ten(self, guideline_for_ten) -> None:
         self._guideline_for_ten = guideline_for_ten
-    
+
     def get_chip(self) -> str:
         return self._chip
 

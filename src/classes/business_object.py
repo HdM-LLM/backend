@@ -4,6 +4,11 @@ from datetime import datetime
 
 
 class BusinessObject(ABC):
+    """Abstract class which implements the id and creation date for all other classes
+
+    Args:
+        ABC (ABC): Inherits ABC class to turn the class into a abstract class
+    """
 
     def __init__(self) -> None:
         self._id = uuid4()

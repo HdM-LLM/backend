@@ -1,8 +1,13 @@
-from uuid import UUID, uuid4
+from uuid import UUID
 from datetime import date
 from classes.user import User
 
 class Applicant(User):
+    """Class which represents a applicant inside the system
+
+    Args:
+        User (User): Inherits Use class
+    """
 
     def __init__(
             self,
@@ -16,6 +21,19 @@ class Applicant(User):
             phone_number: str,
             face_image: bytes = None,
     ) -> None:
+        """Creates instance of a applicant
+
+        Args:
+            first_name (str): First name of the applicant
+            last_name (str): Last name of the applicant
+            date_of_birth (date): Date of birth of the applicant
+            street (str): Street where the applicant lives
+            postal_code (int): Postal code of the city where the applicant lives
+            city (str): City where the applicant lives
+            email (str): Email of the applicant
+            phone_number (str): Phone number of the applicant
+            face_image (bytes, optional): Picture of the applicant
+        """
         super().__init__(first_name=first_name, last_name=last_name)
         self._date_of_birth = date_of_birth
         self._street = street
@@ -24,10 +42,6 @@ class Applicant(User):
         self._email = email
         self._phone_number = phone_number
         self._face_image = face_image
-
-
-        # self._skills = skills
-        # self._rating = rating
 
     def get_date_of_birth(self) -> date:
         return self._date_of_birth
@@ -70,7 +84,6 @@ class Applicant(User):
 
     def set_face_image(self, face_image: bytes) -> None:
         self._face_image = face_image
-
 
     def __str__(self) -> str:
         return (

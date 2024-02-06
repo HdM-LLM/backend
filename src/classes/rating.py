@@ -1,7 +1,13 @@
 from uuid import UUID
 from classes.business_object import BusinessObject
 
+
 class Rating(BusinessObject):
+    """Class which represents a Rating inside the system
+
+    Args:
+        BusinessObject (BusinessObject): Inherits BusinessObject class
+    """
 
     def __init__(
         self,
@@ -12,7 +18,18 @@ class Rating(BusinessObject):
         justification: str,
         quote: str,
         weight: float,
-    )-> None:
+    ) -> None:
+        """Creates a instance of a Rating
+
+        Args:
+            category_id (UUID): Id of the Category
+            vacancy_id (UUID): Id of the vacancy
+            applicant_id (UUID): Id of the applicant
+            score (int): Score of the rating
+            justification (str): Justification of the rating
+            quote (str): Quote of the rating 
+            weight (float): Weight of the rating
+        """
         super().__init__()
         self._category_id = category_id
         self._vacancy_id = vacancy_id

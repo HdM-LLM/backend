@@ -2,11 +2,21 @@ from classes.business_object import BusinessObject
 
 
 class CV(BusinessObject):
+    """Class which represents a CV inside the system
+
+    Args:
+        BusinessObject (BusinessObject): Inherits BusinessObject class
+    """
 
     def __init__(
             self,
             content: str
     ) -> None:
+        """Creates a instance of a CV
+
+        Args:
+            content (str): Content of the CV
+        """
         super().__init__()
         self._content = content
 

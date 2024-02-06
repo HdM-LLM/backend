@@ -4,8 +4,13 @@ from enums.workingHour import WorkingHour
 from enums.department import Department
 
 
-
 class Vacancy(BusinessObject):
+    """Class which represents a Vacancy inside the system
+
+    Args:
+        BusinessObject (BusinessObject): Inherits BusinessObject class
+    """
+
     def __init__(
         self,
         title: str,
@@ -13,6 +18,14 @@ class Vacancy(BusinessObject):
         working_hours: WorkingHour,
         description: str = "",
     ) -> None:
+        """_summary_
+
+        Args:
+            title (str): Title of the position
+            department (Department): Department of the position
+            working_hours (WorkingHour): Working hours of the position
+            description (str, optional): Description of the position
+        """
         super().__init__()
         self._title = title
         self._department = department
