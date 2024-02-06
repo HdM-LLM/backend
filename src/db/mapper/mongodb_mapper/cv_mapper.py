@@ -6,21 +6,34 @@ from werkzeug.datastructures import FileStorage
 
 
 class CVMapper(MongoMapper):
-    def __init__(self, collection: str = "fs.files"):
-        """
-        Creates an instance of CVMapper
+    """Class which implements a database mapper for the CVs
+
+    Args:
+        MongoMapper (MongoMapper): Inherits MongoMapper class
+    """
+
+    def __init__(self, collection: str = "fs.files") -> None:
+        """Creates a instance of a CVMapper
+
+        Args:
+            collection (str, optional): Collection where the CVs should be stored
         """
         super().__init__(collection)
 
-    def get_all(self):
-        """
-        Returns all the CVs from the db
+    def get_all(self) -> None:
+        """Returns all the CVs from the db
         """
         pass
 
-    def get_by_id(self, applicant_id: str, vacancy_id: str):
-        """
-        Returns a CV by id
+    def get_by_id(self, applicant_id: str, vacancy_id: str) -> tuple:
+        """Returns the CV by its id from the databse
+
+        Args:
+            applicant_id (str): Id of the applicant
+            vacancy_id (str): Id of the vacancy
+
+        Returns:
+            tuple: The CV
         """
         retrieved_cv = None
         try:
@@ -38,8 +51,12 @@ class CVMapper(MongoMapper):
         return retrieved_cv.filename, retrieved_cv_bytes
 
     def insert(self, cv: FileStorage, applicant: Applicant, vacancy_id: str) -> None:
-        """
-        Insert a CV into the db
+        """Inserts a CV into the database
+
+        Args:
+            cv (FileStorage): CV which should be inserted
+            applicant (Applicant): Applicant of the CV
+            vacancy_id (str): Id of the vacancy
         """
         # Generate a new random id
         # Do not use the applicant id, because one applicant can have multiple cv's
@@ -62,13 +79,11 @@ class CVMapper(MongoMapper):
         self.get_fs().put(cv, filename=cv.filename, metadata=metadata)
 
     def update(self, cv: CV):
-        """
-        Update a CV from the db
+        """Update a CV from the db
         """
         pass
 
     def delete_by_id(self, applicant_id: UUID):
-        """
-        Deletes a CV from the db
+        """Deletes a CV from the db
         """
         pass
