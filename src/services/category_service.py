@@ -1,3 +1,11 @@
+"""Module Description: This module contains functions related to handling guidelines and assigning categories.
+
+Functions:
+    trim_to_255(text): Trims the given text to 255 characters.
+    get_guidelines(category_name): Retrieves rating guidelines tailored for Human Resources (HR) to evaluate CVs in a specific category.
+    assign_chip(category_name): Assigns a chip (category) to a given topic or checks if it fits an existing one.
+"""
+
 from datetime import datetime, date
 import services.rating_service as rating_service
 import json
@@ -6,10 +14,22 @@ import services.openai_service as openai_service
 from db.mapper.mysql_mapper.category_mapper import CategoryMapper
 
 def trim_to_255(text):
-    # Trims the text to 255 characters
+    """Trims the text to 255 characters."""
     return text[:255]
 
 def get_guidelines(category_name):
+    """Retrieves rating guidelines tailored for Human Resources (HR) to evaluate CVs in a specific category.
+
+    Args:
+        category_name (str): The name of the category for which guidelines are requested.
+
+    Returns:
+        dict: A dictionary containing the rating guidelines.
+
+    Example:
+        >>> get_guidelines("Software Engineering")
+        {'guideline_for_zero': '...', 'guideline_for_ten': '...'}
+    """
     openai_service.load_dot_env()
 
     prompt = f"""
@@ -26,7 +46,6 @@ def get_guidelines(category_name):
     }}
     """
 
-    
     model_response = openai_service.execute_prompt(prompt)
 
     start_index = model_response.find('{')
@@ -41,10 +60,19 @@ def get_guidelines(category_name):
         
     return parsed_json
 
-
-
-
 def assign_chip(category_name):
+    """Assigns a chip (category) to a given topic or checks if it fits an existing one.
+
+    Args:
+        category_name (str): The name of the topic to be assigned or checked.
+
+    Returns:
+        dict: A dictionary indicating the assigned or suggested category.
+
+    Example:
+        >>> assign_chip("Python Programming")
+        {'category': '...', 'existed': 'true/false'}
+    """
     with CategoryMapper() as mapper:
         distinct_chips = mapper.get_distinct_chips()
 

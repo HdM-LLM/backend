@@ -1,3 +1,14 @@
+"""Module Description: This module contains functions for extracting personal data from a curriculum vitae (CV) content and processing CV images.
+
+Functions:
+    get_personal_data_from_cv(cv_content: str) -> dict: Extracts metadata from the curriculum vitae content provided.
+    parse_date_of_birth(date_string: str) -> date: Parses the date of birth from a given string.
+    process_cv_image(cv_pdf_file: BinaryIO) -> bytes: Processes the CV image extracted from a PDF file.
+    extract_image_from_pdf(pdf_content: bytes) -> bytes: Extracts the image from the PDF content.
+    extract_face_from_image(image_content: BytesIO, offset: int = 40) -> bytes: Extracts the face from the image content provided.
+    image_to_bytes(image: Image) -> bytes: Converts an image to bytes.
+"""
+
 from datetime import datetime, date
 import services.openai_service as openai_service
 import json
@@ -8,8 +19,19 @@ import face_recognition
 from pdf2image import convert_from_bytes
 from services.log_service import log
 
+def get_personal_data_from_cv(cv_content: str) -> dict:
+    """Extracts metadata from the curriculum vitae content provided.
 
-def get_personal_data_from_cv(cv_content: str) -> str:
+    Args:
+        cv_content (str): The content of the curriculum vitae.
+
+    Returns:
+        dict: A dictionary containing the extracted personal data.
+
+    Example:
+        >>> get_personal_data_from_cv("CV content...")
+        {'first_name': 'John', 'last_name': 'Doe', 'date_of_birth': datetime.date(1990, 5, 15), 'street': '123 Main St', 'postal_code': '12345', 'city': 'City', 'email': 'john.doe@example.com', 'phone_number': '123-456-7890'}
+    """
     openai_service.load_dot_env()
 
     prompt = f"""
@@ -47,8 +69,18 @@ def get_personal_data_from_cv(cv_content: str) -> str:
 
     return parsed_json
 
+def parse_date_of_birth(date_string: str) -> date:
+    """Parses the date of birth from a given string.
 
-def parse_date_of_birth(date_string):
+    Args:
+        date_string (str): The date of birth string to be parsed.
+
+    Returns:
+        date: The parsed date of birth.
+
+    Raises:
+        ValueError: If the date string cannot be parsed with the available formats.
+    """
     formats_to_try = ["%d.%m.%Y", "%d-%m-%Y"]
 
     for date_format in formats_to_try:
@@ -60,8 +92,15 @@ def parse_date_of_birth(date_string):
     # If none of the formats match
     raise ValueError(f"Could not parse date: {date_string}")
 
+def process_cv_image(cv_pdf_file: BinaryIO) -> bytes:
+    """Processes the CV image extracted from a PDF file.
 
-def process_cv_image(cv_pdf_file):
+    Args:
+        cv_pdf_file (BinaryIO): The PDF file containing the CV.
+
+    Returns:
+        bytes: The processed CV image as bytes.
+    """
     cv_content = cv_pdf_file.read()
 
     # Reset the file pointer
@@ -71,14 +110,21 @@ def process_cv_image(cv_pdf_file):
 
     return extracted_face_bytes
 
+def extract_image_from_pdf(pdf_content: bytes) -> bytes:
+    """Extracts the image from the PDF content.
 
-def extract_image_from_pdf(pdf_content):
+    Args:
+        pdf_content (bytes): The content of the PDF file.
+
+    Returns:
+        bytes: The extracted image content as bytes.
+    """
     images = convert_from_bytes(pdf_content)
 
     if not images:
         return None
 
-    # Nimm nur das erste Bild aus der PDF
+    # Take only the first image from the PDF
     image = images[0]
     image_content = BytesIO()
     image.save(image_content, 'PNG')
@@ -88,8 +134,16 @@ def extract_image_from_pdf(pdf_content):
 
     return face_image_bytes
 
+def extract_face_from_image(image_content: BytesIO, offset: int = 40) -> bytes:
+    """Extracts the face from the image content provided.
 
-def extract_face_from_image(image_content, offset=40):
+    Args:
+        image_content (BytesIO): The content of the image.
+        offset (int, optional): The offset to expand the face area. Defaults to 40.
+
+    Returns:
+        bytes: The extracted face image content as bytes.
+    """
     image = face_recognition.load_image_file(image_content)
     face_locations = face_recognition.face_locations(image)
 
@@ -98,7 +152,7 @@ def extract_face_from_image(image_content, offset=40):
 
     top, right, bottom, left = face_locations[0]
 
-    # Erweiterung des Bereichs um das Gesicht
+    # Extend the area around the face
     top = max(0, top - offset - 80)
     left = max(0, left - offset - 40)
     bottom = min(image.shape[0], bottom + offset)
@@ -111,8 +165,15 @@ def extract_face_from_image(image_content, offset=40):
 
     return face_image_bytes
 
+def image_to_bytes(image: Image) -> bytes:
+    """Converts an image to bytes.
 
-def image_to_bytes(image):
+    Args:
+        image (Image): The image to be converted.
+
+    Returns:
+        bytes: The image content as bytes.
+    """
     image_bytes = BytesIO()
     image.save(image_bytes, format='PNG')
     image_bytes.seek(0)

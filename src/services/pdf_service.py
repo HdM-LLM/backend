@@ -1,12 +1,22 @@
+"""Module Description: This module contains a function for extracting the content of a PDF file.
+
+Functions:
+    getPdfContent(pdf_file) -> str: Returns the content of a PDF file as a string.
+
+"""
+
 import PyPDF2
 from io import BytesIO
 
-
 def getPdfContent(pdf_file) -> str:
     """
-    Returns the content of a pdf file
-    :param pdf_file: pdf file from which the content should be extracted
-    :return: Content of the pdf as string
+    Returns the content of a PDF file as a string.
+    
+    Args:
+        pdf_file: PDF file object or bytes-like object containing the PDF content.
+        
+    Returns:
+        str: Content of the PDF as a string.
     """
     content = ""
 
@@ -18,6 +28,7 @@ def getPdfContent(pdf_file) -> str:
         content += page.extract_text()
 
     # Reset the file pointer
-    pdf_file.seek(0)
+    if isinstance(pdf_file, BytesIO):
+        pdf_file.seek(0)
 
     return content
