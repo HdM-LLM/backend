@@ -1,3 +1,13 @@
+"""
+Module for generating profession vacancy texts.
+
+This module provides a function to generate profession vacancy texts based on given basic information and selected categories of skills.
+
+Functions:
+    generate_text(basic_information, selected_categories, adjust_prompt):
+        Generates a profession vacancy text based on provided information and selected skill categories.
+
+"""     
 from datetime import datetime, date
 import services.rating_service as rating_service
 import json
@@ -5,6 +15,13 @@ from io import BytesIO
 import services.openai_service as openai_service
 
 def generate_text(basic_information, selected_categories, adjust_prompt):
+    """
+    Generates a profession vacancy text.
+    :param basic_information: Basic information about the job vacancy.
+    :param selected_categories: Selected skill categories for the vacancy.
+    :param adjust_prompt: Additional prompt for adjustment.
+    :return: Dictionary representing the generated text.
+    """
 
     title = basic_information['title']
     department = basic_information['department']

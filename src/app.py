@@ -1,3 +1,6 @@
+"""
+Module for initializing and running the Flask application.
+"""
 from flask import Flask
 from flask_cors import CORS
 

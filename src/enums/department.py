@@ -1,6 +1,8 @@
+"""
+Enum for department types.
+"""
 from enum import Enum
 
-# Enum for the working hours
 class Department(Enum):
     IT = 'IT'
     HR = 'HR'

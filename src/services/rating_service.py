@@ -1,3 +1,17 @@
+"""
+Module for rating applicants based on CV content against job vacancies.
+
+Functions:
+    get_list_of_categories_from_vacancy(vacancy_id: UUID) -> List: Returns categories of a vacancy.
+    create_rating_prompt(categories, cv_content): Creates OpenAI prompt for rating.
+    rate_applicant_and_create_rating_objects(cv_content_string: str, applicant: Applicant, vacancy_id: str, try_limit: int = 3) -> List[Rating]: Rates applicant and creates rating objects.
+    rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str): Rates an applicant.
+    evaluate_model_response(model_response, prompt, applicant_id): Evaluates model response and stores it.
+    create_evaluation_prompt(model_response: str, original_prompt: str): Creates prompt for evaluating response.
+    extract_ratings_from_response(model_response: str) -> []: Extracts ratings from OpenAI response.
+    validate_quote(quote, cv_content): Validates quote presence in CV content.
+    create_rating_objects(model_response: str, vacancy_id: UUID, applicant_id: UUID, cv_content_string: str) -> List: Creates rating instances.
+"""
 import os
 from typing import List
 import openai
@@ -115,6 +129,14 @@ def rate_applicant(cv_content_string: str, applicant: Applicant, vacancy_id: str
     return model_response
 
 def evaluate_model_response(model_response, prompt, applicant_id):
+    """
+    Evaluates the model response and stores the evaluation score in the database.
+
+    :param model_response: The response of the OpenAI model.
+    :param prompt: The original prompt used for generating the model response.
+    :param applicant_id: The ID of the applicant corresponding to the model response.
+    """
+
      # Check if the 'evaluate_model' environment variable is set
     evaluate_model = os.getenv("evaluate_model")
     if evaluate_model:
