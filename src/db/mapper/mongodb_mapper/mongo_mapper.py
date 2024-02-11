@@ -27,7 +27,7 @@ class MongoMapper(ABC):
         self._collection = self._database[self._collection_name]
         return self
 
-    def __exit__(self):
+    def __exit__(self, exc_type, exc_value, traceback):
         """Closes the connection of the database
         """
         if self._client is not None:
