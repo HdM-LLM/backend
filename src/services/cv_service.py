@@ -15,6 +15,7 @@ import json
 from db.mapper.mysql_mapper.applicant_mapper import ApplicantMapper
 from PIL import Image
 from io import BytesIO
+from typing import BinaryIO
 import face_recognition
 from pdf2image import convert_from_bytes
 from services.log_service import log
